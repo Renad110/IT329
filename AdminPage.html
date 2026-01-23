@@ -492,36 +492,103 @@
         grid-template-columns: 1fr;
       }
     }
+    
+/* طبقة الرائحة */
+.scent-layer {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  z-index: 1;
+}
+
+/* محتوى الهيدر */
+.header-container {
+  position: relative;
+  z-index: 2;
+}
+
+/* الرذاذ */
+.mist {
+  position: absolute;
+  width: 160px;              /* أكبر */
+  height: 160px;
+  background: radial-gradient(
+    circle,
+    rgba(233, 212, 212, 0.55),  /* أوضح */
+    rgba(208, 128, 128, 0.15),
+    transparent 70%
+  );
+  border-radius: 50%;
+  animation: floatMist 9s linear infinite; /* أسرع */
+}
+
+@keyframes floatMist {
+  from {
+    transform: translateY(60px) translateX(0) scale(0.9);
+    opacity: 0;
+  }
+  20% { opacity: 0.7; }
+  to {
+    transform: translateY(-160px) translateX(60px) scale(1.6);
+    opacity: 0;
+  }
+}
+
+/* القليتر */
+.sparkle {
+  position: absolute;
+  width: 6px;               /* أكبر */
+  height: 6px;
+  background: radial-gradient(
+    circle,
+    #ffe8c7,
+    #d1a05f
+  );
+  border-radius: 50%;
+  animation: sparkle 3s infinite ease-in-out; /* أسرع */
+  box-shadow: 0 0 6px rgba(255, 220, 180, 0.8);
+}
+
+@keyframes sparkle {
+  0%   { opacity: 0; transform: scale(0.4); }
+  50%  { opacity: 1; transform: scale(1.6); }
+  100% { opacity: 0; transform: scale(0.6); }
+}
+
+
   </style>
   <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;700;800&display=swap" rel="stylesheet">
 </head>
 <body>
   <!-- الهيدر -->
-  <header>
-    <div class="header-container">
-      <a href="#" class="logo">
-        <div class="logo-icon"></div>
-        عطور فاخرة
-      </a>
-      
-      <nav>
-        <ul>
-          <li><a href="#" class="active">الرئيسية</a></li>
-          <li><a href="#">المجموعات</a></li>
-          <li><a href="#">عطور نسائية</a></li>
-          <li><a href="#">عطور رجالية</a></li>
-          <li><a href="#">عروض خاصة</a></li>
-          <li><a href="#">اتصل بنا</a></li>
-        </ul>
-      </nav>
-      
-      <div class="header-actions">
-        <button class="icon-button">🔍</button>
-        <button class="icon-button">👤</button>
-        <button class="icon-button">🛒</button>
-      </div>
+ <header class="scent-header">
+  <div class="scent-layer"></div>
+
+  <div class="header-container">
+    <a href="#" class="logo">
+      <div class="logo-icon"></div>
+      عطور فاخرة
+    </a>
+
+    <nav>
+      <ul>
+        <li><a href="#" class="active">الرئيسية</a></li>
+        <li><a href="#">المجموعات</a></li>
+        <li><a href="#">عطور نسائية</a></li>
+        <li><a href="#">عطور رجالية</a></li>
+        <li><a href="#">عروض خاصة</a></li>
+        <li><a href="#">اتصل بنا</a></li>
+      </ul>
+    </nav>
+
+    <div class="header-actions">
+      <button class="icon-button">🔍</button>
+      <button class="icon-button">👤</button>
+      <button class="icon-button">🛒</button>
     </div>
-  </header>
+  </div>
+</header>
+
 
   <!-- المحتوى الرئيسي -->
   <main>
@@ -615,6 +682,30 @@
     <div class="copyright">
       جميع الحقوق محفوظة © 2023 موقع عطور فاخرة | تم التصميم باستخدام الألوان المحددة (#6e5034, #cdb885, #efe1b5)
     </div>
-  </footer>
+  </footer><script>
+const layer = document.querySelector('.scent-layer');
+
+// رذاذ أوضح وأسرع
+for (let i = 0; i < 8; i++) {
+  const mist = document.createElement('div');
+  mist.className = 'mist';
+  mist.style.left = Math.random() * 100 + '%';
+  mist.style.top = 70 + Math.random() * 30 + '%';
+  mist.style.animationDelay = Math.random() * 4 + 's';
+  layer.appendChild(mist);
+}
+
+// قليتر أكثر وضوح
+for (let i = 0; i < 45; i++) {
+  const s = document.createElement('div');
+  s.className = 'sparkle';
+  s.style.left = Math.random() * 100 + '%';
+  s.style.top = Math.random() * 100 + '%';
+  s.style.animationDelay = Math.random() * 2 + 's';
+  layer.appendChild(s);
+}
+</script>
+
+
 </body>
 </html>

@@ -3,14 +3,618 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Document</title>
-
-  <!-- CSS -->
-  <link rel="stylesheet" href="style.css" />
+  <title>عطور فاخرة | موقع عطور</title>
+  <style>
+    /* إعادة تعيين الأساسيات */
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: 'Cairo', 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    }
+    
+    /* المتغيرات للألوان */
+    :root {
+      --primary-dark: #6e5034;
+      --primary-gold: #cdb885;
+      --primary-light: #efe1b5;
+      --dark-bg: #1a1208;
+      --darker-bg: #140c04;
+      --card-bg: #241a0f;
+      --text-light: #f5f1e8;
+      --text-gold: #e6d19c;
+      --accent: #8a6c47;
+      --shadow-dark: rgba(0, 0, 0, 0.4);
+      --shadow-gold: rgba(205, 184, 133, 0.3);
+    }
+    
+    body {
+      background-color: var(--dark-bg);
+      color: var(--text-light);
+      direction: rtl;
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      line-height: 1.6;
+    }
+    
+    /* الهيدر - تصميم داكن مع ذهبي */
+    header {
+      background-color: var(--darker-bg);
+      border-bottom: 3px solid var(--primary-gold);
+      padding: 0.8rem 5%;
+      box-shadow: 0 6px 20px var(--shadow-dark);
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+    }
+    
+    .header-container {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      max-width: 1400px;
+      margin: 0 auto;
+    }
+    
+    .logo {
+      font-size: 2rem;
+      font-weight: 800;
+      color: var(--primary-gold);
+      text-decoration: none;
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      text-shadow: 0 2px 4px var(--shadow-dark);
+    }
+    
+    .logo-icon {
+      width: 50px;
+      height: 50px;
+      background: linear-gradient(135deg, var(--primary-gold), var(--primary-dark));
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      border: 2px solid var(--primary-gold);
+      box-shadow: 0 0 15px var(--shadow-gold);
+    }
+    
+    .logo-icon::after {
+      content: "♡";
+      color: var(--darker-bg);
+      font-size: 1.8rem;
+      font-weight: bold;
+    }
+    
+    nav ul {
+      display: flex;
+      list-style: none;
+      gap: 1.8rem;
+    }
+    
+    nav a {
+      color: var(--text-light);
+      text-decoration: none;
+      font-weight: 600;
+      font-size: 1.1rem;
+      transition: all 0.3s ease;
+      padding: 0.6rem 1.2rem;
+      border-radius: 6px;
+      position: relative;
+    }
+    
+    nav a:hover {
+      color: var(--primary-gold);
+      background-color: rgba(205, 184, 133, 0.1);
+    }
+    
+    nav a.active {
+      color: var(--primary-gold);
+      background-color: rgba(110, 80, 52, 0.3);
+    }
+    
+    nav a::after {
+      content: "";
+      position: absolute;
+      bottom: -3px;
+      right: 20%;
+      width: 0;
+      height: 2px;
+      background-color: var(--primary-gold);
+      transition: width 0.3s ease;
+    }
+    
+    nav a:hover::after {
+      width: 60%;
+    }
+    
+    .header-actions {
+      display: flex;
+      gap: 1rem;
+    }
+    
+    .icon-button {
+      background: linear-gradient(135deg, var(--primary-gold), #b89f5f);
+      color: var(--darker-bg);
+      border: none;
+      width: 45px;
+      height: 45px;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      cursor: pointer;
+      font-size: 1.2rem;
+      transition: all 0.3s ease;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    }
+    
+    .icon-button:hover {
+      background: linear-gradient(135deg, var(--primary-light), var(--primary-gold));
+      transform: translateY(-3px);
+      box-shadow: 0 6px 12px rgba(205, 184, 133, 0.4);
+    }
+    
+    /* المحتوى الرئيسي */
+    main {
+      flex: 1;
+      padding: 3rem 5%;
+      max-width: 1400px;
+      margin: 0 auto;
+      width: 100%;
+    }
+    
+    .hero-section {
+      background: linear-gradient(rgba(26, 18, 8, 0.9), rgba(26, 18, 8, 0.95)), 
+                  url('https://images.unsplash.com/photo-1541643600914-78b084683601?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80');
+      background-size: cover;
+      background-position: center;
+      border-radius: 16px;
+      padding: 4rem 3rem;
+      margin-bottom: 3rem;
+      border: 2px solid var(--primary-gold);
+      box-shadow: 0 10px 30px var(--shadow-dark);
+    }
+    
+    .hero-title {
+      color: var(--primary-gold);
+      font-size: 3rem;
+      margin-bottom: 1rem;
+      text-align: center;
+      text-shadow: 0 2px 10px rgba(0, 0, 0, 0.5);
+    }
+    
+    .hero-subtitle {
+      color: var(--text-light);
+      font-size: 1.4rem;
+      text-align: center;
+      max-width: 800px;
+      margin: 0 auto 2.5rem;
+    }
+    
+    .color-display {
+      display: flex;
+      justify-content: center;
+      gap: 2rem;
+      margin-top: 3rem;
+      flex-wrap: wrap;
+    }
+    
+    .color-card {
+      width: 180px;
+      height: 180px;
+      border-radius: 12px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      color: white;
+      box-shadow: 0 8px 20px rgba(0, 0, 0, 0.3);
+      border: 2px solid rgba(255, 255, 255, 0.1);
+      transition: all 0.3s ease;
+      position: relative;
+      overflow: hidden;
+    }
+    
+    .color-card:hover {
+      transform: translateY(-10px);
+      box-shadow: 0 15px 30px rgba(0, 0, 0, 0.4);
+    }
+    
+    .color-card.dark {
+      background-color: var(--primary-dark);
+      border-color: var(--primary-gold);
+    }
+    
+    .color-card.gold {
+      background-color: var(--primary-gold);
+      color: var(--darker-bg);
+      border-color: var(--primary-light);
+    }
+    
+    .color-card.light {
+      background-color: var(--primary-light);
+      color: var(--darker-bg);
+      border-color: var(--primary-gold);
+    }
+    
+    .color-card::before {
+      content: "";
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      height: 5px;
+      background: rgba(255, 255, 255, 0.2);
+    }
+    
+    .color-code {
+      font-size: 1.5rem;
+      font-weight: 800;
+      margin-bottom: 0.5rem;
+      font-family: monospace;
+    }
+    
+    .color-name {
+      font-size: 1.1rem;
+      font-weight: 600;
+    }
+    
+    .content-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 2rem;
+      margin-top: 3rem;
+    }
+    
+    .content-card {
+      background-color: var(--card-bg);
+      border-radius: 12px;
+      padding: 2rem;
+      border: 1px solid var(--accent);
+      box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
+      transition: all 0.3s ease;
+    }
+    
+    .content-card:hover {
+      transform: translateY(-5px);
+      border-color: var(--primary-gold);
+      box-shadow: 0 12px 25px rgba(0, 0, 0, 0.3);
+    }
+    
+    .card-title {
+      color: var(--primary-gold);
+      font-size: 1.6rem;
+      margin-bottom: 1rem;
+      padding-bottom: 0.8rem;
+      border-bottom: 2px solid var(--accent);
+    }
+    
+    .card-text {
+      color: var(--text-light);
+      font-size: 1.1rem;
+    }
+    
+    /* الفوتر */
+    footer {
+      background-color: var(--darker-bg);
+      border-top: 3px solid var(--primary-gold);
+      padding: 3rem 5% 1.5rem;
+      margin-top: auto;
+    }
+    
+    .footer-container {
+      max-width: 1400px;
+      margin: 0 auto;
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 3rem;
+      margin-bottom: 2.5rem;
+    }
+    
+    .footer-section h3 {
+      color: var(--primary-gold);
+      font-size: 1.5rem;
+      margin-bottom: 1.5rem;
+      position: relative;
+      padding-bottom: 0.8rem;
+    }
+    
+    .footer-section h3::after {
+      content: "";
+      position: absolute;
+      width: 60px;
+      height: 3px;
+      background: linear-gradient(to left, var(--primary-gold), var(--primary-dark));
+      bottom: 0;
+      right: 0;
+      border-radius: 2px;
+    }
+    
+    .footer-links {
+      list-style: none;
+    }
+    
+    .footer-links li {
+      margin-bottom: 0.9rem;
+    }
+    
+    .footer-links a {
+      color: var(--text-light);
+      text-decoration: none;
+      transition: all 0.3s ease;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      padding: 0.3rem 0;
+    }
+    
+    .footer-links a:hover {
+      color: var(--primary-gold);
+      padding-right: 10px;
+    }
+    
+    .footer-links a::before {
+      content: "✦";
+      color: var(--primary-gold);
+      font-size: 1rem;
+    }
+    
+    .contact-info {
+      list-style: none;
+    }
+    
+    .contact-info li {
+      margin-bottom: 1.2rem;
+      display: flex;
+      align-items: flex-start;
+      gap: 12px;
+    }
+    
+    .contact-info i {
+      color: var(--primary-gold);
+      font-size: 1.3rem;
+      width: 24px;
+      margin-top: 3px;
+    }
+    
+    .social-links {
+      display: flex;
+      gap: 1rem;
+      margin-top: 1.5rem;
+    }
+    
+    .social-link {
+      width: 45px;
+      height: 45px;
+      background-color: rgba(110, 80, 52, 0.3);
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: var(--primary-gold);
+      text-decoration: none;
+      font-size: 1.3rem;
+      transition: all 0.3s ease;
+      border: 1px solid rgba(205, 184, 133, 0.3);
+    }
+    
+    .social-link:hover {
+      background-color: var(--primary-gold);
+      color: var(--darker-bg);
+      transform: translateY(-5px);
+      box-shadow: 0 5px 15px var(--shadow-gold);
+    }
+    
+    .copyright {
+      text-align: center;
+      padding-top: 2rem;
+      border-top: 1px solid rgba(205, 184, 133, 0.2);
+      color: var(--text-gold);
+      font-size: 1rem;
+    }
+    
+    /* المقاسات المتجاوبة */
+    @media (max-width: 1100px) {
+      .header-container {
+        flex-wrap: wrap;
+      }
+      
+      .hero-title {
+        font-size: 2.5rem;
+      }
+    }
+    
+    @media (max-width: 768px) {
+      .header-container {
+        flex-direction: column;
+        gap: 1.5rem;
+      }
+      
+      nav ul {
+        flex-wrap: wrap;
+        justify-content: center;
+        gap: 1rem;
+      }
+      
+      .hero-section {
+        padding: 3rem 1.5rem;
+      }
+      
+      .hero-title {
+        font-size: 2.2rem;
+      }
+      
+      .hero-subtitle {
+        font-size: 1.2rem;
+      }
+      
+      .color-card {
+        width: 150px;
+        height: 150px;
+      }
+      
+      .footer-container {
+        grid-template-columns: 1fr;
+        gap: 2.5rem;
+      }
+    }
+    
+    @media (max-width: 576px) {
+      header, main, footer {
+        padding-left: 3%;
+        padding-right: 3%;
+      }
+      
+      .logo {
+        font-size: 1.7rem;
+      }
+      
+      .hero-title {
+        font-size: 1.9rem;
+      }
+      
+      .color-display {
+        gap: 1rem;
+      }
+      
+      .color-card {
+        width: 130px;
+        height: 130px;
+      }
+      
+      .color-code {
+        font-size: 1.2rem;
+      }
+      
+      .content-grid {
+        grid-template-columns: 1fr;
+      }
+    }
+  </style>
+  <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;700;800&display=swap" rel="stylesheet">
 </head>
 <body>
+  <!-- الهيدر -->
+  <header>
+    <div class="header-container">
+      <a href="#" class="logo">
+        <div class="logo-icon"></div>
+        عطور فاخرة
+      </a>
+      
+      <nav>
+        <ul>
+          <li><a href="#" class="active">الرئيسية</a></li>
+          <li><a href="#">المجموعات</a></li>
+          <li><a href="#">عطور نسائية</a></li>
+          <li><a href="#">عطور رجالية</a></li>
+          <li><a href="#">عروض خاصة</a></li>
+          <li><a href="#">اتصل بنا</a></li>
+        </ul>
+      </nav>
+      
+      <div class="header-actions">
+        <button class="icon-button">🔍</button>
+        <button class="icon-button">👤</button>
+        <button class="icon-button">🛒</button>
+      </div>
+    </div>
+  </header>
 
-  <!-- JS -->
-  <script src="javaScript.js"></script>
+  <!-- المحتوى الرئيسي -->
+  <main>
+    <section class="hero-section">
+      <h1 class="hero-title">عطور فاخرة بتصميم مميز</h1>
+      <p class="hero-subtitle">موقع عطور مصمم باستخدام الألوان المحددة (#6e5034, #cdb885, #efe1b5) مع تصميم داكن وجذاب وعالي التباين</p>
+      
+      <div class="color-display">
+        <div class="color-card dark">
+          <span class="color-code">#6e5034</span>
+          <span class="color-name">اللون الأساسي الداكن</span>
+        </div>
+        <div class="color-card gold">
+          <span class="color-code">#cdb885</span>
+          <span class="color-name">اللون الذهبي</span>
+        </div>
+        <div class="color-card light">
+          <span class="color-code">#efe1b5</span>
+          <span class="color-name">اللون الفاتح</span>
+        </div>
+      </div>
+    </section>
+    
+    <div class="content-grid">
+      <div class="content-card">
+        <h3 class="card-title">تصميم الهيدر</h3>
+        <p class="card-text">تم تصميم الهيدر بخلفية داكنة مع حدود ذهبية لامعة، مع شعار مميز وأزرار تفاعلية ذات تأثيرات جميلة.</p>
+      </div>
+      
+      <div class="content-card">
+        <h3 class="card-title">تصميم الفوتر</h3>
+        <p class="card-text">تم تصميم الفوتر بنفس ألوان الهيدر لكن مع تخطيط مختلف، يحتوي على روابط ومعلومات اتصال ووسائل التواصل الاجتماعي.</p>
+      </div>
+      
+      <div class="content-card">
+        <h3 class="card-title">تجاوب الموقع</h3>
+        <p class="card-text">المصمم ليعمل بكفاءة على جميع الأجهزة والشاشات، من الهواتف المحمولة إلى أجهزة الكمبيوتر المكتبية.</p>
+      </div>
+    </div>
+  </main>
+
+  <!-- الفوتر -->
+  <footer>
+    <div class="footer-container">
+      <div class="footer-section">
+        <h3>عطور فاخرة</h3>
+        <p>نقدم لكم أجود أنواع العطور الفريدة من نوعها. نبحث دائماً عن الروائح المميزة التي تعبر عن شخصيتك.</p>
+        <div class="social-links">
+          <a href="#" class="social-link">f</a>
+          <a href="#" class="social-link">📷</a>
+          <a href="#" class="social-link">𝕏</a>
+          <a href="#" class="social-link">▶</a>
+        </div>
+      </div>
+      
+      <div class="footer-section">
+        <h3>روابط سريعة</h3>
+        <ul class="footer-links">
+          <li><a href="#">الرئيسية</a></li>
+          <li><a href="#">منتجاتنا</a></li>
+          <li><a href="#">عطور نسائية</a></li>
+          <li><a href="#">عطور رجالية</a></li>
+          <li><a href="#">عروض خاصة</a></li>
+          <li><a href="#">المجموعات الجديدة</a></li>
+        </ul>
+      </div>
+      
+      <div class="footer-section">
+        <h3>معلومات الاتصال</h3>
+        <ul class="contact-info">
+          <li>
+            <i>📍</i>
+            <span>شارع العطور، الرياض، المملكة العربية السعودية</span>
+          </li>
+          <li>
+            <i>📞</i>
+            <span>+966 11 123 4567</span>
+          </li>
+          <li>
+            <i>✉️</i>
+            <span>info@perfume-store.com</span>
+          </li>
+          <li>
+            <i>🕒</i>
+            <span>الأحد - الخميس: 9 صباحاً - 10 مساءً</span>
+          </li>
+        </ul>
+      </div>
+    </div>
+    
+    <div class="copyright">
+      جميع الحقوق محفوظة © 2023 موقع عطور فاخرة | تم التصميم باستخدام الألوان المحددة (#6e5034, #cdb885, #efe1b5)
+    </div>
+  </footer>
 </body>
 </html>

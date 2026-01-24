@@ -1,200 +1,276 @@
 <!DOCTYPE html>
-<html lang="ar" dir="rtl">
+<html lang="en" dir="ltr">
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Document</title>
+  <title>Add New Recipe</title>
 
-  <!-- CSS -->
-  <link rel="stylesheet" href="style.css" />
   <style>
-    .form-card{
-      background: var(--card-bg);
-      border: 1px solid var(--border-light);
-      border-radius: 18px;
-      box-shadow: 0 10px 25px var(--shadow-light);
-      padding: 2rem;
-      max-width: 950px;
-      margin: 0 auto;
-    }
-    .form-title{
-      color: var(--primary-dark);
-      font-size: 2rem;
-      margin-bottom: 1.2rem;
-    }
-    .grid{
-      display:grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 1rem 1.2rem;
-    }
-    label{
-      display:block;
-      font-weight: 800;
-      color: var(--text-medium);
-      margin-bottom: .45rem;
-    }
-    .field{
-      width:100%;
-      padding: .9rem 1rem;
-      border-radius: 14px;
-      border: 1px solid var(--border-light);
-      background: var(--bg-lighter);
-      color: var(--text-dark);
-      outline: none;
-      transition: .2s;
-    }
-    .field:focus{
-      border-color: var(--primary-gold);
-      box-shadow: 0 0 0 4px rgba(205,184,133,.18);
-      background: #fff;
-    }
-    textarea.field{ min-height: 120px; resize: vertical; }
-    .section{
-      margin-top: 1.6rem;
-      padding-top: 1.2rem;
-      border-top: 1px dashed var(--border-light);
-    }
-    .section h3{
-      color: var(--primary-dark);
-      margin-bottom: .9rem;
-      font-size: 1.25rem;
-    }
-    .row{
-      display:grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 1rem;
-      margin-bottom: .85rem;
-    }
-    .row-1col{ grid-template-columns: 1fr; }
-    .actions{
-      display:flex;
-      gap: .8rem;
-      flex-wrap: wrap;
-      margin-top: .8rem;
-    }
-    .btn{
-      display:inline-flex; align-items:center; justify-content:center; gap:.5rem;
-      padding:.8rem 1.1rem; border-radius: 999px;
-      border: 1px solid var(--border-light);
-      background: var(--primary-light);
-      color: var(--primary-dark);
-      font-weight: 800;
-      cursor: pointer;
-      box-shadow: 0 8px 20px var(--shadow-light);
-      transition:.25s ease;
-      text-decoration:none;
-    }
-    .btn:hover{ transform: translateY(-2px); background: var(--primary-gold); color:#fff; box-shadow: 0 12px 26px var(--shadow-gold); }
-    .btn.secondary{ background: rgba(239,225,181,.35); }
-    .hint{ color: var(--text-light); font-size: .95rem; margin-top: .3rem; }
-    @media (max-width: 820px){
-      .grid{ grid-template-columns: 1fr; }
-      .row{ grid-template-columns: 1fr; }
-    }
+ /* ===== Fix layout overlap ===== */
+*{ box-sizing:border-box; }
+body{ margin:0; background-color:#efe1b5; font-family: "Segoe UI", Tahoma, Arial, sans-serif; }
+
+
+.add-page{
+  max-width: 1100px;
+  margin: 3rem auto;
+  padding: 2rem;
+  background:#fff;
+  border-radius:24px;
+  border:1px solid #cdb885;
+  box-shadow:0 18px 40px rgba(110,80,52,0.18);
+}
+
+/* Header */
+.add-header{
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+  gap:1rem;
+  margin-bottom: 2rem;
+}
+
+.add-header h1{
+  margin:0;
+  font-size:2.3rem;
+  color:#6e5034;
+  font-weight:800;
+}
+
+/* Form card */
+.form-card{
+  border-radius:20px;
+  padding: 1.6rem;
+  border:1px solid #efe1b5;
+  box-shadow: inset 0 0 0 1px rgba(205,184,133,0.28);
+}
+
+/* Grid */
+.grid{
+  display:grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1rem 1.2rem;
+  align-items: start;
+}
+
+.full{ grid-column: 1 / -1; }
+
+label{
+  display:block;
+  font-weight:800;
+  color:#6e5034;
+  margin-bottom:.45rem;
+}
+
+/* Inputs */
+.field{
+  width:100%;
+  display:block;
+  padding:.95rem 1rem;
+  border-radius:14px;
+  border:1px solid #efe1b5;
+  background:#fff;
+  color:#5d4a32;
+  outline:none;
+  transition:.2s ease;
+}
+
+.field:focus{
+  border-color:#cdb885;
+  box-shadow:0 0 0 4px rgba(205,184,133,0.22);
+}
+
+textarea.field{ min-height:120px; resize:vertical; }
+
+/* Section titles */
+.section-title{
+  margin: 1.4rem 0 .9rem;
+  padding-top:1.2rem;
+  border-top:1px dashed #efe1b5;
+  color:#6e5034;
+  font-size:1.2rem;
+  font-weight:800;
+}
+
+/* Dynamic rows */
+.row{
+  display:grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1rem;
+  margin-bottom:.9rem;
+}
+
+.row-1col{ grid-template-columns: 1fr; }
+
+/* Buttons */
+.actions{
+  display:flex;
+  gap:.8rem;
+  flex-wrap:wrap;
+  margin-top:.9rem;
+}
+
+.btn{
+  display:inline-flex;
+  align-items:center;
+  gap:.65rem;
+  padding:.9rem 1.5rem;
+  border-radius:30px;
+  cursor:pointer;
+  font-weight:800;
+  text-decoration:none;
+  border:none;
+  transition:.25s ease;
+}
+
+.btn.primary{
+  background:#6e5034;
+  color:#fff;
+  box-shadow:0 8px 22px rgba(110,80,52,0.3);
+}
+
+.btn.primary:hover{
+  background:#8a6848;
+  transform: translateY(-2px);
+}
+
+.btn.secondary{
+  background: rgba(110,80,52,0.10);
+  color:#6e5034;
+  border:1px solid #efe1b5;
+}
+
+.btn.secondary:hover{
+  background:#cdb885;
+  transform: translateY(-2px);
+}
+
+.add-icon{
+  width:26px;
+  height:26px;
+  border-radius:50%;
+  background:#fff;
+  color:#6e5034;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  font-weight:900;
+  line-height:1;
+}
+
+/* Responsive */
+@media (max-width: 820px){
+  .grid{ grid-template-columns:1fr; }
+  .row{ grid-template-columns:1fr; }
+  .add-page{ margin:1.5rem; padding:1.5rem; }
+  .add-header{ flex-direction:column; align-items:flex-start; }
+}
+
   </style>
 </head>
+
 <body>
+
 <main>
-  <section class="form-card">
-    <h1 class="form-title">إضافة وصفة جديدة</h1>
+  <div class="add-page">
 
-    <form id="recipeForm" data-mode="add" novalidate>
-      <div class="grid">
-        <div>
-          <label for="name">اسم الوصفة</label>
-          <input class="field" id="name" name="name" type="text" placeholder="مثال: فانيلا مسك" required />
-        </div>
+    <div class="add-header">
+      <h1>Add New Recipe</h1>
+    </div>
 
-        <div>
-          <label for="category">التصنيف</label>
-          <select class="field" id="category" name="category" required>
-            <option value="" selected disabled>اختاري</option>
-            <option value="Floral">زهري</option>
-            <option value="Woody">خشبي</option>
-            <option value="Oriental">شرقي</option>
-          </select>
-        </div>
-
-        <div style="grid-column: 1 / -1;">
-          <label for="description">الوصف</label>
-          <textarea class="field" id="description" name="description" placeholder="وصف مختصر للتركيبة..." required></textarea>
-        </div>
-
-        <div style="grid-column: 1 / -1;">
-          <label for="photo">رفع صورة الوصفة</label>
-          <input class="field" id="photo" name="photo" type="file" accept="image/*" required />
-          <div class="hint">يسمح بالصور فقط.</div>
-        </div>
-      </div>
-
-      <!-- Ingredients -->
-      <div class="section">
-        <h3>المكونات (اسم + كمية)</h3>
-
-        <div id="ingredientsWrap">
-          <div class="row ingredient-row">
-            <div>
-              <label>المكون 1: الاسم</label>
-              <input class="field" type="text" name="ingredient_name[]" placeholder="مثال: مسك أبيض" required />
-            </div>
-            <div>
-              <label>المكون 1: الكمية</label>
-              <input class="field" type="text" name="ingredient_qty[]" placeholder="مثال: 8ml" required />
-            </div>
-          </div>
-        </div>
-
-        <div class="actions">
-          <button class="btn secondary" type="button" id="addIngredientBtn">➕ إضافة مكون</button>
-        </div>
-      </div>
-
-      <!-- Instructions -->
-      <div class="section">
-        <h3>الخطوات</h3>
-
-        <div id="stepsWrap">
-          <div class="row row-1col step-row">
-            <div>
-              <label>الخطوة 1</label>
-              <input class="field" type="text" name="step_text[]" placeholder="اكتب/ي الخطوة..." required />
-            </div>
-          </div>
-        </div>
-
-        <div class="actions">
-          <button class="btn secondary" type="button" id="addStepBtn">➕ إضافة خطوة</button>
-        </div>
-      </div>
-
-      <!-- Video (optional) -->
-      <div class="section">
-        <h3>فيديو أو رابط فيديو (اختياري)</h3>
+    <div class="form-card">
+      <form id="recipeForm" data-mode="add" novalidate>
 
         <div class="grid">
           <div>
-            <label for="videoFile">رفع فيديو</label>
-            <input class="field" id="videoFile" name="videoFile" type="file" accept="video/*" />
-            <div class="hint">يسمح بالفيديو فقط.</div>
+            <label for="name">Recipe Name</label>
+            <input class="field" id="name" name="name" type="text" placeholder="e.g., Vanilla Musk Blend" required />
           </div>
 
           <div>
-            <label for="videoUrl">رابط الفيديو</label>
+            <label for="category">For</label>
+            <select class="field" id="category" name="category" required>
+              <option value="" selected disabled>Select</option>
+              <option value="Women">Women</option>
+              <option value="Men">Men</option>
+              <option value="Unisex">Unisex</option>
+            </select>
+          </div>
+
+          <div class="full">
+            <label for="description">Description</label>
+            <textarea class="field" id="description" name="description" placeholder="Write a short description..." required></textarea>
+          </div>
+
+          <div class="full">
+            <label for="photo">Upload Photo</label>
+            <input class="field" id="photo" name="photo" type="file" accept="image/*" required />
+          </div>
+        </div>
+
+        <h3 class="section-title">Ingredients</h3>
+        <div id="ingredientsWrap">
+          <div class="row ingredient-row">
+            <div>
+              <label>Name</label>
+              <input class="field" type="text" name="ingredient_name[]" placeholder="e.g., White Musk" required />
+            </div>
+            <div>
+              <label>Amount</label>
+              <input class="field" type="text" name="ingredient_qty[]" placeholder="e.g., 8ml" required />
+            </div>
+          </div>
+        </div>
+
+        <div class="actions">
+          <button class="btn secondary" type="button" id="addIngredientBtn">
+            <span class="add-icon">+</span> Add Ingredient
+          </button>
+        </div>
+
+        <h3 class="section-title">Instructions</h3>
+        <div id="stepsWrap">
+          <div class="row row-1col step-row">
+            <div>
+              <label>Step 1</label>
+              <input class="field" type="text" name="step_text[]" placeholder="Write a step..." required />
+            </div>
+          </div>
+        </div>
+
+        <div class="actions">
+          <button class="btn secondary" type="button" id="addStepBtn">
+            <span class="add-icon">+</span> Add Step
+          </button>
+        </div>
+
+        <h3 class="section-title">Upload Video or Video Link</h3>
+        <div class="grid">
+          <div>
+            <label for="videoFile">Upload Video</label>
+            <input class="field" id="videoFile" name="videoFile" type="file" accept="video/*" />
+          </div>
+
+          <div>
+            <label for="videoUrl">Video URL</label>
             <input class="field" id="videoUrl" name="videoUrl" type="url" placeholder="https://youtube.com/..." />
           </div>
         </div>
-      </div>
 
-      <div class="section">
-        <div class="actions">
-          <button class="btn" type="submit">✅ إضافة الوصفة</button>
-          <a class="btn secondary" href="my-recipes.html">رجوع</a>
+        <div class="actions" style="margin-top:1.4rem;">
+          <button class="btn primary" type="submit">
+            <span class="add-icon">+</span> Add Recipe
+          </button>
         </div>
-      </div>
-    </form>
-  </section>
+
+      </form>
+    </div>
+
+  </div>
 </main>
-  <!-- JS -->
-  <script src="javaScript.js"></script>
+
+
+<script src="javaScript.js"></script>
 </body>
 </html>
+

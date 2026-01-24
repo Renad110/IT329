@@ -3,12 +3,196 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Document</title>
+  <title>My Recipes</title>
 
   <!-- CSS -->
   <link rel="stylesheet" href="style.css" />
+  <style>
+    .page-head{
+      display:flex; align-items:center; justify-content:space-between;
+      gap:1rem; margin-bottom:1.5rem;
+    }
+    .page-title{
+      color: var(--primary-dark);
+      font-size: 2rem;
+      margin: 0;
+    }
+    .btn{
+      display:inline-flex; align-items:center; justify-content:center;
+      gap:.5rem;
+      padding:.85rem 1.2rem;
+      border-radius: 999px;
+      border: 1px solid var(--border-light);
+      background: var(--primary-light);
+      color: var(--primary-dark);
+      text-decoration:none;
+      font-weight:700;
+      box-shadow: 0 8px 20px var(--shadow-light);
+      transition: .25s ease;
+      white-space: nowrap;
+    }
+    .btn:hover{ transform: translateY(-2px); background: var(--primary-gold); color:#fff; box-shadow:0 12px 26px var(--shadow-gold); }
+
+    .table-wrap{
+      background: var(--card-bg);
+      border: 1px solid var(--border-light);
+      border-radius: 18px;
+      box-shadow: 0 10px 25px var(--shadow-light);
+      overflow: hidden;
+    }
+    table{
+      width:100%;
+      border-collapse: collapse;
+      font-size: 1rem;
+    }
+    thead th{
+      background: linear-gradient(to left, var(--primary-light), rgba(205,184,133,.12));
+      color: var(--primary-dark);
+      text-align: right;
+      padding: 1rem;
+      border-bottom: 1px solid var(--border-light);
+      font-weight: 800;
+      white-space: nowrap;
+    }
+    tbody td{
+      padding: 1rem;
+      border-bottom: 1px solid var(--border-light);
+      color: var(--text-medium);
+      vertical-align: top;
+    }
+    tbody tr:hover td{ background: rgba(239,225,181,.15); }
+    .recipe-link{
+      display:flex; gap:.9rem; align-items:center;
+      color: var(--primary-dark);
+      text-decoration:none;
+      font-weight: 800;
+    }
+    .thumb{
+      width:64px; height:64px; border-radius: 14px;
+      object-fit: cover; border:1px solid var(--border-light);
+      background: var(--bg-lighter);
+      box-shadow: 0 6px 14px var(--shadow-light);
+      flex: 0 0 auto;
+    }
+    .list{
+      margin: 0;
+      padding: 0 1.2rem 0 0;
+    }
+    .list li{ margin: .25rem 0; color: var(--text-light); }
+    .muted{ color: var(--text-light); font-weight: 600; }
+    .link{
+      color: var(--primary-dark);
+      text-decoration:none;
+      font-weight: 800;
+      padding:.35rem .7rem;
+      border-radius: 999px;
+      border: 1px solid var(--border-light);
+      background: rgba(239,225,181,.35);
+      display:inline-block;
+      transition:.2s;
+      white-space: nowrap;
+    }
+    .link:hover{ background: var(--primary-light); transform: translateY(-1px); }
+    .danger{ background: rgba(255, 92, 92, .08); border-color: rgba(255,92,92,.25); color:#a63030; }
+    .danger:hover{ background: rgba(255,92,92,.12); }
+
+    /* Responsive table */
+    .table-scroll{ overflow:auto; }
+    @media (max-width: 900px){
+      .page-title{ font-size: 1.6rem; }
+      thead th, tbody td{ padding:.85rem; }
+    }
+  </style>
 </head>
 <body>
+
+<main>
+  <div class="page-head">
+    <h1 class="page-title">My Recipes</h1>
+    <a class="btn" href="add-recipe.html">➕ Add New Recipe</a>
+  </div>
+
+  <div class="table-wrap">
+    <div class="table-scroll">
+      <table aria-label="My Recipes Table">
+        <thead>
+          <tr>
+            <th>Recipe</th>
+            <th>Ingredients</th>
+            <th>Steps</th>
+            <th>Video</th>
+            <th>Likes</th>
+            <th>Edit</th>
+            <th>Delete</th>
+          </tr>
+        </thead>
+
+        <tbody>
+          <!-- Recipe 1 -->
+          <tr>
+            <td>
+              <a class="recipe-link" href="view-recipe.html">
+                <img class="thumb" src="images/recipe1.jpg" alt="Photo">
+                <span>تركيبة “فانيلا مسك”</span>
+              </a>
+            </td>
+            <td>
+              <ul class="list">
+                <li>مُثبت (Fixative): 5ml</li>
+                <li>مسك أبيض: 8ml</li>
+                <li>فانيلا: 6ml</li>
+                <li>خشب صندل: 3ml</li>
+              </ul>
+            </td>
+            <td>
+              <ol class="list">
+                <li>اخلطي المُثبت مع المسك.</li>
+                <li>أضيفي الفانيلا تدريجيًا.</li>
+                <li>أضيفي الصندل واتركيه 24 ساعة.</li>
+              </ol>
+            </td>
+            <td>
+              <a class="link" href="https://www.youtube.com/" target="_blank" rel="noopener">رابط فيديو</a>
+            </td>
+            <td><strong>22</strong></td>
+            <td><a class="link" href="edit-recipe.html">تعديل</a></td>
+            <td><a class="link danger" href="my-recipes.html">حذف</a></td>
+          </tr>
+
+          <!-- Recipe 2 -->
+          <tr>
+            <td>
+              <a class="recipe-link" href="view-recipe.html">
+                <img class="thumb" src="images/recipe2.jpg" alt="صورة وصفة 2">
+                <span>تركيبة “ورد عنبر”</span>
+              </a>
+            </td>
+            <td>
+              <ul class="list">
+                <li>عنبر: 6ml</li>
+                <li>ورد طائفي: 7ml</li>
+                <li>برغموت: 3ml</li>
+              </ul>
+            </td>
+            <td>
+              <ol class="list">
+                <li>امزجي العنبر مع الورد.</li>
+                <li>أضيفي البرغموت.</li>
+                <li>اتركي الخلطة 48 ساعة.</li>
+              </ol>
+            </td>
+            <td class="muted">no video for recipe</td>
+            <td><strong>9</strong></td>
+            <td><a class="link" href="edit-recipe.html">تعديل</a></td>
+            <td><a class="link danger" href="my-recipes.html">حذف</a></td>
+          </tr>
+
+        </tbody>
+      </table>
+    </div>
+  </div>
+</main>
+
 
   <!-- JS -->
   <script src="javaScript.js"></script>

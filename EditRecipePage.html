@@ -7,9 +7,162 @@
 
   <!-- CSS -->
   <link rel="stylesheet" href="style.css" />
+  <style>
+    /* نفس ستايل add (مختصر) */
+    .form-card{background:var(--card-bg); border:1px solid var(--border-light); border-radius:18px; box-shadow:0 10px 25px var(--shadow-light); padding:2rem; max-width:950px; margin:0 auto;}
+    .form-title{color:var(--primary-dark); font-size:2rem; margin-bottom:1.2rem;}
+    .grid{display:grid; grid-template-columns:1fr 1fr; gap:1rem 1.2rem;}
+    label{display:block; font-weight:800; color:var(--text-medium); margin-bottom:.45rem;}
+    .field{width:100%; padding:.9rem 1rem; border-radius:14px; border:1px solid var(--border-light); background:var(--bg-lighter); color:var(--text-dark); outline:none; transition:.2s;}
+    .field:focus{border-color:var(--primary-gold); box-shadow:0 0 0 4px rgba(205,184,133,.18); background:#fff;}
+    textarea.field{min-height:120px; resize:vertical;}
+    .section{margin-top:1.6rem; padding-top:1.2rem; border-top:1px dashed var(--border-light);}
+    .section h3{color:var(--primary-dark); margin-bottom:.9rem; font-size:1.25rem;}
+    .row{display:grid; grid-template-columns:1fr 1fr; gap:1rem; margin-bottom:.85rem;}
+    .row-1col{grid-template-columns:1fr;}
+    .actions{display:flex; gap:.8rem; flex-wrap:wrap; margin-top:.8rem;}
+    .btn{display:inline-flex; align-items:center; justify-content:center; gap:.5rem; padding:.8rem 1.1rem; border-radius:999px; border:1px solid var(--border-light); background:var(--primary-light); color:var(--primary-dark); font-weight:800; cursor:pointer; box-shadow:0 8px 20px var(--shadow-light); transition:.25s; text-decoration:none;}
+    .btn:hover{transform:translateY(-2px); background:var(--primary-gold); color:#fff; box-shadow:0 12px 26px var(--shadow-gold);}
+    .btn.secondary{background:rgba(239,225,181,.35);}
+    .hint{color:var(--text-light); font-size:.95rem; margin-top:.3rem;}
+    .current-media{
+      display:flex; gap:1rem; align-items:center; flex-wrap:wrap;
+      padding:.9rem 1rem; border-radius:14px;
+      border:1px solid var(--border-light); background:rgba(239,225,181,.18);
+      margin-top:.6rem;
+    }
+    .current-media img{width:72px; height:72px; border-radius:14px; object-fit:cover; border:1px solid var(--border-light); background:#fff;}
+    .link{color:var(--primary-dark); font-weight:800; text-decoration:none;}
+    @media (max-width:820px){ .grid{grid-template-columns:1fr;} .row{grid-template-columns:1fr;} }
+  </style>
 </head>
 <body>
+<main>
+  <section class="form-card">
+    <h1 class="form-title">تعديل الوصفة</h1>
 
+    <form id="recipeForm" data-mode="edit" novalidate>
+      <div class="grid">
+        <div>
+          <label for="name">اسم الوصفة</label>
+          <input class="field" id="name" name="name" type="text" value="تركيبة “فانيلا مسك”" required />
+        </div>
+
+        <div>
+          <label for="category">التصنيف</label>
+          <select class="field" id="category" name="category" required>
+            <option value="" disabled>اختاري</option>
+            <option value="Floral">زهري</option>
+            <option value="Woody" selected>خشبي</option>
+            <option value="Oriental">شرقي</option>
+          </select>
+        </div>
+
+        <div style="grid-column: 1 / -1;">
+          <label for="description">الوصف</label>
+          <textarea class="field" id="description" name="description" required>تركيبة دافئة تجمع بين الفانيلا والمسك مع لمسة صندل خفيفة.</textarea>
+        </div>
+
+        <div style="grid-column: 1 / -1;">
+          <label for="photo">رفع صورة الوصفة (اختياري - إن تبين تغيّرينها)</label>
+          <input class="field" id="photo" name="photo" type="file" accept="image/*" />
+          <div class="current-media">
+            <strong>الصورة الحالية:</strong>
+            <img src="images/recipe1.jpg" alt="الصورة الحالية">
+          </div>
+        </div>
+      </div>
+
+      <!-- Ingredients -->
+      <div class="section">
+        <h3>المكونات</h3>
+
+        <div id="ingredientsWrap">
+          <div class="row ingredient-row">
+            <div>
+              <label>المكون 1: الاسم</label>
+              <input class="field" type="text" name="ingredient_name[]" value="مُثبت (Fixative)" required />
+            </div>
+            <div>
+              <label>المكون 1: الكمية</label>
+              <input class="field" type="text" name="ingredient_qty[]" value="5ml" required />
+            </div>
+          </div>
+
+          <div class="row ingredient-row">
+            <div>
+              <label>المكون 2: الاسم</label>
+              <input class="field" type="text" name="ingredient_name[]" value="مسك أبيض" required />
+            </div>
+            <div>
+              <label>المكون 2: الكمية</label>
+              <input class="field" type="text" name="ingredient_qty[]" value="8ml" required />
+            </div>
+          </div>
+        </div>
+
+        <div class="actions">
+          <button class="btn secondary" type="button" id="addIngredientBtn">➕ إضافة مكون</button>
+        </div>
+      </div>
+
+      <!-- Instructions -->
+      <div class="section">
+        <h3>الخطوات</h3>
+
+        <div id="stepsWrap">
+          <div class="row row-1col step-row">
+            <div>
+              <label>الخطوة 1</label>
+              <input class="field" type="text" name="step_text[]" value="اخلطي المُثبت مع المسك." required />
+            </div>
+          </div>
+
+          <div class="row row-1col step-row">
+            <div>
+              <label>الخطوة 2</label>
+              <input class="field" type="text" name="step_text[]" value="أضيفي الفانيلا تدريجيًا ثم الصندل." required />
+            </div>
+          </div>
+        </div>
+
+        <div class="actions">
+          <button class="btn secondary" type="button" id="addStepBtn">➕ إضافة خطوة</button>
+        </div>
+      </div>
+
+      <!-- Video (optional) -->
+      <div class="section">
+        <h3>فيديو أو رابط فيديو (اختياري)</h3>
+
+        <div class="grid">
+          <div>
+            <label for="videoFile">رفع فيديو</label>
+            <input class="field" id="videoFile" name="videoFile" type="file" accept="video/*" />
+            <div class="hint">يسمح بالفيديو فقط.</div>
+
+            <div class="current-media">
+              <strong>الفيديو الحالي:</strong>
+              <a class="link" href="https://www.youtube.com/" target="_blank" rel="noopener">رابط فيديو</a>
+            </div>
+          </div>
+
+          <div>
+            <label for="videoUrl">رابط الفيديو</label>
+            <input class="field" id="videoUrl" name="videoUrl" type="url" value="https://www.youtube.com/" />
+          </div>
+        </div>
+      </div>
+
+      <div class="section">
+        <div class="actions">
+          <button class="btn" type="submit">✅ تحديث الوصفة</button>
+          <a class="btn secondary" href="my-recipes.html">رجوع</a>
+        </div>
+      </div>
+    </form>
+  </section>
+</main>
   <!-- JS -->
   <script src="javaScript.js"></script>
 </body>

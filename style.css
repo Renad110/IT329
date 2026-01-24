@@ -1,0 +1,179 @@
+
+
+
+
+
+/* =========================
+   LEEN THEME - SILLAGE
+   Scoped to .leen-app only
+   ========================= */
+
+/* Font */
+@import url('https://fonts.googleapis.com/css2?family=Libre+Baskerville:wght@400;700&display=swap');
+
+.leen-app{
+  --leen-brown: #6E5034;
+  --leen-gold:  #CDB885;
+  --leen-beige: #EFE1B5;
+  --leen-white: #ffffff;
+  --leen-shadow: 0 12px 28px rgba(0,0,0,0.12);
+
+  font-family: "Libre Baskerville", serif;
+  color: var(--leen-brown);
+  background: linear-gradient(180deg, var(--leen-beige), #fff 60%);
+  min-height: 100vh;
+}
+
+/* Reset (scoped) */
+.leen-app *{ box-sizing: border-box; }
+.leen-app html, .leen-app body{ margin: 0; padding: 0; }
+
+/* Container */
+.leen-container{
+  width: min(1000px, 92%);
+  margin: 0 auto;
+  padding: 24px 0 50px;
+}
+
+/* ========== Buttons ========== */
+.leen-btn{
+  border: none;
+  cursor: pointer;
+  text-decoration: none;
+  padding: 12px 16px;
+  border-radius: 14px;
+  font-weight: 700;
+  transition: transform 0.08s ease, box-shadow 0.2s ease, background 0.2s ease;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+}
+
+.leen-btn:active{ transform: scale(0.98); }
+
+.leen-btn-primary{
+  background: var(--leen-brown);
+  color: var(--leen-beige);
+  box-shadow: 0 10px 18px rgba(110,80,52,0.25);
+}
+
+.leen-btn-primary:hover{ background: #5e432c; }
+
+.leen-btn-outline{
+  background: transparent;
+  color: var(--leen-brown);
+  border: 2px solid rgba(110,80,52,0.35);
+}
+
+.leen-btn-outline:hover{
+  background: rgba(205,184,133,0.35);
+}
+
+/* ========== Card ========== */
+.leen-card{
+  background: rgba(255,255,255,0.78);
+  border: 1px solid rgba(110, 80, 52, 0.14);
+  border-radius: 22px;
+  box-shadow: var(--leen-shadow);
+  padding: 26px 22px;
+}
+
+/* ========== Typography Helpers ========== */
+.leen-title{
+  margin: 6px 0 6px;
+  letter-spacing: 0.6px;
+  color: var(--leen-brown);
+}
+
+.leen-subtitle{
+  margin: 0 0 18px;
+  line-height: 1.7;
+  opacity: 0.9;
+  color: var(--leen-brown);
+}
+
+.leen-helper{
+  font-size: 0.92rem;
+  opacity: 0.85;
+  line-height: 1.6;
+}
+
+/* ========== Forms (for next pages) ========== */
+.leen-form{
+  display: grid;
+  gap: 12px;
+  margin-top: 10px;
+}
+
+.leen-field{
+  display: grid;
+  gap: 6px;
+}
+
+.leen-label{
+  font-size: 0.95rem;
+  font-weight: 700;
+}
+
+.leen-input{
+  width: 100%;
+  padding: 12px 12px;
+  border-radius: 14px;
+  border: 1px solid rgba(110, 80, 52, 0.22);
+  background: rgba(255,255,255,0.88);
+  outline: none;
+}
+
+.leen-input:focus{
+  border-color: rgba(110, 80, 52, 0.55);
+  box-shadow: 0 0 0 4px rgba(205,184,133,0.35);
+}
+
+/* ========== Landing Page (System Home) ========== */
+.leen-landing{
+  min-height: 100vh;
+  display: grid;
+  place-items: center;
+  padding: 26px 0;
+  background:
+    radial-gradient(circle at top, rgba(205,184,133,0.45), transparent 55%),
+    linear-gradient(180deg, var(--leen-beige), #ffffff 60%);
+}
+
+.leen-landing-card{
+  width: min(520px, 92%);
+  text-align: center;
+}
+
+.leen-logo{
+  width: 150px;
+  height: 150px;
+  object-fit: cover;
+  border-radius: 26px;
+  border: 2px solid rgba(110, 80, 52, 0.18);
+  background: #fff;
+  margin-bottom: 12px;
+}
+
+.leen-actions{
+  display: grid;
+  gap: 10px;
+  margin-top: 14px;
+}
+
+.leen-actions .leen-btn{
+  width: 100%;
+}
+
+/* Responsive */
+@media (max-width: 520px){
+  .leen-card{ padding: 22px 18px; }
+  .leen-logo{ width: 135px; height: 135px; }
+}
+
+
+
+/* =========================
+   End of leen
+   ========================= */

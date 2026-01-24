@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Sillage | Admin Dashboard</title>
+  <title>Sillage | Lubna Admin Dashboard</title>
   
   <!-- Base Styles -->
   <style>
@@ -15,38 +15,38 @@
     }
     
     :root {
-      --gold-light: #efe1b5;
-      --gold: #cdb885;
-      --brown: #6e5034;
-      --dark: #2b1c12;
-      --light: #f9f7f2;
-      --border: rgba(110, 80, 52, 0.15);
+      --Lubna-gold-light: #efe1b5;
+      --Lubna-gold: #cdb885;
+      --Lubna-brown: #6e5034;
+      --Lubna-dark: #2b1c12;
+      --Lubna-light: #f9f7f2;
+      --Lubna-border: rgba(110, 80, 52, 0.15);
     }
     
     body {
-      background-color: var(--light);
-      color: var(--dark);
+      background-color: var(--Lubna-light);
+      color: var(--Lubna-dark);
       line-height: 1.6;
     }
     
     /* Container */
-    .container {
+    .Lubna-container {
       max-width: 1400px;
       margin: 0 auto;
       padding: 0 24px;
     }
     
     /* Header */
-    .header {
+    .Lubna-header {
       background: linear-gradient(135deg, rgba(239, 225, 181, 0.98), rgba(205, 184, 133, 0.95));
-      border-bottom: 3px solid var(--brown);
+      border-bottom: 3px solid var(--Lubna-brown);
       box-shadow: 0 12px 40px rgba(110, 80, 52, 0.25);
       position: sticky;
       top: 0;
       z-index: 1000;
     }
     
-    .header-content {
+    .Lubna-header-content {
       display: flex;
       align-items: center;
       justify-content: space-between;
@@ -55,7 +55,7 @@
       margin-left: 5%;
     }
     
-    .header-content::before {
+    .Lubna-header-content::before {
       content: "";
       position: absolute;
       top: 0;
@@ -64,13 +64,13 @@
       height: 4px;
       background: linear-gradient(90deg, 
         transparent 0%, 
-        var(--gold-light) 15%, 
-        var(--gold) 50%, 
-        var(--gold-light) 85%, 
+        var(--Lubna-gold-light) 15%, 
+        var(--Lubna-gold) 50%, 
+        var(--Lubna-gold-light) 85%, 
         transparent 100%);
     }
     
-    .logo {
+    .Lubna-logo {
       display: flex;
       align-items: center;
       gap: 22px;
@@ -82,38 +82,38 @@
       box-shadow: 0 8px 32px rgba(110, 80, 52, 0.15);
     }
     
-    .logo img {
+    .Lubna-logo img {
       width: 60px;
       height: 60px;
       border-radius: 16px;
       object-fit: cover;
-      border: 2px solid var(--gold-light);
+      border: 2px solid var(--Lubna-gold-light);
     }
     
-    .logo-text {
+    .Lubna-logo-text {
       display: flex;
       flex-direction: column;
     }
     
-    .brand {
+    .Lubna-brand {
       font-size: 28px;
       font-weight: 800;
-      background: linear-gradient(135deg, var(--brown), var(--dark));
+      background: linear-gradient(135deg, var(--Lubna-brown), var(--Lubna-dark));
       -webkit-background-clip: text;
       -webkit-text-fill-color: transparent;
       letter-spacing: 1px;
     }
     
-    .tagline {
+    .Lubna-tagline {
       font-size: 11px;
       font-weight: 700;
       letter-spacing: 3px;
-      color: var(--brown);
+      color: var(--Lubna-brown);
       text-transform: uppercase;
       margin-top: 4px;
     }
     
-    .-nav {
+    .Lubna-nav {
       display: flex;
       align-items: center;
       gap: 8px;
@@ -123,90 +123,90 @@
       border: 1px solid rgba(239, 225, 181, 0.4);
     }
     
-    .nav-link {
+    .Lubna-nav-link {
       text-decoration: none;
       font-size: 15px;
       font-weight: 600;
-      color: var(--brown);
+      color: var(--Lubna-brown);
       padding: 12px 20px;
       border-radius: 20px;
       transition: all 0.25s ease;
     }
     
-    .nav-link:hover {
+    .Lubna-nav-link:hover {
       background: rgba(239, 225, 181, 0.4);
-      color: var(--dark);
+      color: var(--Lubna-dark);
     }
     
-    .nav-link.active {
-      background: linear-gradient(135deg, var(--gold-light), var(--gold));
-      color: var(--dark);
+    .Lubna-nav-link.active {
+      background: linear-gradient(135deg, var(--Lubna-gold-light), var(--Lubna-gold));
+      color: var(--Lubna-dark);
       font-weight: 700;
       box-shadow: 0 4px 12px rgba(110, 80, 52, 0.2);
     }
     
     /* Admin Content */
-    .admin-content {
+    .Lubna-admin-content {
       padding: 40px 0;
     }
     
-    .admin-grid {
+    .Lubna-admin-grid {
       display: grid;
       gap: 30px;
     }
     
     /* Cards */
-    .card {
+    .Lubna-card {
       background: white;
       border-radius: 24px;
       padding: 30px;
       box-shadow: 0 8px 32px rgba(110, 80, 52, 0.08);
-      border: 1px solid var(--border);
+      border: 1px solid var(--Lubna-border);
     }
     
-    .card-title {
+    .Lubna-card-title {
       font-size: 24px;
       font-weight: 700;
-      color: var(--dark);
+      color: var(--Lubna-dark);
       margin-bottom: 20px;
       padding-bottom: 12px;
-      border-bottom: 2px solid var(--gold-light);
+      border-bottom: 2px solid var(--Lubna-gold-light);
     }
     
-    .card-subtitle {
+    .Lubna-card-subtitle {
       font-size: 18px;
       font-weight: 600;
-      color: var(--brown);
+      color: var(--Lubna-brown);
       margin-bottom: 20px;
     }
     
     /* Welcome Section */
-    .welcome-section {
+    .Lubna-welcome-section {
       display: flex;
       justify-content: space-between;
       align-items: center;
     }
     
-    .welcome-text h1 {
+    .Lubna-welcome-text h1 {
       font-size: 32px;
       font-weight: 800;
-      color: var(--dark);
+      color: var(--Lubna-dark);
       margin-bottom: 8px;
     }
     
-    .welcome-text h1 span {
-      background: linear-gradient(135deg, var(--brown), var(--dark));
+    .Lubna-welcome-text h1 span {
+      background: linear-gradient(135deg, var(--Lubna-brown), var(--Lubna-dark));
       -webkit-background-clip: text;
       -webkit-text-fill-color: transparent;
     }
     
-    .welcome-text p {
+    .Lubna-welcome-text p {
       color: #666;
       font-size: 16px;
     }
     
     /* Buttons */
-    .btn {
+    .Lubna-btn {
       display: inline-flex;
       align-items: center;
       justify-content: center;
@@ -220,96 +220,96 @@
       transition: all 0.25s ease;
     }
     
-    .btn-primary {
-      background: linear-gradient(135deg, var(--brown), var(--dark));
-      color: var(--gold-light);
-      border: 1px solid var(--gold);
+    .Lubna-btn-primary {
+      background: linear-gradient(135deg, var(--Lubna-brown), var(--Lubna-dark));
+      color: var(--Lubna-gold-light);
+      border: 1px solid var(--Lubna-gold);
     }
     
-    .btn-primary:hover {
+    .Lubna-btn-primary:hover {
       transform: translateY(-2px);
       box-shadow: 0 8px 24px rgba(110, 80, 52, 0.3);
     }
     
-    .btn-outline {
+    .Lubna-btn-outline {
       background: transparent;
-      color: var(--brown);
-      border: 2px solid var(--gold);
+      color: var(--Lubna-brown);
+      border: 2px solid var(--Lubna-gold);
     }
     
-    .btn-outline:hover {
+    .Lubna-btn-outline:hover {
       background: rgba(205, 184, 133, 0.1);
     }
     
     /* Info Grid */
-    .info-grid {
+    .Lubna-info-grid {
       display: grid;
       grid-template-columns: 1fr 2fr;
       gap: 16px;
       margin-bottom: 24px;
     }
     
-    .info-item {
+    .Lubna-info-item {
       padding: 16px;
       background: rgba(239, 225, 181, 0.1);
       border-radius: 16px;
-      border: 1px solid var(--border);
+      border: 1px solid var(--Lubna-border);
     }
     
-    .info-label {
+    .Lubna-info-label {
       font-weight: 600;
-      color: var(--brown);
+      color: var(--Lubna-brown);
       font-size: 14px;
       margin-bottom: 8px;
     }
     
-    .info-value {
+    .Lubna-info-value {
       font-size: 16px;
-      color: var(--dark);
+      color: var(--Lubna-dark);
     }
     
     /* Tables */
-    .table-responsive {
+    .Lubna-table-responsive {
       overflow-x: auto;
       border-radius: 16px;
-      border: 1px solid var(--border);
+      border: 1px solid var(--Lubna-border);
     }
     
-    .table {
+    .Lubna-table {
       width: 100%;
       border-collapse: collapse;
       min-width: 800px;
     }
     
-    .table th {
+    .Lubna-table th {
       background: linear-gradient(135deg, rgba(239, 225, 181, 0.3), rgba(205, 184, 133, 0.2));
-      color: var(--brown);
+      color: var(--Lubna-brown);
       font-weight: 600;
       text-align: left;
       padding: 20px;
-      border-bottom: 2px solid var(--gold);
+      border-bottom: 2px solid var(--Lubna-gold);
       font-size: 14px;
       text-transform: uppercase;
       letter-spacing: 0.5px;
     }
     
-    .table td {
+    .Lubna-table td {
       padding: 20px;
-      border-bottom: 1px solid var(--border);
+      border-bottom: 1px solid var(--Lubna-border);
       vertical-align: top;
     }
     
-    .table tr:last-child td {
+    .Lubna-table tr:last-child td {
       border-bottom: none;
     }
     
-    .table tr:hover {
+    .Lubna-table tr:hover {
       background: rgba(239, 225, 181, 0.05);
     }
     
     /* Recipe Link */
-    .recipe-link {
-      color: var(--brown);
+    .Lubna-recipe-link {
+      color: var(--Lubna-brown);
       text-decoration: none;
       font-weight: 600;
       font-size: 16px;
@@ -317,12 +317,12 @@
       margin-bottom: 8px;
     }
     
-    .recipe-link:hover {
+    .Lubna-recipe-link:hover {
       text-decoration: underline;
-      color: var(--dark);
+      color: var(--Lubna-dark);
     }
     
-    .report-reason {
+    .Lubna-report-reason {
       font-size: 14px;
       color: #666;
       background: rgba(110, 80, 52, 0.05);
@@ -333,80 +333,80 @@
     }
     
     /* User Info */
-    .user-info {
+    .Lubna-user-info {
       display: flex;
       align-items: center;
       gap: 16px;
     }
     
-    .user-avatar {
+    .Lubna-user-avatar {
       width: 56px;
       height: 56px;
       border-radius: 16px;
       object-fit: cover;
-      border: 2px solid var(--gold-light);
+      border: 2px solid var(--Lubna-gold-light);
     }
     
-    .user-name {
+    .Lubna-user-name {
       font-weight: 600;
-      color: var(--dark);
+      color: var(--Lubna-dark);
       margin-bottom: 4px;
     }
     
-    .user-email {
+    .Lubna-user-email {
       font-size: 14px;
       color: #666;
     }
     
     /* Action Form */
-    .action-form {
+    .Lubna-action-form {
       background: rgba(239, 225, 181, 0.1);
       padding: 20px;
       border-radius: 16px;
-      border: 1px solid var(--border);
+      border: 1px solid var(--Lubna-border);
     }
     
-    .radio-group {
+    .Lubna-radio-group {
       display: flex;
       flex-direction: column;
       gap: 12px;
       margin-bottom: 20px;
     }
     
-    .radio-label {
+    .Lubna-radio-label {
       display: flex;
       align-items: center;
       gap: 12px;
       cursor: pointer;
       font-size: 15px;
-      color: var(--dark);
+      color: var(--Lubna-dark);
     }
     
-    .radio-label input[type="radio"] {
-      accent-color: var(--brown);
+    .Lubna-radio-label input[type="radio"] {
+      accent-color: var(--Lubna-brown);
       width: 18px;
       height: 18px;
     }
     
     /* Sample Data Note */
-    .sample-note {
+    .Lubna-sample-note {
       background: rgba(239, 225, 181, 0.2);
-      border-left: 4px solid var(--gold);
+      border-left: 4px solid var(--Lubna-gold);
       padding: 16px;
       border-radius: 12px;
       margin-top: 20px;
       font-size: 14px;
-      color: var(--brown);
+      color: var(--Lubna-brown);
     }
     
     footer {
-      background-color: var(--bg-lighter);
-      border-top: 1px solid var(--border-light);
+      background-color: var(--Lubna-bg-lighter);
+      border-top: 1px solid var(--Lubna-border-light);
       padding: 3.5rem 5% 1.8rem;
       margin-top: auto;
     }
     
-    .footer-container {
+    .Lubna-footer-container {
       max-width: 1400px;
       margin: 0 auto;
       display: grid;
@@ -415,41 +415,41 @@
       margin-bottom: 3rem;
     }
     
-    .footer-section h3 {
-      color: var(--primary-dark);
+    .Lubna-footer-section h3 {
+      color: var(--Lubna-primary-dark);
       font-size: 1.6rem;
       margin-bottom: 1.8rem;
       position: relative;
       padding-bottom: 1rem;
     }
     
-    .footer-section h3::after {
+    .Lubna-footer-section h3::after {
       content: "";
       position: absolute;
       width: 70px;
       height: 3px;
-      background: linear-gradient(to left, var(--primary-gold), var(--primary-light));
+      background: linear-gradient(to left, var(--Lubna-primary-gold), var(--Lubna-primary-light));
       bottom: 0;
       right: 0;
       border-radius: 2px;
     }
     
-    .footer-section p {
-      color: var(--text-light);
+    .Lubna-footer-section p {
+      color: var(--Lubna-text-light);
       font-size: 1.1rem;
       margin-bottom: 1.5rem;
     }
     
-    .footer-links {
+    .Lubna-footer-links {
       list-style: none;
     }
     
-    .footer-links li {
+    .Lubna-footer-links li {
       margin-bottom: 1rem;
     }
     
-    .footer-links a {
-      color: var(--text-medium);
+    .Lubna-footer-links a {
+      color: var(--Lubna-text-medium);
       text-decoration: none;
       transition: all 0.3s ease;
       display: flex;
@@ -458,85 +458,85 @@
       padding: 0.4rem 0;
     }
     
-    .footer-links a:hover {
-      color: var(--primary-dark);
+    .Lubna-footer-links a:hover {
+      color: var(--Lubna-primary-dark);
       padding-right: 10px;
     }
     
-    .footer-links a::before {
+    .Lubna-footer-links a::before {
       content: "❯";
-      color: var(--primary-gold);
+      color: var(--Lubna-primary-gold);
       font-size: 1.1rem;
       transition: transform 0.3s ease;
     }
     
-    .footer-links a:hover::before {
+    .Lubna-footer-links a:hover::before {
       transform: translateX(-5px);
     }
     
   </style>
 </head>
 <body>
-  <!-- 1. Header with Navigation -->
-  <header class="header">
-    <div class="container header-content">
-      <a href="index.html" class="logo">
+  <!-- 1. Lubna Header with Navigation -->
+  <header class="Lubna-header">
+    <div class="Lubna-container Lubna-header-content">
+      <a href="index.html" class="Lubna-logo">
         <img src="img/logo.jpg" alt="Sillage Logo">
-        <div class="logo-text">
-          <span class="brand">Sillage</span>
-          <span class="tagline">ADMIN DASHBOARD</span>
+        <div class="Lubna-logo-text">
+          <span class="Lubna-brand">Sillage</span>
+          <span class="Lubna-tagline">ADMIN DASHBOARD</span>
         </div>
       </a>
       
-      <nav class="-nav">
-        <a href="index.html" class="nav-link">Home</a>
-        <a href="#" class="nav-link">Collections</a>
-        <a href="#" class="nav-link">Users</a>
-        <a href="AdminPage.html" class="nav-link active">Reports</a>
+      <nav class="Lubna-nav">
+        <a href="index.html" class="Lubna-nav-link">Home</a>
+        <a href="#" class="Lubna-nav-link">Collections</a>
+        <a href="#" class="Lubna-nav-link">Users</a>
+        <a href="AdminPage.html" class="Lubna-nav-link active">Reports</a>
       </nav>
     </div>
   </header>
 
-  <main class="container admin-content">
-    <!-- 2. Welcome Note -->
-    <section class="card welcome-section">
-      <div class="welcome-text">
-        <h1>Welcome, <span id="adminName">Lubna</span> 👋</h1>
+  <main class="Lubna-container Lubna-admin-content">
+    <!-- 2. Lubna Welcome Note -->
+    <section class="Lubna-card Lubna-welcome-section">
+      <div class="Lubna-welcome-text">
+        <h1>Welcome, <span id="Lubna-adminName">Lubna</span> 👋</h1>
         <p>Manage reported recipes and user accounts from this dashboard</p>
       </div>
       
     </section>
 
-    <!-- 3. Admin Information -->
-    <section class="card">
-      <h2 class="card-title">Admin Information</h2>
-      <div class="info-grid">
-        <div class="info-item">
-          <div class="info-label">Full Name</div>
-          <div class="info-value">Lubna AlQifari</div>
+    <!-- 3. Lubna Admin Information -->
+    <section class="Lubna-card">
+      <h2 class="Lubna-card-title">Admin Information</h2>
+      <div class="Lubna-info-grid">
+        <div class="Lubna-info-item">
+          <div class="Lubna-info-label">Full Name</div>
+          <div class="Lubna-info-value">Lubna AlQifari</div>
         </div>
-        <div class="info-item">
-          <div class="info-label">Email Address</div>
-          <div class="info-value">Lubna.g19@gmail.com</div>
+        <div class="Lubna-info-item">
+          <div class="Lubna-info-label">Email Address</div>
+          <div class="Lubna-info-value">Lubna.g19@gmail.com</div>
         </div>
-        <div class="info-item">
-          <div class="info-label">Role</div>
-          <div class="info-value">System Administrator</div>
+        <div class="Lubna-info-item">
+          <div class="Lubna-info-label">Role</div>
+          <div class="Lubna-info-value">System Administrator</div>
         </div>
-        <div class="info-item">
-          <div class="info-label">Last Login</div>
-          <div class="info-value">Today, 09:45 AM</div>
+        <div class="Lubna-info-item">
+          <div class="Lubna-info-label">Last Login</div>
+          <div class="Lubna-info-value">Today, 09:45 AM</div>
         </div>
       </div>
     </section>
 
-    <!-- 4. Pending Recipe Reports Table -->
-    <section class="card">
-      <h2 class="card-title"> Pending Recipe Reports</h2>
-      <p class="card-subtitle">Review and take action on reported recipes</p>
+    <!-- 4. Lubna Pending Recipe Reports Table -->
+    <section class="Lubna-card">
+      <h2 class="Lubna-card-title"> Pending Recipe Reports</h2>
+      <p class="Lubna-card-subtitle">Review and take action on reported recipes</p>
       
-      <div class="table-responsive">
-        <table class="table">
+      <div class="Lubna-table-responsive">
+        <table class="Lubna-table">
           <thead>
             <tr>
               <th>Recipe Name</th>
@@ -545,130 +545,130 @@
             </tr>
           </thead>
           <tbody>
-            <!-- Report 1 -->
+            <!-- Lubna Report 1 -->
             <tr>
               <td>
-                <a href="MyRecipes.html" class="recipe-link">Midnight Oud & Rose</a>
-                <div class="report-reason">Inappropriate content: Contains misleading cultural references</div>
+                <a href="MyRecipes.html" class="Lubna-recipe-link">Midnight Oud & Rose</a>
+                <div class="Lubna-report-reason">Inappropriate content: Contains misleading cultural references</div>
               </td>
               <td>
-                <div class="user-info">
-                  <img src="https://via.placeholder.com/56x56/efe1b5/6e5034?text=RA" alt="Raghad" class="user-avatar">
+                <div class="Lubna-user-info">
+                  <img src="https://via.placeholder.com/56x56/efe1b5/6e5034?text=RA" alt="Raghad" class="Lubna-user-avatar">
                   <div>
-                    <div class="user-name">Raghad Al-Harbi</div>
-                    <div class="user-email">raghad.perfumes@example.com</div>
+                    <div class="Lubna-user-name">Raghad Al-Harbi</div>
+                    <div class="Lubna-user-email">raghad.perfumes@example.com</div>
                   </div>
                 </div>
               </td>
               <td>
-                <form class="action-form" action="AdminPage.html" method="GET">
-                  <div class="radio-group">
-                    <label class="radio-label">
-                      <input type="radio" name="action1" value="block" checked>
+                <form class="Lubna-action-form" action="AdminPage.html" method="GET">
+                  <div class="Lubna-radio-group">
+                    <label class="Lubna-radio-label">
+                      <input type="radio" name="Lubnaaction1" value="block" checked>
                       Block User (Confirm Report)
                     </label>
-                    <label class="radio-label">
-                      <input type="radio" name="action1" value="dismiss">
+                    <label class="Lubna-radio-label">
+                      <input type="radio" name="Lubnaaction1" value="dismiss">
                       Dismiss Report (False Report)
                     </label>
                   </div>
-                  <button type="submit" class="btn btn-primary">Submit Action</button>
+                  <button type="submit" class="Lubna-btn Lubna-btn-primary">Submit Action</button>
                 </form>
               </td>
             </tr>
             
-            <!-- Report 2 -->
+            <!-- Lubna Report 2 -->
             <tr>
               <td>
-                <a href="MyRecipes.html" class="recipe-link">Arabian Nights Musk Blend</a>
-                <div class="report-reason">Spam: Duplicate recipe posted multiple times</div>
+                <a href="MyRecipes.html" class="Lubna-recipe-link">Arabian Nights Musk Blend</a>
+                <div class="Lubna-report-reason">Spam: Duplicate recipe posted multiple times</div>
               </td>
               <td>
-                <div class="user-info">
-                  <img src="https://via.placeholder.com/56x56/cdb885/6e5034?text=FA" alt="Faisal" class="user-avatar">
+                <div class="Lubna-user-info">
+                  <img src="https://via.placeholder.com/56x56/cdb885/6e5034?text=FA" alt="Faisal" class="Lubna-user-avatar">
                   <div>
-                    <div class="user-name">Faisal Al-Otaibi</div>
-                    <div class="user-email">faisal.oud@example.com</div>
+                    <div class="Lubna-user-name">Faisal Al-Otaibi</div>
+                    <div class="Lubna-user-email">faisal.oud@example.com</div>
                   </div>
                 </div>
               </td>
               <td>
-                <form class="action-form" action="AdminPage.html" method="GET">
-                  <div class="radio-group">
-                    <label class="radio-label">
-                      <input type="radio" name="action2" value="block">
+                <form class="Lubna-action-form" action="AdminPage.html" method="GET">
+                  <div class="Lubna-radio-group">
+                    <label class="Lubna-radio-label">
+                      <input type="radio" name="Lubnaaction2" value="block">
                       Block User (Confirm Report)
                     </label>
-                    <label class="radio-label">
-                      <input type="radio" name="action2" value="dismiss" checked>
+                    <label class="Lubna-radio-label">
+                      <input type="radio" name="Lubnaaction2" value="dismiss" checked>
                       Dismiss Report (False Report)
                     </label>
                   </div>
-                  <button type="submit" class="btn btn-primary">Submit Action</button>
+                  <button type="submit" class="Lubna-btn Lubna-btn-primary">Submit Action</button>
                 </form>
               </td>
             </tr>
             
-            <!-- Report 3 -->
+            <!-- Lubna Report 3 -->
             <tr>
               <td>
-                <a href="MyRecipes.html" class="recipe-link">"Immortal" Ambergris Formula</a>
-                <div class="report-reason">Misleading claims: False advertising of rare ingredients</div>
+                <a href="MyRecipes.html" class="Lubna-recipe-link">"Immortal" Ambergris Formula</a>
+                <div class="Lubna-report-reason">Misleading claims: False advertising of rare ingredients</div>
               </td>
               <td>
-                <div class="user-info">
-                  <img src="https://via.placeholder.com/56x56/6e5034/efe1b5?text=NA" alt="Norah" class="user-avatar">
+                <div class="Lubna-user-info">
+                  <img src="https://via.placeholder.com/56x56/6e5034/efe1b5?text=NA" alt="Norah" class="Lubna-user-avatar">
                   <div>
-                    <div class="user-name">Norah Al-Shammari</div>
-                    <div class="user-email">norah.perfumer@example.com</div>
+                    <div class="Lubna-user-name">Norah Al-Shammari</div>
+                    <div class="Lubna-user-email">norah.perfumer@example.com</div>
                   </div>
                 </div>
               </td>
               <td>
-                <form class="action-form" action="AdminPage.html" method="GET">
-                  <div class="radio-group">
-                    <label class="radio-label">
-                      <input type="radio" name="action3" value="block" checked>
+                <form class="Lubna-action-form" action="AdminPage.html" method="GET">
+                  <div class="Lubna-radio-group">
+                    <label class="Lubna-radio-label">
+                      <input type="radio" name="Lubnaaction3" value="block" checked>
                       Block User (Confirm Report)
                     </label>
-                    <label class="radio-label">
-                      <input type="radio" name="action3" value="dismiss">
+                    <label class="Lubna-radio-label">
+                      <input type="radio" name="Lubnaaction3" value="dismiss">
                       Dismiss Report (False Report)
                     </label>
                   </div>
-                  <button type="submit" class="btn btn-primary">Submit Action</button>
+                  <button type="submit" class="Lubna-btn Lubna-btn-primary">Submit Action</button>
                 </form>
               </td>
             </tr>
             
-            <!-- Report 4 -->
+            <!-- Lubna Report 4 -->
             <tr>
               <td>
-                <a href="MyRecipes.html" class="recipe-link">Summer Citrus Eau de Parfum</a>
-                <div class="report-reason">Copyright: Uses proprietary brand name without permission</div>
+                <a href="MyRecipes.html" class="Lubna-recipe-link">Summer Citrus Eau de Parfum</a>
+                <div class="Lubna-report-reason">Copyright: Uses proprietary brand name without permission</div>
               </td>
               <td>
-                <div class="user-info">
-                  <img src="https://via.placeholder.com/56x56/2b1c12/efe1b5?text=MA" alt="Majed" class="user-avatar">
+                <div class="Lubna-user-info">
+                  <img src="https://via.placeholder.com/56x56/2b1c12/efe1b5?text=MA" alt="Majed" class="Lubna-user-avatar">
                   <div>
-                    <div class="user-name">Majed Al-Ghamdi</div>
-                    <div class="user-email">majed.scents@example.com</div>
+                    <div class="Lubna-user-name">Majed Al-Ghamdi</div>
+                    <div class="Lubna-user-email">majed.scents@example.com</div>
                   </div>
                 </div>
               </td>
               <td>
-                <form class="action-form" action="AdminPage.html" method="GET">
-                  <div class="radio-group">
-                    <label class="radio-label">
-                      <input type="radio" name="action4" value="block">
+                <form class="Lubna-action-form" action="AdminPage.html" method="GET">
+                  <div class="Lubna-radio-group">
+                    <label class="Lubna-radio-label">
+                      <input type="radio" name="Lubnaaction4" value="block">
                       Block User (Confirm Report)
                     </label>
-                    <label class="radio-label">
-                      <input type="radio" name="action4" value="dismiss" checked>
+                    <label class="Lubna-radio-label">
+                      <input type="radio" name="Lubnaaction4" value="dismiss" checked>
                       Dismiss Report (False Report)
                     </label>
                   </div>
-                  <button type="submit" class="btn btn-primary">Submit Action</button>
+                  <button type="submit" class="Lubna-btn Lubna-btn-primary">Submit Action</button>
                 </form>
               </td>
             </tr>
@@ -679,13 +679,13 @@
 
     </section>
 
-    <!-- 5. Blocked Users Table -->
-    <section class="card">
-      <h2 class="card-title">Blocked Users List</h2>
-      <p class="card-subtitle">Users who have been blocked from the system</p>
+    <!-- 5. Lubna Blocked Users Table -->
+    <section class="Lubna-card">
+      <h2 class="Lubna-card-title">Blocked Users List</h2>
+      <p class="Lubna-card-subtitle">Users who have been blocked from the system</p>
       
-      <div class="table-responsive">
-        <table class="table">
+      <div class="Lubna-table-responsive">
+        <table class="Lubna-table">
           <thead>
             <tr>
               <th>Name</th>
@@ -697,9 +697,9 @@
           <tbody>
             <tr>
               <td>
-                <div class="user-info">
-                  <img src="https://via.placeholder.com/40x40/6e5034/efe1b5?text=HA" alt="Hind" class="user-avatar" style="width: 40px; height: 40px;">
-                  <div class="user-name">Hind Al-Mutairi</div>
+                <div class="Lubna-user-info">
+                  <img src="https://via.placeholder.com/40x40/6e5034/efe1b5?text=HA" alt="Hind" class="Lubna-user-avatar" style="width: 40px; height: 40px;">
+                  <div class="Lubna-user-name">Hind Al-Mutairi</div>
                 </div>
               </td>
               <td>hind.perfumes@example.com</td>
@@ -709,9 +709,9 @@
             
             <tr>
               <td>
-                <div class="user-info">
-                  <img src="https://via.placeholder.com/40x40/cdb885/6e5034?text=SA" alt="Saud" class="user-avatar" style="width: 40px; height: 40px;">
-                  <div class="user-name">Saud Al-Ghamdi</div>
+                <div class="Lubna-user-info">
+                  <img src="https://via.placeholder.com/40x40/cdb885/6e5034?text=SA" alt="Saud" class="Lubna-user-avatar" style="width: 40px; height: 40px;">
+                  <div class="Lubna-user-name">Saud Al-Ghamdi</div>
                 </div>
               </td>
               <td>saud.oudlover@example.com</td>
@@ -721,9 +721,9 @@
             
             <tr>
               <td>
-                <div class="user-info">
-                  <img src="https://via.placeholder.com/40x40/efe1b5/6e5034?text=KA" alt="Khalid" class="user-avatar" style="width: 40px; height: 40px;">
-                  <div class="user-name">Khalid Al-Rashidi</div>
+                <div class="Lubna-user-info">
+                  <img src="https://via.placeholder.com/40x40/efe1b5/6e5034?text=KA" alt="Khalid" class="Lubna-user-avatar" style="width: 40px; height: 40px;">
+                  <div class="Lubna-user-name">Khalid Al-Rashidi</div>
                 </div>
               </td>
               <td>khalid.scents@example.com</td>
@@ -733,9 +733,9 @@
             
             <tr>
               <td>
-                <div class="user-info">
-                  <img src="https://via.placeholder.com/40x40/2b1c12/efe1b5?text=LA" alt="Layla" class="user-avatar" style="width: 40px; height: 40px;">
-                  <div class="user-name">Layla Al-Turki</div>
+                <div class="Lubna-user-info">
+                  <img src="https://via.placeholder.com/40x40/2b1c12/efe1b5?text=LA" alt="Layla" class="Lubna-user-avatar" style="width: 40px; height: 40px;">
+                  <div class="Lubna-user-name">Layla Al-Turki</div>
                 </div>
               </td>
               <td>layla.fragrance@example.com</td>
@@ -749,31 +749,31 @@
       
     </section>
     
-    <!-- 6. Sign Out Section (Additional) -->
-    <section class="card" style="text-align: center;">
-      <h2 class="card-title">Session Management</h2>
+    <!-- 6. Lubna Sign Out Section (Additional) -->
+    <section class="Lubna-card" style="text-align: center;">
+      <h2 class="Lubna-card-title">Session Management</h2>
       <p style="margin-bottom: 24px; color: #666;">Ready to leave the admin dashboard?</p>
-      <a href="SystemHomepage.html" class="btn btn-primary" style="padding: 16px 48px; font-size: 18px;">
+      <a href="SystemHomepage.html" class="Lubna-btn Lubna-btn-primary" style="padding: 16px 48px; font-size: 18px;">
         Sign Out of Admin Account
       </a>
     </section>
   </main>
 <footer>
-  <div class="footer-container">
-    <div class="footer-section">
+  <div class="Lubna-footer-container">
+    <div class="Lubna-footer-section">
       <h3>Luxury Perfumes</h3>
       <p>We offer the finest unique perfumes. We always search for distinctive scents that express your personality.</p>
-      <div class="social-links">
-        <a href="#" class="social-link"><i class="fab fa-facebook-f"></i></a>
-        <a href="#" class="social-link"><i class="fab fa-instagram"></i></a>
-        <a href="#" class="social-link"><i class="fab fa-twitter"></i></a>
-        <a href="#" class="social-link"><i class="fab fa-youtube"></i></a>
+      <div class="Lubna-social-links">
+        <a href="#" class="Lubna-social-link"><i class="fab fa-facebook-f"></i></a>
+        <a href="#" class="Lubna-social-link"><i class="fab fa-instagram"></i></a>
+        <a href="#" class="Lubna-social-link"><i class="fab fa-twitter"></i></a>
+        <a href="#" class="Lubna-social-link"><i class="fab fa-youtube"></i></a>
       </div>
     </div>
     
-    <div class="footer-section">
+    <div class="Lubna-footer-section">
       <h3>Quick Links</h3>
-      <ul class="footer-links">
+      <ul class="Lubna-footer-links">
         <li><a href="#">Home</a></li>
         <li><a href="#">Our Products</a></li>
         <li><a href="#">Women's Perfumes</a></li>
@@ -783,9 +783,9 @@
       </ul>
     </div>
     
-    <div class="footer-section">
+    <div class="Lubna-footer-section">
       <h3>Contact Information</h3>
-      <ul class="contact-info">
+      <ul class="Lubna-contact-info">
         <li>
           <i class="fas fa-map-marker-alt"></i>
           <span>Perfume Street, Riyadh, Kingdom of Saudi Arabia</span>
@@ -806,17 +806,17 @@
     </div>
   </div>
   
-  <div class="copyright">
+  <div class="Lubna-copyright">
     All rights reserved © 2023 Luxury Perfumes Website | Designed using the specified colors (#6e5034, #cdb885, #efe1b5)
   </div>
 </footer>
 
   <script>
     // Set current year
-    document.getElementById('currentYear').textContent = new Date().getFullYear();
+    document.getElementById('Lubna-currentYear').textContent = new Date().getFullYear();
     
     // Form submission handler (non-functional in Phase 1)
-    document.querySelectorAll('.action-form').forEach(form => {
+    document.querySelectorAll('.Lubna-action-form').forEach(form => {
       form.addEventListener('submit', function(e) {
         e.preventDefault();
         alert('Form submission is non-functional in Phase 1.\nIn Phase 2, this will process the action via PHP.');
@@ -826,7 +826,7 @@
     });
     
     // Highlight active form radio buttons
-    document.querySelectorAll('.radio-label input[type="radio"]').forEach(radio => {
+    document.querySelectorAll('.Lubna-radio-label input[type="radio"]').forEach(radio => {
       radio.addEventListener('change', function() {
         // Remove active class from all labels in this group
         const groupName = this.name;

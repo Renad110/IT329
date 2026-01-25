@@ -1,711 +1,848 @@
 <!DOCTYPE html>
-<html lang="ar" dir="rtl">
+<html lang="en" dir="ltr">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>عطور فاخرة | موقع عطور</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Sillage | Lubna Admin Dashboard</title>
+  
+  <!-- Base Styles -->
   <style>
-    /* إعادة تعيين الأساسيات */
     * {
       margin: 0;
       padding: 0;
       box-sizing: border-box;
-      font-family: 'Cairo', 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
     }
     
-    /* المتغيرات للألوان */
     :root {
-      --primary-dark: #6e5034;
-      --primary-gold: #cdb885;
-      --primary-light: #efe1b5;
-      --dark-bg: #1a1208;
-      --darker-bg: #140c04;
-      --card-bg: #241a0f;
-      --text-light: #f5f1e8;
-      --text-gold: #e6d19c;
-      --accent: #8a6c47;
-      --shadow-dark: rgba(0, 0, 0, 0.4);
-      --shadow-gold: rgba(205, 184, 133, 0.3);
+      --Lubna-gold-light: #efe1b5;
+      --Lubna-gold: #cdb885;
+      --Lubna-brown: #6e5034;
+      --Lubna-dark: #2b1c12;
+      --Lubna-light: #f9f7f2;
+      --Lubna-border: rgba(110, 80, 52, 0.15);
     }
     
     body {
-      background-color: var(--dark-bg);
-      color: var(--text-light);
-      direction: rtl;
-      min-height: 100vh;
-      display: flex;
-      flex-direction: column;
+      background-color: var(--Lubna-light);
+      color: var(--Lubna-dark);
       line-height: 1.6;
     }
     
-    /* الهيدر - تصميم داكن مع ذهبي */
-    header {
-      background-color: var(--darker-bg);
-      border-bottom: 3px solid var(--primary-gold);
-      padding: 0.8rem 5%;
-      box-shadow: 0 6px 20px var(--shadow-dark);
+    /* Container */
+    .Lubna-container {
+      max-width: 1400px;
+      margin: 0 auto;
+      padding: 0 24px;
+    }
+    
+    /* Header */
+    .Lubna-header {
+      background: linear-gradient(135deg, rgba(239, 225, 181, 0.98), rgba(205, 184, 133, 0.95));
+      border-bottom: 3px solid var(--Lubna-brown);
+      box-shadow: 0 12px 40px rgba(110, 80, 52, 0.25);
       position: sticky;
       top: 0;
       z-index: 1000;
     }
     
-    .header-container {
+    .Lubna-header-content {
       display: flex;
+      align-items: center;
       justify-content: space-between;
-      align-items: center;
-      max-width: 1400px;
-      margin: 0 auto;
-    }
-    
-    .logo {
-      font-size: 2rem;
-      font-weight: 800;
-      color: var(--primary-gold);
-      text-decoration: none;
-      display: flex;
-      align-items: center;
-      gap: 12px;
-      text-shadow: 0 2px 4px var(--shadow-dark);
-    }
-    
-    .logo-icon {
-      width: 50px;
-      height: 50px;
-      background: linear-gradient(135deg, var(--primary-gold), var(--primary-dark));
-      border-radius: 50%;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      border: 2px solid var(--primary-gold);
-      box-shadow: 0 0 15px var(--shadow-gold);
-    }
-    
-    .logo-icon::after {
-      content: "♡";
-      color: var(--darker-bg);
-      font-size: 1.8rem;
-      font-weight: bold;
-    }
-    
-    nav ul {
-      display: flex;
-      list-style: none;
-      gap: 1.8rem;
-    }
-    
-    nav a {
-      color: var(--text-light);
-      text-decoration: none;
-      font-weight: 600;
-      font-size: 1.1rem;
-      transition: all 0.3s ease;
-      padding: 0.6rem 1.2rem;
-      border-radius: 6px;
+      height: 90px;
       position: relative;
+      margin-left: 5%;
     }
     
-    nav a:hover {
-      color: var(--primary-gold);
-      background-color: rgba(205, 184, 133, 0.1);
-    }
-    
-    nav a.active {
-      color: var(--primary-gold);
-      background-color: rgba(110, 80, 52, 0.3);
-    }
-    
-    nav a::after {
-      content: "";
-      position: absolute;
-      bottom: -3px;
-      right: 20%;
-      width: 0;
-      height: 2px;
-      background-color: var(--primary-gold);
-      transition: width 0.3s ease;
-    }
-    
-    nav a:hover::after {
-      width: 60%;
-    }
-    
-    .header-actions {
-      display: flex;
-      gap: 1rem;
-    }
-    
-    .icon-button {
-      background: linear-gradient(135deg, var(--primary-gold), #b89f5f);
-      color: var(--darker-bg);
-      border: none;
-      width: 45px;
-      height: 45px;
-      border-radius: 50%;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      cursor: pointer;
-      font-size: 1.2rem;
-      transition: all 0.3s ease;
-      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
-    }
-    
-    .icon-button:hover {
-      background: linear-gradient(135deg, var(--primary-light), var(--primary-gold));
-      transform: translateY(-3px);
-      box-shadow: 0 6px 12px rgba(205, 184, 133, 0.4);
-    }
-    
-    /* المحتوى الرئيسي */
-    main {
-      flex: 1;
-      padding: 3rem 5%;
-      max-width: 1400px;
-      margin: 0 auto;
-      width: 100%;
-    }
-    
-    .hero-section {
-      background: linear-gradient(rgba(26, 18, 8, 0.9), rgba(26, 18, 8, 0.95)), 
-                  url('https://images.unsplash.com/photo-1541643600914-78b084683601?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80');
-      background-size: cover;
-      background-position: center;
-      border-radius: 16px;
-      padding: 4rem 3rem;
-      margin-bottom: 3rem;
-      border: 2px solid var(--primary-gold);
-      box-shadow: 0 10px 30px var(--shadow-dark);
-    }
-    
-    .hero-title {
-      color: var(--primary-gold);
-      font-size: 3rem;
-      margin-bottom: 1rem;
-      text-align: center;
-      text-shadow: 0 2px 10px rgba(0, 0, 0, 0.5);
-    }
-    
-    .hero-subtitle {
-      color: var(--text-light);
-      font-size: 1.4rem;
-      text-align: center;
-      max-width: 800px;
-      margin: 0 auto 2.5rem;
-    }
-    
-    .color-display {
-      display: flex;
-      justify-content: center;
-      gap: 2rem;
-      margin-top: 3rem;
-      flex-wrap: wrap;
-    }
-    
-    .color-card {
-      width: 180px;
-      height: 180px;
-      border-radius: 12px;
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      justify-content: center;
-      color: white;
-      box-shadow: 0 8px 20px rgba(0, 0, 0, 0.3);
-      border: 2px solid rgba(255, 255, 255, 0.1);
-      transition: all 0.3s ease;
-      position: relative;
-      overflow: hidden;
-    }
-    
-    .color-card:hover {
-      transform: translateY(-10px);
-      box-shadow: 0 15px 30px rgba(0, 0, 0, 0.4);
-    }
-    
-    .color-card.dark {
-      background-color: var(--primary-dark);
-      border-color: var(--primary-gold);
-    }
-    
-    .color-card.gold {
-      background-color: var(--primary-gold);
-      color: var(--darker-bg);
-      border-color: var(--primary-light);
-    }
-    
-    .color-card.light {
-      background-color: var(--primary-light);
-      color: var(--darker-bg);
-      border-color: var(--primary-gold);
-    }
-    
-    .color-card::before {
+    .Lubna-header-content::before {
       content: "";
       position: absolute;
       top: 0;
       left: 0;
       right: 0;
-      height: 5px;
-      background: rgba(255, 255, 255, 0.2);
+      height: 4px;
+      background: linear-gradient(90deg, 
+        transparent 0%, 
+        var(--Lubna-gold-light) 15%, 
+        var(--Lubna-gold) 50%, 
+        var(--Lubna-gold-light) 85%, 
+        transparent 100%);
     }
     
-    .color-code {
-      font-size: 1.5rem;
+    .Lubna-logo {
+      display: flex;
+      align-items: center;
+      gap: 22px;
+      text-decoration: none;
+      padding: 12px 24px;
+      border-radius: 20px;
+      background: rgba(255, 255, 255, 0.15);
+      border: 1px solid rgba(239, 225, 181, 0.5);
+      box-shadow: 0 8px 32px rgba(110, 80, 52, 0.15);
+    }
+    
+    .Lubna-logo img {
+      width: 60px;
+      height: 60px;
+      border-radius: 16px;
+      object-fit: cover;
+      border: 2px solid var(--Lubna-gold-light);
+    }
+    
+    .Lubna-logo-text {
+      display: flex;
+      flex-direction: column;
+    }
+    
+    .Lubna-brand {
+      font-size: 28px;
       font-weight: 800;
-      margin-bottom: 0.5rem;
-      font-family: monospace;
+      background: linear-gradient(135deg, var(--Lubna-brown), var(--Lubna-dark));
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      letter-spacing: 1px;
     }
     
-    .color-name {
-      font-size: 1.1rem;
+    .Lubna-tagline {
+      font-size: 11px;
+      font-weight: 700;
+      letter-spacing: 3px;
+      color: var(--Lubna-brown);
+      text-transform: uppercase;
+      margin-top: 4px;
+    }
+    
+    .Lubna-nav {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      background: rgba(255, 255, 255, 0.12);
+      padding: 8px;
+      border-radius: 24px;
+      border: 1px solid rgba(239, 225, 181, 0.4);
+    }
+    
+    .Lubna-nav-link {
+      text-decoration: none;
+      font-size: 15px;
       font-weight: 600;
+      color: var(--Lubna-brown);
+      padding: 12px 20px;
+      border-radius: 20px;
+      transition: all 0.25s ease;
     }
     
-    .content-grid {
+    .Lubna-nav-link:hover {
+      background: rgba(239, 225, 181, 0.4);
+      color: var(--Lubna-dark);
+    }
+    
+    .Lubna-nav-link.active {
+      background: linear-gradient(135deg, var(--Lubna-gold-light), var(--Lubna-gold));
+      color: var(--Lubna-dark);
+      font-weight: 700;
+      box-shadow: 0 4px 12px rgba(110, 80, 52, 0.2);
+    }
+    
+    /* Admin Content */
+    .Lubna-admin-content {
+      padding: 40px 0;
+    }
+    
+    .Lubna-admin-grid {
       display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-      gap: 2rem;
-      margin-top: 3rem;
+      gap: 30px;
     }
     
-    .content-card {
-      background-color: var(--card-bg);
+    /* Cards */
+    .Lubna-card {
+      background: white;
+      border-radius: 24px;
+      padding: 30px;
+      box-shadow: 0 8px 32px rgba(110, 80, 52, 0.08);
+      border: 1px solid var(--Lubna-border);
+    }
+    
+    .Lubna-card-title {
+      font-size: 24px;
+      font-weight: 700;
+      color: var(--Lubna-dark);
+      margin-bottom: 20px;
+      padding-bottom: 12px;
+      border-bottom: 2px solid var(--Lubna-gold-light);
+    }
+    
+    .Lubna-card-subtitle {
+      font-size: 18px;
+      font-weight: 600;
+      color: var(--Lubna-brown);
+      margin-bottom: 20px;
+    }
+    
+    /* Welcome Section */
+    .Lubna-welcome-section {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+    
+    .Lubna-welcome-text h1 {
+      font-size: 32px;
+      font-weight: 800;
+      color: var(--Lubna-dark);
+      margin-bottom: 8px;
+    }
+    
+    .Lubna-welcome-text h1 span {
+      background: linear-gradient(135deg, var(--Lubna-brown), var(--Lubna-dark));
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+    
+    .Lubna-welcome-text p {
+      color: #666;
+      font-size: 16px;
+    }
+    
+    /* Buttons */
+    .Lubna-btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      padding: 14px 28px;
+      border-radius: 20px;
+      font-size: 16px;
+      font-weight: 600;
+      text-decoration: none;
+      border: none;
+      cursor: pointer;
+      transition: all 0.25s ease;
+    }
+    
+    .Lubna-btn-primary {
+      background: linear-gradient(135deg, var(--Lubna-brown), var(--Lubna-dark));
+      color: var(--Lubna-gold-light);
+      border: 1px solid var(--Lubna-gold);
+    }
+    
+    .Lubna-btn-primary:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 8px 24px rgba(110, 80, 52, 0.3);
+    }
+    
+    .Lubna-btn-outline {
+      background: transparent;
+      color: var(--Lubna-brown);
+      border: 2px solid var(--Lubna-gold);
+    }
+    
+    .Lubna-btn-outline:hover {
+      background: rgba(205, 184, 133, 0.1);
+    }
+    
+    /* Info Grid */
+    .Lubna-info-grid {
+      display: grid;
+      grid-template-columns: 1fr 2fr;
+      gap: 16px;
+      margin-bottom: 24px;
+    }
+    
+    .Lubna-info-item {
+      padding: 16px;
+      background: rgba(239, 225, 181, 0.1);
+      border-radius: 16px;
+      border: 1px solid var(--Lubna-border);
+    }
+    
+    .Lubna-info-label {
+      font-weight: 600;
+      color: var(--Lubna-brown);
+      font-size: 14px;
+      margin-bottom: 8px;
+    }
+    
+    .Lubna-info-value {
+      font-size: 16px;
+      color: var(--Lubna-dark);
+    }
+    
+    /* Tables */
+    .Lubna-table-responsive {
+      overflow-x: auto;
+      border-radius: 16px;
+      border: 1px solid var(--Lubna-border);
+    }
+    
+    .Lubna-table {
+      width: 100%;
+      border-collapse: collapse;
+      min-width: 800px;
+    }
+    
+    .Lubna-table th {
+      background: linear-gradient(135deg, rgba(239, 225, 181, 0.3), rgba(205, 184, 133, 0.2));
+      color: var(--Lubna-brown);
+      font-weight: 600;
+      text-align: left;
+      padding: 20px;
+      border-bottom: 2px solid var(--Lubna-gold);
+      font-size: 14px;
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+    }
+    
+    .Lubna-table td {
+      padding: 20px;
+      border-bottom: 1px solid var(--Lubna-border);
+      vertical-align: top;
+    }
+    
+    .Lubna-table tr:last-child td {
+      border-bottom: none;
+    }
+    
+    .Lubna-table tr:hover {
+      background: rgba(239, 225, 181, 0.05);
+    }
+    
+    /* Recipe Link */
+    .Lubna-recipe-link {
+      color: var(--Lubna-brown);
+      text-decoration: none;
+      font-weight: 600;
+      font-size: 16px;
+      display: block;
+      margin-bottom: 8px;
+    }
+    
+    .Lubna-recipe-link:hover {
+      text-decoration: underline;
+      color: var(--Lubna-dark);
+    }
+    
+    .Lubna-report-reason {
+      font-size: 14px;
+      color: #666;
+      background: rgba(110, 80, 52, 0.05);
+      padding: 8px 12px;
+      border-radius: 8px;
+      display: inline-block;
+      margin-top: 4px;
+    }
+    
+    /* User Info */
+    .Lubna-user-info {
+      display: flex;
+      align-items: center;
+      gap: 16px;
+    }
+    
+    .Lubna-user-avatar {
+      width: 56px;
+      height: 56px;
+      border-radius: 16px;
+      object-fit: cover;
+      border: 2px solid var(--Lubna-gold-light);
+    }
+    
+    .Lubna-user-name {
+      font-weight: 600;
+      color: var(--Lubna-dark);
+      margin-bottom: 4px;
+    }
+    
+    .Lubna-user-email {
+      font-size: 14px;
+      color: #666;
+    }
+    
+    /* Action Form */
+    .Lubna-action-form {
+      background: rgba(239, 225, 181, 0.1);
+      padding: 20px;
+      border-radius: 16px;
+      border: 1px solid var(--Lubna-border);
+    }
+    
+    .Lubna-radio-group {
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+      margin-bottom: 20px;
+    }
+    
+    .Lubna-radio-label {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      cursor: pointer;
+      font-size: 15px;
+      color: var(--Lubna-dark);
+    }
+    
+    .Lubna-radio-label input[type="radio"] {
+      accent-color: var(--Lubna-brown);
+      width: 18px;
+      height: 18px;
+    }
+    
+    /* Sample Data Note */
+    .Lubna-sample-note {
+      background: rgba(239, 225, 181, 0.2);
+      border-left: 4px solid var(--Lubna-gold);
+      padding: 16px;
       border-radius: 12px;
-      padding: 2rem;
-      border: 1px solid var(--accent);
-      box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
-      transition: all 0.3s ease;
+      margin-top: 20px;
+      font-size: 14px;
+      color: var(--Lubna-brown);
     }
     
-    .content-card:hover {
-      transform: translateY(-5px);
-      border-color: var(--primary-gold);
-      box-shadow: 0 12px 25px rgba(0, 0, 0, 0.3);
-    }
-    
-    .card-title {
-      color: var(--primary-gold);
-      font-size: 1.6rem;
-      margin-bottom: 1rem;
-      padding-bottom: 0.8rem;
-      border-bottom: 2px solid var(--accent);
-    }
-    
-    .card-text {
-      color: var(--text-light);
-      font-size: 1.1rem;
-    }
-    
-    /* الفوتر */
     footer {
-      background-color: var(--darker-bg);
-      border-top: 3px solid var(--primary-gold);
-      padding: 3rem 5% 1.5rem;
+      background-color: var(--Lubna-bg-lighter);
+      border-top: 1px solid var(--Lubna-border-light);
+      padding: 3.5rem 5% 1.8rem;
       margin-top: auto;
     }
     
-    .footer-container {
+    .Lubna-footer-container {
       max-width: 1400px;
       margin: 0 auto;
       display: grid;
       grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-      gap: 3rem;
-      margin-bottom: 2.5rem;
+      gap: 3.5rem;
+      margin-bottom: 3rem;
     }
     
-    .footer-section h3 {
-      color: var(--primary-gold);
-      font-size: 1.5rem;
-      margin-bottom: 1.5rem;
+    .Lubna-footer-section h3 {
+      color: var(--Lubna-primary-dark);
+      font-size: 1.6rem;
+      margin-bottom: 1.8rem;
       position: relative;
-      padding-bottom: 0.8rem;
+      padding-bottom: 1rem;
     }
     
-    .footer-section h3::after {
+    .Lubna-footer-section h3::after {
       content: "";
       position: absolute;
-      width: 60px;
+      width: 70px;
       height: 3px;
-      background: linear-gradient(to left, var(--primary-gold), var(--primary-dark));
+      background: linear-gradient(to left, var(--Lubna-primary-gold), var(--Lubna-primary-light));
       bottom: 0;
       right: 0;
       border-radius: 2px;
     }
     
-    .footer-links {
+    .Lubna-footer-section p {
+      color: var(--Lubna-text-light);
+      font-size: 1.1rem;
+      margin-bottom: 1.5rem;
+    }
+    
+    .Lubna-footer-links {
       list-style: none;
     }
     
-    .footer-links li {
-      margin-bottom: 0.9rem;
+    .Lubna-footer-links li {
+      margin-bottom: 1rem;
     }
     
-    .footer-links a {
-      color: var(--text-light);
+    .Lubna-footer-links a {
+      color: var(--Lubna-text-medium);
       text-decoration: none;
       transition: all 0.3s ease;
       display: flex;
       align-items: center;
       gap: 10px;
-      padding: 0.3rem 0;
+      padding: 0.4rem 0;
     }
     
-    .footer-links a:hover {
-      color: var(--primary-gold);
+    .Lubna-footer-links a:hover {
+      color: var(--Lubna-primary-dark);
       padding-right: 10px;
     }
     
-    .footer-links a::before {
-      content: "✦";
-      color: var(--primary-gold);
-      font-size: 1rem;
+    .Lubna-footer-links a::before {
+      content: "❯";
+      color: var(--Lubna-primary-gold);
+      font-size: 1.1rem;
+      transition: transform 0.3s ease;
     }
     
-    .contact-info {
-      list-style: none;
+    .Lubna-footer-links a:hover::before {
+      transform: translateX(-5px);
     }
     
-    .contact-info li {
-      margin-bottom: 1.2rem;
-      display: flex;
-      align-items: flex-start;
-      gap: 12px;
-    }
-    
-    .contact-info i {
-      color: var(--primary-gold);
-      font-size: 1.3rem;
-      width: 24px;
-      margin-top: 3px;
-    }
-    
-    .social-links {
-      display: flex;
-      gap: 1rem;
-      margin-top: 1.5rem;
-    }
-    
-    .social-link {
-      width: 45px;
-      height: 45px;
-      background-color: rgba(110, 80, 52, 0.3);
-      border-radius: 50%;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      color: var(--primary-gold);
-      text-decoration: none;
-      font-size: 1.3rem;
-      transition: all 0.3s ease;
-      border: 1px solid rgba(205, 184, 133, 0.3);
-    }
-    
-    .social-link:hover {
-      background-color: var(--primary-gold);
-      color: var(--darker-bg);
-      transform: translateY(-5px);
-      box-shadow: 0 5px 15px var(--shadow-gold);
-    }
-    
-    .copyright {
-      text-align: center;
-      padding-top: 2rem;
-      border-top: 1px solid rgba(205, 184, 133, 0.2);
-      color: var(--text-gold);
-      font-size: 1rem;
-    }
-    
-    /* المقاسات المتجاوبة */
-    @media (max-width: 1100px) {
-      .header-container {
-        flex-wrap: wrap;
-      }
-      
-      .hero-title {
-        font-size: 2.5rem;
-      }
-    }
-    
-    @media (max-width: 768px) {
-      .header-container {
-        flex-direction: column;
-        gap: 1.5rem;
-      }
-      
-      nav ul {
-        flex-wrap: wrap;
-        justify-content: center;
-        gap: 1rem;
-      }
-      
-      .hero-section {
-        padding: 3rem 1.5rem;
-      }
-      
-      .hero-title {
-        font-size: 2.2rem;
-      }
-      
-      .hero-subtitle {
-        font-size: 1.2rem;
-      }
-      
-      .color-card {
-        width: 150px;
-        height: 150px;
-      }
-      
-      .footer-container {
-        grid-template-columns: 1fr;
-        gap: 2.5rem;
-      }
-    }
-    
-    @media (max-width: 576px) {
-      header, main, footer {
-        padding-left: 3%;
-        padding-right: 3%;
-      }
-      
-      .logo {
-        font-size: 1.7rem;
-      }
-      
-      .hero-title {
-        font-size: 1.9rem;
-      }
-      
-      .color-display {
-        gap: 1rem;
-      }
-      
-      .color-card {
-        width: 130px;
-        height: 130px;
-      }
-      
-      .color-code {
-        font-size: 1.2rem;
-      }
-      
-      .content-grid {
-        grid-template-columns: 1fr;
-      }
-    }
-    
-/* طبقة الرائحة */
-.scent-layer {
-  position: absolute;
-  inset: 0;
-  pointer-events: none;
-  z-index: 1;
-}
-
-/* محتوى الهيدر */
-.header-container {
-  position: relative;
-  z-index: 2;
-}
-
-/* الرذاذ */
-.mist {
-  position: absolute;
-  width: 160px;              /* أكبر */
-  height: 160px;
-  background: radial-gradient(
-    circle,
-    rgba(233, 212, 212, 0.55),  /* أوضح */
-    rgba(208, 128, 128, 0.15),
-    transparent 70%
-  );
-  border-radius: 50%;
-  animation: floatMist 9s linear infinite; /* أسرع */
-}
-
-@keyframes floatMist {
-  from {
-    transform: translateY(60px) translateX(0) scale(0.9);
-    opacity: 0;
-  }
-  20% { opacity: 0.7; }
-  to {
-    transform: translateY(-160px) translateX(60px) scale(1.6);
-    opacity: 0;
-  }
-}
-
-/* القليتر */
-.sparkle {
-  position: absolute;
-  width: 6px;               /* أكبر */
-  height: 6px;
-  background: radial-gradient(
-    circle,
-    #ffe8c7,
-    #d1a05f
-  );
-  border-radius: 50%;
-  animation: sparkle 3s infinite ease-in-out; /* أسرع */
-  box-shadow: 0 0 6px rgba(255, 220, 180, 0.8);
-}
-
-@keyframes sparkle {
-  0%   { opacity: 0; transform: scale(0.4); }
-  50%  { opacity: 1; transform: scale(1.6); }
-  100% { opacity: 0; transform: scale(0.6); }
-}
-
-
   </style>
-  <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;700;800&display=swap" rel="stylesheet">
 </head>
 <body>
-  <!-- الهيدر -->
- <header class="scent-header">
-  <div class="scent-layer"></div>
-
-  <div class="header-container">
-    <a href="#" class="logo">
-      <div class="logo-icon"></div>
-      عطور فاخرة
-    </a>
-
-    <nav>
-      <ul>
-        <li><a href="#" class="active">الرئيسية</a></li>
-        <li><a href="#">المجموعات</a></li>
-        <li><a href="#">عطور نسائية</a></li>
-        <li><a href="#">عطور رجالية</a></li>
-        <li><a href="#">عروض خاصة</a></li>
-        <li><a href="#">اتصل بنا</a></li>
-      </ul>
-    </nav>
-
-    <div class="header-actions">
-      <button class="icon-button">🔍</button>
-      <button class="icon-button">👤</button>
-      <button class="icon-button">🛒</button>
-    </div>
-  </div>
-</header>
-
-
-  <!-- المحتوى الرئيسي -->
-  <main>
-    <section class="hero-section">
-      <h1 class="hero-title">عطور فاخرة بتصميم مميز</h1>
-      <p class="hero-subtitle">موقع عطور مصمم باستخدام الألوان المحددة (#6e5034, #cdb885, #efe1b5) مع تصميم داكن وجذاب وعالي التباين</p>
+  <!-- 1. Lubna Header with Navigation -->
+  <header class="Lubna-header">
+    <div class="Lubna-container Lubna-header-content">
+      <a href="index.html" class="Lubna-logo">
+        <img src="img/logo.jpg" alt="Sillage Logo">
+        <div class="Lubna-logo-text">
+          <span class="Lubna-brand">Sillage</span>
+          <span class="Lubna-tagline">ADMIN DASHBOARD</span>
+        </div>
+      </a>
       
-      <div class="color-display">
-        <div class="color-card dark">
-          <span class="color-code">#6e5034</span>
-          <span class="color-name">اللون الأساسي الداكن</span>
+      <nav class="Lubna-nav">
+        <a href="index.html" class="Lubna-nav-link">Home</a>
+        <a href="#" class="Lubna-nav-link">Collections</a>
+        <a href="#" class="Lubna-nav-link">Users</a>
+        <a href="AdminPage.html" class="Lubna-nav-link active">Reports</a>
+      </nav>
+    </div>
+  </header>
+
+  <main class="Lubna-container Lubna-admin-content">
+    <!-- 2. Lubna Welcome Note -->
+    <section class="Lubna-card Lubna-welcome-section">
+      <div class="Lubna-welcome-text">
+        <h1>Welcome, <span id="Lubna-adminName">Lubna</span> 👋</h1>
+        <p>Manage reported recipes and user accounts from this dashboard</p>
+      </div>
+      
+    </section>
+
+    <!-- 3. Lubna Admin Information -->
+    <section class="Lubna-card">
+      <h2 class="Lubna-card-title">Admin Information</h2>
+      <div class="Lubna-info-grid">
+        <div class="Lubna-info-item">
+          <div class="Lubna-info-label">Full Name</div>
+          <div class="Lubna-info-value">Lubna AlQifari</div>
         </div>
-        <div class="color-card gold">
-          <span class="color-code">#cdb885</span>
-          <span class="color-name">اللون الذهبي</span>
+        <div class="Lubna-info-item">
+          <div class="Lubna-info-label">Email Address</div>
+          <div class="Lubna-info-value">Lubna.g19@gmail.com</div>
         </div>
-        <div class="color-card light">
-          <span class="color-code">#efe1b5</span>
-          <span class="color-name">اللون الفاتح</span>
+        <div class="Lubna-info-item">
+          <div class="Lubna-info-label">Role</div>
+          <div class="Lubna-info-value">System Administrator</div>
+        </div>
+        <div class="Lubna-info-item">
+          <div class="Lubna-info-label">Last Login</div>
+          <div class="Lubna-info-value">Today, 09:45 AM</div>
         </div>
       </div>
     </section>
+
+    <!-- 4. Lubna Pending Recipe Reports Table -->
+    <section class="Lubna-card">
+      <h2 class="Lubna-card-title"> Pending Recipe Reports</h2>
+      <p class="Lubna-card-subtitle">Review and take action on reported recipes</p>
+      
+      <div class="Lubna-table-responsive">
+        <table class="Lubna-table">
+          <thead>
+            <tr>
+              <th>Recipe Name</th>
+              <th>Recipe Creator</th>
+              <th>Action</th>
+            </tr>
+          </thead>
+          <tbody>
+            <!-- Lubna Report 1 -->
+            <tr>
+              <td>
+                <a href="MyRecipes.html" class="Lubna-recipe-link">Midnight Oud & Rose</a>
+                <div class="Lubna-report-reason">Inappropriate content: Contains misleading cultural references</div>
+              </td>
+              <td>
+                <div class="Lubna-user-info">
+                  <img src="https://via.placeholder.com/56x56/efe1b5/6e5034?text=RA" alt="Raghad" class="Lubna-user-avatar">
+                  <div>
+                    <div class="Lubna-user-name">Raghad Al-Harbi</div>
+                    <div class="Lubna-user-email">raghad.perfumes@example.com</div>
+                  </div>
+                </div>
+              </td>
+              <td>
+                <form class="Lubna-action-form" action="AdminPage.html" method="GET">
+                  <div class="Lubna-radio-group">
+                    <label class="Lubna-radio-label">
+                      <input type="radio" name="Lubnaaction1" value="block" checked>
+                      Block User (Confirm Report)
+                    </label>
+                    <label class="Lubna-radio-label">
+                      <input type="radio" name="Lubnaaction1" value="dismiss">
+                      Dismiss Report (False Report)
+                    </label>
+                  </div>
+                  <button type="submit" class="Lubna-btn Lubna-btn-primary">Submit Action</button>
+                </form>
+              </td>
+            </tr>
+            
+            <!-- Lubna Report 2 -->
+            <tr>
+              <td>
+                <a href="MyRecipes.html" class="Lubna-recipe-link">Arabian Nights Musk Blend</a>
+                <div class="Lubna-report-reason">Spam: Duplicate recipe posted multiple times</div>
+              </td>
+              <td>
+                <div class="Lubna-user-info">
+                  <img src="https://via.placeholder.com/56x56/cdb885/6e5034?text=FA" alt="Faisal" class="Lubna-user-avatar">
+                  <div>
+                    <div class="Lubna-user-name">Faisal Al-Otaibi</div>
+                    <div class="Lubna-user-email">faisal.oud@example.com</div>
+                  </div>
+                </div>
+              </td>
+              <td>
+                <form class="Lubna-action-form" action="AdminPage.html" method="GET">
+                  <div class="Lubna-radio-group">
+                    <label class="Lubna-radio-label">
+                      <input type="radio" name="Lubnaaction2" value="block">
+                      Block User (Confirm Report)
+                    </label>
+                    <label class="Lubna-radio-label">
+                      <input type="radio" name="Lubnaaction2" value="dismiss" checked>
+                      Dismiss Report (False Report)
+                    </label>
+                  </div>
+                  <button type="submit" class="Lubna-btn Lubna-btn-primary">Submit Action</button>
+                </form>
+              </td>
+            </tr>
+            
+            <!-- Lubna Report 3 -->
+            <tr>
+              <td>
+                <a href="MyRecipes.html" class="Lubna-recipe-link">"Immortal" Ambergris Formula</a>
+                <div class="Lubna-report-reason">Misleading claims: False advertising of rare ingredients</div>
+              </td>
+              <td>
+                <div class="Lubna-user-info">
+                  <img src="https://via.placeholder.com/56x56/6e5034/efe1b5?text=NA" alt="Norah" class="Lubna-user-avatar">
+                  <div>
+                    <div class="Lubna-user-name">Norah Al-Shammari</div>
+                    <div class="Lubna-user-email">norah.perfumer@example.com</div>
+                  </div>
+                </div>
+              </td>
+              <td>
+                <form class="Lubna-action-form" action="AdminPage.html" method="GET">
+                  <div class="Lubna-radio-group">
+                    <label class="Lubna-radio-label">
+                      <input type="radio" name="Lubnaaction3" value="block" checked>
+                      Block User (Confirm Report)
+                    </label>
+                    <label class="Lubna-radio-label">
+                      <input type="radio" name="Lubnaaction3" value="dismiss">
+                      Dismiss Report (False Report)
+                    </label>
+                  </div>
+                  <button type="submit" class="Lubna-btn Lubna-btn-primary">Submit Action</button>
+                </form>
+              </td>
+            </tr>
+            
+            <!-- Lubna Report 4 -->
+            <tr>
+              <td>
+                <a href="MyRecipes.html" class="Lubna-recipe-link">Summer Citrus Eau de Parfum</a>
+                <div class="Lubna-report-reason">Copyright: Uses proprietary brand name without permission</div>
+              </td>
+              <td>
+                <div class="Lubna-user-info">
+                  <img src="https://via.placeholder.com/56x56/2b1c12/efe1b5?text=MA" alt="Majed" class="Lubna-user-avatar">
+                  <div>
+                    <div class="Lubna-user-name">Majed Al-Ghamdi</div>
+                    <div class="Lubna-user-email">majed.scents@example.com</div>
+                  </div>
+                </div>
+              </td>
+              <td>
+                <form class="Lubna-action-form" action="AdminPage.html" method="GET">
+                  <div class="Lubna-radio-group">
+                    <label class="Lubna-radio-label">
+                      <input type="radio" name="Lubnaaction4" value="block">
+                      Block User (Confirm Report)
+                    </label>
+                    <label class="Lubna-radio-label">
+                      <input type="radio" name="Lubnaaction4" value="dismiss" checked>
+                      Dismiss Report (False Report)
+                    </label>
+                  </div>
+                  <button type="submit" class="Lubna-btn Lubna-btn-primary">Submit Action</button>
+                </form>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+      
+
+    </section>
+
+    <!-- 5. Lubna Blocked Users Table -->
+    <section class="Lubna-card">
+      <h2 class="Lubna-card-title">Blocked Users List</h2>
+      <p class="Lubna-card-subtitle">Users who have been blocked from the system</p>
+      
+      <div class="Lubna-table-responsive">
+        <table class="Lubna-table">
+          <thead>
+            <tr>
+              <th>Name</th>
+              <th>Email Address</th>
+              <th>Date Blocked</th>
+              <th>Reason</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>
+                <div class="Lubna-user-info">
+                  <img src="https://via.placeholder.com/40x40/6e5034/efe1b5?text=HA" alt="Hind" class="Lubna-user-avatar" style="width: 40px; height: 40px;">
+                  <div class="Lubna-user-name">Hind Al-Mutairi</div>
+                </div>
+              </td>
+              <td>hind.perfumes@example.com</td>
+              <td>2024-01-15</td>
+              <td>Multiple spam recipe posts</td>
+            </tr>
+            
+            <tr>
+              <td>
+                <div class="Lubna-user-info">
+                  <img src="https://via.placeholder.com/40x40/cdb885/6e5034?text=SA" alt="Saud" class="Lubna-user-avatar" style="width: 40px; height: 40px;">
+                  <div class="Lubna-user-name">Saud Al-Ghamdi</div>
+                </div>
+              </td>
+              <td>saud.oudlover@example.com</td>
+              <td>2024-01-10</td>
+              <td>Inappropriate comments on recipes</td>
+            </tr>
+            
+            <tr>
+              <td>
+                <div class="Lubna-user-info">
+                  <img src="https://via.placeholder.com/40x40/efe1b5/6e5034?text=KA" alt="Khalid" class="Lubna-user-avatar" style="width: 40px; height: 40px;">
+                  <div class="Lubna-user-name">Khalid Al-Rashidi</div>
+                </div>
+              </td>
+              <td>khalid.scents@example.com</td>
+              <td>2024-01-05</td>
+              <td>Copyright violation - brand infringement</td>
+            </tr>
+            
+            <tr>
+              <td>
+                <div class="Lubna-user-info">
+                  <img src="https://via.placeholder.com/40x40/2b1c12/efe1b5?text=LA" alt="Layla" class="Lubna-user-avatar" style="width: 40px; height: 40px;">
+                  <div class="Lubna-user-name">Layla Al-Turki</div>
+                </div>
+              </td>
+              <td>layla.fragrance@example.com</td>
+              <td>2023-12-28</td>
+              <td>False reporting of other users' recipes</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+      
+      
+    </section>
     
-    <div class="content-grid">
-      <div class="content-card">
-        <h3 class="card-title">تصميم الهيدر</h3>
-        <p class="card-text">تم تصميم الهيدر بخلفية داكنة مع حدود ذهبية لامعة، مع شعار مميز وأزرار تفاعلية ذات تأثيرات جميلة.</p>
-      </div>
-      
-      <div class="content-card">
-        <h3 class="card-title">تصميم الفوتر</h3>
-        <p class="card-text">تم تصميم الفوتر بنفس ألوان الهيدر لكن مع تخطيط مختلف، يحتوي على روابط ومعلومات اتصال ووسائل التواصل الاجتماعي.</p>
-      </div>
-      
-      <div class="content-card">
-        <h3 class="card-title">تجاوب الموقع</h3>
-        <p class="card-text">المصمم ليعمل بكفاءة على جميع الأجهزة والشاشات، من الهواتف المحمولة إلى أجهزة الكمبيوتر المكتبية.</p>
-      </div>
-    </div>
+    <!-- 6. Lubna Sign Out Section (Additional) -->
+    <section class="Lubna-card" style="text-align: center;">
+      <h2 class="Lubna-card-title">Session Management</h2>
+      <p style="margin-bottom: 24px; color: #666;">Ready to leave the admin dashboard?</p>
+      <a href="SystemHomepage.html" class="Lubna-btn Lubna-btn-primary" style="padding: 16px 48px; font-size: 18px;">
+        Sign Out of Admin Account
+      </a>
+    </section>
   </main>
-
-  <!-- الفوتر -->
-  <footer>
-    <div class="footer-container">
-      <div class="footer-section">
-        <h3>عطور فاخرة</h3>
-        <p>نقدم لكم أجود أنواع العطور الفريدة من نوعها. نبحث دائماً عن الروائح المميزة التي تعبر عن شخصيتك.</p>
-        <div class="social-links">
-          <a href="#" class="social-link">f</a>
-          <a href="#" class="social-link">📷</a>
-          <a href="#" class="social-link">𝕏</a>
-          <a href="#" class="social-link">▶</a>
-        </div>
-      </div>
-      
-      <div class="footer-section">
-        <h3>روابط سريعة</h3>
-        <ul class="footer-links">
-          <li><a href="#">الرئيسية</a></li>
-          <li><a href="#">منتجاتنا</a></li>
-          <li><a href="#">عطور نسائية</a></li>
-          <li><a href="#">عطور رجالية</a></li>
-          <li><a href="#">عروض خاصة</a></li>
-          <li><a href="#">المجموعات الجديدة</a></li>
-        </ul>
-      </div>
-      
-      <div class="footer-section">
-        <h3>معلومات الاتصال</h3>
-        <ul class="contact-info">
-          <li>
-            <i>📍</i>
-            <span>شارع العطور، الرياض، المملكة العربية السعودية</span>
-          </li>
-          <li>
-            <i>📞</i>
-            <span>+966 11 123 4567</span>
-          </li>
-          <li>
-            <i>✉️</i>
-            <span>info@perfume-store.com</span>
-          </li>
-          <li>
-            <i>🕒</i>
-            <span>الأحد - الخميس: 9 صباحاً - 10 مساءً</span>
-          </li>
-        </ul>
+<footer>
+  <div class="Lubna-footer-container">
+    <div class="Lubna-footer-section">
+      <h3>Luxury Perfumes</h3>
+      <p>We offer the finest unique perfumes. We always search for distinctive scents that express your personality.</p>
+      <div class="Lubna-social-links">
+        <a href="#" class="Lubna-social-link"><i class="fab fa-facebook-f"></i></a>
+        <a href="#" class="Lubna-social-link"><i class="fab fa-instagram"></i></a>
+        <a href="#" class="Lubna-social-link"><i class="fab fa-twitter"></i></a>
+        <a href="#" class="Lubna-social-link"><i class="fab fa-youtube"></i></a>
       </div>
     </div>
     
-    <div class="copyright">
-      جميع الحقوق محفوظة © 2023 موقع عطور فاخرة | تم التصميم باستخدام الألوان المحددة (#6e5034, #cdb885, #efe1b5)
+    <div class="Lubna-footer-section">
+      <h3>Quick Links</h3>
+      <ul class="Lubna-footer-links">
+        <li><a href="#">Home</a></li>
+        <li><a href="#">Our Products</a></li>
+        <li><a href="#">Women's Perfumes</a></li>
+        <li><a href="#">Men's Perfumes</a></li>
+        <li><a href="#">Special Offers</a></li>
+        <li><a href="#">New Collections</a></li>
+      </ul>
     </div>
-  </footer><script>
-const layer = document.querySelector('.scent-layer');
+    
+    <div class="Lubna-footer-section">
+      <h3>Contact Information</h3>
+      <ul class="Lubna-contact-info">
+        <li>
+          <i class="fas fa-map-marker-alt"></i>
+          <span>Perfume Street, Riyadh, Kingdom of Saudi Arabia</span>
+        </li>
+        <li>
+          <i class="fas fa-phone"></i>
+          <span>+966 11 123 4567</span>
+        </li>
+        <li>
+          <i class="fas fa-envelope"></i>
+          <span>info@perfume-store.com</span>
+        </li>
+        <li>
+          <i class="fas fa-clock"></i>
+          <span>Sunday - Thursday: 9 AM - 10 PM</span>
+        </li>
+      </ul>
+    </div>
+  </div>
+  
+  <div class="Lubna-copyright">
+    All rights reserved © 2023 Luxury Perfumes Website | Designed using the specified colors (#6e5034, #cdb885, #efe1b5)
+  </div>
+</footer>
 
-// رذاذ أوضح وأسرع
-for (let i = 0; i < 8; i++) {
-  const mist = document.createElement('div');
-  mist.className = 'mist';
-  mist.style.left = Math.random() * 100 + '%';
-  mist.style.top = 70 + Math.random() * 30 + '%';
-  mist.style.animationDelay = Math.random() * 4 + 's';
-  layer.appendChild(mist);
-}
-
-// قليتر أكثر وضوح
-for (let i = 0; i < 45; i++) {
-  const s = document.createElement('div');
-  s.className = 'sparkle';
-  s.style.left = Math.random() * 100 + '%';
-  s.style.top = Math.random() * 100 + '%';
-  s.style.animationDelay = Math.random() * 2 + 's';
-  layer.appendChild(s);
-}
-</script>
-
-
+  <script>
+    // Set current year
+    document.getElementById('Lubna-currentYear').textContent = new Date().getFullYear();
+    
+    // Form submission handler (non-functional in Phase 1)
+    document.querySelectorAll('.Lubna-action-form').forEach(form => {
+      form.addEventListener('submit', function(e) {
+        e.preventDefault();
+        alert('Form submission is non-functional in Phase 1.\nIn Phase 2, this will process the action via PHP.');
+        // In Phase 1, just reload the page to simulate submission
+        window.location.href = 'AdminPage.html';
+      });
+    });
+    
+    // Highlight active form radio buttons
+    document.querySelectorAll('.Lubna-radio-label input[type="radio"]').forEach(radio => {
+      radio.addEventListener('change', function() {
+        // Remove active class from all labels in this group
+        const groupName = this.name;
+        document.querySelectorAll(`input[name="${groupName}"]`).forEach(r => {
+          r.parentElement.style.fontWeight = 'normal';
+        });
+        
+        // Add active class to selected label
+        this.parentElement.style.fontWeight = '600';
+      });
+      
+      // Initialize active state
+      if (radio.checked) {
+        radio.parentElement.style.fontWeight = '600';
+      }
+    });
+  </script>
 </body>
 </html>

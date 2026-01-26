@@ -6,383 +6,9 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>Sillage | Lubna Admin Dashboard</title>
    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
- 
-  <!-- Base Styles -->
-  <style>
-  
-   .Lubna-card{
-  background: var(--surface-bg);
-  border: 1px solid var(--border);
-}
-.Lubna-card-title{ color: var(--text); }
-.Lubna-welcome-text p{ color: var(--text-muted); }
-.Lubna-report-reason{ color: var(--text-muted); }
-.Lubna-user-email{ color: var(--text-muted); }
-.Lubna-table-responsive{ border: 1px solid var(--border); }
+ <link href="https://fonts.googleapis.com/css2?family=Great+Vibes&display=swap" rel="stylesheet">
 
-    
   
-    /* Container */
-    .Lubna-container {
-      max-width: 1400px;
-      margin: 0 auto;
-      padding: 0 24px;
-    }
-    
-    .Lubna-header-content {
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      height: 90px;
-      position: relative;
-      margin-left: 5%;
-    }
-    
-    .Lubna-header-content::before {
-      content: "";
-      position: absolute;
-      top: 0;
-      left: 0;
-      right: 0;
-      height: 4px;
-      background: linear-gradient(90deg, 
-        transparent 0%, 
-        var(--Lubna-gold-light) 15%, 
-        var(--Lubna-gold) 50%, 
-        var(--Lubna-gold-light) 85%, 
-        transparent 100%);
-    }
-    
-    .Lubna-logo {
-      display: flex;
-      align-items: center;
-      gap: 22px;
-      text-decoration: none;
-      padding: 12px 24px;
-      border-radius: 20px;
-      background: rgba(255, 255, 255, 0.15);
-      border: 1px solid rgba(239, 225, 181, 0.5);
-      box-shadow: 0 8px 32px rgba(110, 80, 52, 0.15);
-    }
-    
-    .Lubna-logo img {
-      width: 60px;
-      height: 60px;
-      border-radius: 16px;
-      object-fit: cover;
-      border: 2px solid var(--Lubna-gold-light);
-    }
-    
-    .Lubna-logo-text {
-      display: flex;
-      flex-direction: column;
-    }
-    
-    .Lubna-brand {
-      font-size: 28px;
-      font-weight: 800;
-      background: linear-gradient(135deg, var(--Lubna-brown), var(--Lubna-dark));
-      -webkit-background-clip: text;
-      -webkit-text-fill-color: transparent;
-      letter-spacing: 1px;
-    }
-    
-    .Lubna-tagline {
-      font-size: 11px;
-      font-weight: 700;
-      letter-spacing: 3px;
-      color: var(--Lubna-brown);
-      text-transform: uppercase;
-      margin-top: 4px;
-    }
-    
-    .Lubna-nav {
-      display: flex;
-      align-items: center;
-      gap: 8px;
-      background: rgba(255, 255, 255, 0.12);
-      padding: 8px;
-      border-radius: 24px;
-      border: 1px solid rgba(239, 225, 181, 0.4);
-    }
-    
-    .Lubna-nav-link {
-      text-decoration: none;
-      font-size: 15px;
-      font-weight: 600;
-      color: var(--Lubna-brown);
-      padding: 12px 20px;
-      border-radius: 20px;
-      transition: all 0.25s ease;
-    }
-    
-    .Lubna-nav-link:hover {
-      background: rgba(239, 225, 181, 0.4);
-      color: var(--Lubna-dark);
-    }
-    
-    .Lubna-nav-link.active {
-      background: linear-gradient(135deg, var(--Lubna-gold-light), var(--Lubna-gold));
-      color: var(--Lubna-dark);
-      font-weight: 700;
-      box-shadow: 0 4px 12px rgba(110, 80, 52, 0.2);
-    }
-    
-    /* Admin Content */
-    .Lubna-admin-content {
-      padding: 40px 0;
-    }
-    
-    .Lubna-admin-grid {
-      display: grid;
-      gap: 30px;
-    }
-    
-    /* Cards */
-    .Lubna-card {
-      background: white;
-      border-radius: 24px;
-      padding: 30px;
-      box-shadow: 0 8px 32px rgba(110, 80, 52, 0.08);
-      border: 1px solid var(--Lubna-border);
-    }
-    
-    .Lubna-card-title {
-      font-size: 24px;
-      font-weight: 700;
-      color: var(--Lubna-dark);
-      margin-bottom: 20px;
-      padding-bottom: 12px;
-      border-bottom: 2px solid var(--Lubna-gold-light);
-    }
-    
-    .Lubna-card-subtitle {
-      font-size: 18px;
-      font-weight: 600;
-      color: var(--Lubna-brown);
-      margin-bottom: 20px;
-    }
-    
-    /* Welcome Section */
-    .Lubna-welcome-section {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-    }
-    
-    .Lubna-welcome-text h1 {
-      font-size: 32px;
-      font-weight: 800;
-      color: var(--Lubna-dark);
-      margin-bottom: 8px;
-    }
-    
-    .Lubna-welcome-text h1 span {
-      background: linear-gradient(135deg, var(--Lubna-brown), var(--Lubna-dark));
-      -webkit-background-clip: text;
-      -webkit-text-fill-color: transparent;
-    }
-    
-    .Lubna-welcome-text p {
-      color: #666;
-      font-size: 16px;
-    }
-    
-    /* Buttons */
-    .Lubna-btn {
-      display: inline-flex;
-      align-items: center;
-      justify-content: center;
-      padding: 14px 28px;
-      border-radius: 20px;
-      font-size: 16px;
-      font-weight: 600;
-      text-decoration: none;
-      border: none;
-      cursor: pointer;
-      transition: all 0.25s ease;
-    }
-    
-    .Lubna-btn-primary {
-      background: linear-gradient(135deg, var(--Lubna-brown), var(--Lubna-dark));
-      color: var(--Lubna-gold-light);
-      border: 1px solid var(--Lubna-gold);
-    }
-    
-    .Lubna-btn-primary:hover {
-      transform: translateY(-2px);
-      box-shadow: 0 8px 24px rgba(110, 80, 52, 0.3);
-    }
-    
-    .Lubna-btn-outline {
-      background: transparent;
-      color: var(--Lubna-brown);
-      border: 2px solid var(--Lubna-gold);
-    }
-    
-    .Lubna-btn-outline:hover {
-      background: rgba(205, 184, 133, 0.1);
-    }
-    
-    /* Info Grid */
-    .Lubna-info-grid {
-      display: grid;
-      grid-template-columns: 1fr 2fr;
-      gap: 16px;
-      margin-bottom: 24px;
-    }
-    
-    .Lubna-info-item {
-      padding: 16px;
-      background: rgba(239, 225, 181, 0.1);
-      border-radius: 16px;
-      border: 1px solid var(--Lubna-border);
-    }
-    
-    .Lubna-info-label {
-      font-weight: 600;
-      color: var(--Lubna-brown);
-      font-size: 14px;
-      margin-bottom: 8px;
-    }
-    
-    .Lubna-info-value {
-      font-size: 16px;
-      color: var(--Lubna-dark);
-    }
-    
-    /* Tables */
-    .Lubna-table-responsive {
-      overflow-x: auto;
-      border-radius: 16px;
-      border: 1px solid var(--Lubna-border);
-    }
-    
-    .Lubna-table {
-      width: 100%;
-      border-collapse: collapse;
-      min-width: 800px;
-    }
-    
-    .Lubna-table th {
-      background: linear-gradient(135deg, rgba(239, 225, 181, 0.3), rgba(205, 184, 133, 0.2));
-      color: var(--Lubna-brown);
-      font-weight: 600;
-      text-align: left;
-      padding: 20px;
-      border-bottom: 2px solid var(--Lubna-gold);
-      font-size: 14px;
-      text-transform: uppercase;
-      letter-spacing: 0.5px;
-    }
-    
-    .Lubna-table td {
-      padding: 20px;
-      border-bottom: 1px solid var(--Lubna-border);
-      vertical-align: top;
-    }
-    
-    .Lubna-table tr:last-child td {
-      border-bottom: none;
-    }
-    
-    .Lubna-table tr:hover {
-      background: rgba(239, 225, 181, 0.05);
-    }
-    
-    /* Recipe Link */
-    .Lubna-recipe-link {
-      color: var(--Lubna-brown);
-      text-decoration: none;
-      font-weight: 600;
-      font-size: 16px;
-      display: block;
-      margin-bottom: 8px;
-    }
-    
-    .Lubna-recipe-link:hover {
-      text-decoration: underline;
-      color: var(--Lubna-dark);
-    }
-    
-    .Lubna-report-reason {
-      font-size: 14px;
-      color: #666;
-      background: rgba(110, 80, 52, 0.05);
-      padding: 8px 12px;
-      border-radius: 8px;
-      display: inline-block;
-      margin-top: 4px;
-    }
-    
-    /* User Info */
-    .Lubna-user-info {
-      display: flex;
-      align-items: center;
-      gap: 16px;
-    }
-    
-    .Lubna-user-avatar {
-      width: 56px;
-      height: 56px;
-      border-radius: 16px;
-      object-fit: cover;
-      border: 2px solid var(--Lubna-gold-light);
-    }
-    
-    .Lubna-user-name {
-      font-weight: 600;
-      color: var(--Lubna-dark);
-      margin-bottom: 4px;
-    }
-    
-    .Lubna-user-email {
-      font-size: 14px;
-      color: #666;
-    }
-    
-    /* Action Form */
-    .Lubna-action-form {
-      background: rgba(239, 225, 181, 0.1);
-      padding: 20px;
-      border-radius: 16px;
-      border: 1px solid var(--Lubna-border);
-    }
-    
-    .Lubna-radio-group {
-      display: flex;
-      flex-direction: column;
-      gap: 12px;
-      margin-bottom: 20px;
-    }
-    
-    .Lubna-radio-label {
-      display: flex;
-      align-items: center;
-      gap: 12px;
-      cursor: pointer;
-      font-size: 15px;
-      color: var(--Lubna-dark);
-    }
-    
-    .Lubna-radio-label input[type="radio"] {
-      accent-color: var(--Lubna-brown);
-      width: 18px;
-      height: 18px;
-    }
-    
-    /* Sample Data Note */
-    .Lubna-sample-note {
-      background: rgba(239, 225, 181, 0.2);
-      border-left: 4px solid var(--Lubna-gold);
-      padding: 16px;
-      border-radius: 12px;
-      margin-top: 20px;
-      font-size: 14px;
-      color: var(--Lubna-brown);
-    }
-    
-  </style>
 </head>
 <body class="light-mode">
   <!-- الهيدر -->
@@ -390,14 +16,7 @@
     <!-- قسم التحكم - الآن على اليمين -->
     <div class="controls">
       <!-- أيقونات إضافية -->
-      <div class="icon-buttons">
-        <button class="icon-btn" id="notificationBtn">
-          <i class="fas fa-bell"></i>
-        </button>
-        <button class="icon-btn" id="settingsBtn">
-          <i class="fas fa-cog"></i>
-        </button>
-      </div>
+      
 
       <!-- زر تبديل الوضع -->
       <button class="theme-toggle" id="themeToggle">
@@ -426,13 +45,7 @@
 
   <main class="Lubna-container Lubna-admin-content">
     <!-- 2. Lubna Welcome Note -->
-    <section class="Lubna-card Lubna-welcome-section">
-      <div class="Lubna-welcome-text">
-        <h1>Welcome, <span id="Lubna-adminName">Lubna</span> 👋</h1>
-        <p>Manage reported recipes and user accounts from this dashboard</p>
-      </div>
-      
-    </section>
+    
 
     <!-- 3. Lubna Admin Information -->
     <section class="Lubna-card">
@@ -475,12 +88,12 @@
             <!-- Lubna Report 1 -->
             <tr>
               <td>
-                <a href="MyRecipes.html" class="Lubna-recipe-link">Midnight Oud & Rose</a>
+                <a href="ViewRecipePage.html" class="Lubna-recipe-link">Vanilla Musk Blend</a>
                 <div class="Lubna-report-reason">Inappropriate content: Contains misleading cultural references</div>
               </td>
               <td>
-                <div class="Lubna-user-info">
-                  <img src="https://via.placeholder.com/56x56/efe1b5/6e5034?text=RA" alt="Raghad" class="Lubna-user-avatar">
+               <div class="Lubna-user-info">
+                  <img src="img\Personal image.jpg" alt="Majed" class="Lubna-user-avatar">
                   <div>
                     <div class="Lubna-user-name">Raghad Al-Harbi</div>
                     <div class="Lubna-user-email">raghad.perfumes@example.com</div>
@@ -507,12 +120,12 @@
             <!-- Lubna Report 2 -->
             <tr>
               <td>
-                <a href="MyRecipes.html" class="Lubna-recipe-link">Arabian Nights Musk Blend</a>
+                <a href="ViewRecipePage.html" class="Lubna-recipe-link">Rose Amber Blend</a>
                 <div class="Lubna-report-reason">Spam: Duplicate recipe posted multiple times</div>
               </td>
               <td>
                 <div class="Lubna-user-info">
-                  <img src="https://via.placeholder.com/56x56/cdb885/6e5034?text=FA" alt="Faisal" class="Lubna-user-avatar">
+                  <img src="img\Personal image.jpg" alt="Faisal" class="Lubna-user-avatar">
                   <div>
                     <div class="Lubna-user-name">Faisal Al-Otaibi</div>
                     <div class="Lubna-user-email">faisal.oud@example.com</div>
@@ -539,12 +152,12 @@
             <!-- Lubna Report 3 -->
             <tr>
               <td>
-                <a href="MyRecipes.html" class="Lubna-recipe-link">"Immortal" Ambergris Formula</a>
+                <a href="ViewRecipePage.html" class="Lubna-recipe-link">"Oud Vanilla Elixir</a>
                 <div class="Lubna-report-reason">Misleading claims: False advertising of rare ingredients</div>
               </td>
               <td>
                 <div class="Lubna-user-info">
-                  <img src="https://via.placeholder.com/56x56/6e5034/efe1b5?text=NA" alt="Norah" class="Lubna-user-avatar">
+                  <img src="img\Personal image.jpg" alt="Norah" class="Lubna-user-avatar">
                   <div>
                     <div class="Lubna-user-name">Norah Al-Shammari</div>
                     <div class="Lubna-user-email">norah.perfumer@example.com</div>
@@ -571,12 +184,12 @@
             <!-- Lubna Report 4 -->
             <tr>
               <td>
-                <a href="MyRecipes.html" class="Lubna-recipe-link">Summer Citrus Eau de Parfum</a>
+                <a href="ViewRecipePage.html" class="Lubna-recipe-link">White Floral Musk</a>
                 <div class="Lubna-report-reason">Copyright: Uses proprietary brand name without permission</div>
               </td>
               <td>
                 <div class="Lubna-user-info">
-                  <img src="https://via.placeholder.com/56x56/2b1c12/efe1b5?text=MA" alt="Majed" class="Lubna-user-avatar">
+                  <img src="img\Personal image.jpg" alt="Majed" class="Lubna-user-avatar">
                   <div>
                     <div class="Lubna-user-name">Majed Al-Ghamdi</div>
                     <div class="Lubna-user-email">majed.scents@example.com</div>
@@ -606,75 +219,6 @@
 
     </section>
 
-    <!-- 5. Lubna Blocked Users Table -->
-    <section class="Lubna-card">
-      <h2 class="Lubna-card-title">Blocked Users List</h2>
-      <p class="Lubna-card-subtitle">Users who have been blocked from the system</p>
-      
-      <div class="Lubna-table-responsive">
-        <table class="Lubna-table">
-          <thead>
-            <tr>
-              <th>Name</th>
-              <th>Email Address</th>
-              <th>Date Blocked</th>
-              <th>Reason</th>
-            </tr>
-          </thead>
-          <tbody>
-            <tr>
-              <td>
-                <div class="Lubna-user-info">
-                  <img src="https://via.placeholder.com/40x40/6e5034/efe1b5?text=HA" alt="Hind" class="Lubna-user-avatar" style="width: 40px; height: 40px;">
-                  <div class="Lubna-user-name">Hind Al-Mutairi</div>
-                </div>
-              </td>
-              <td>hind.perfumes@example.com</td>
-              <td>2024-01-15</td>
-              <td>Multiple spam recipe posts</td>
-            </tr>
-            
-            <tr>
-              <td>
-                <div class="Lubna-user-info">
-                  <img src="https://via.placeholder.com/40x40/cdb885/6e5034?text=SA" alt="Saud" class="Lubna-user-avatar" style="width: 40px; height: 40px;">
-                  <div class="Lubna-user-name">Saud Al-Ghamdi</div>
-                </div>
-              </td>
-              <td>saud.oudlover@example.com</td>
-              <td>2024-01-10</td>
-              <td>Inappropriate comments on recipes</td>
-            </tr>
-            
-            <tr>
-              <td>
-                <div class="Lubna-user-info">
-                  <img src="https://via.placeholder.com/40x40/efe1b5/6e5034?text=KA" alt="Khalid" class="Lubna-user-avatar" style="width: 40px; height: 40px;">
-                  <div class="Lubna-user-name">Khalid Al-Rashidi</div>
-                </div>
-              </td>
-              <td>khalid.scents@example.com</td>
-              <td>2024-01-05</td>
-              <td>Copyright violation - brand infringement</td>
-            </tr>
-            
-            <tr>
-              <td>
-                <div class="Lubna-user-info">
-                  <img src="https://via.placeholder.com/40x40/2b1c12/efe1b5?text=LA" alt="Layla" class="Lubna-user-avatar" style="width: 40px; height: 40px;">
-                  <div class="Lubna-user-name">Layla Al-Turki</div>
-                </div>
-              </td>
-              <td>layla.fragrance@example.com</td>
-              <td>2023-12-28</td>
-              <td>False reporting of other users' recipes</td>
-            </tr>
-          </tbody>
-        </table>
-      </div>
-      
-      
-    </section>
     
     <!-- 6. Lubna Sign Out Section (Additional) -->
     <section class="Lubna-card" style="text-align: center;">
@@ -738,7 +282,7 @@ Sillage Perfumes</h3>
 
   <!-- Copyright -->
   <div class="copyright">
-    © 2023 Al-Katloni. All rights reserved.
+    © 2026, All rights reserved to Sillage.
 </footer>
 <script src="javaScript.js"></script>
   <script>

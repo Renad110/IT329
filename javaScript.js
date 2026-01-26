@@ -40,13 +40,7 @@
       localStorage.setItem('darkMode', 'false');
     }
 
-    // تغيير اسم المستخدم عند النقر عليه (تجريبي)
-    userName.addEventListener('click', () => {
-      const newName = prompt('أدخل اسم جديد للترحيب:', userName.textContent);
-      if (newName && newName.trim() !== '') {
-        userName.textContent = newName.trim();
-      }
-    });
+  
 
     // إضافة تفاعل للأزرار
     notificationBtn.addEventListener('click', () => {

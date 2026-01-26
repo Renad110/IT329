@@ -2,33 +2,26 @@
 <html lang="en" dir="ltr">
 <head>
   <meta charset="UTF-8" />
+    <link rel="stylesheet" href="style.css" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>Sillage | Lubna Admin Dashboard</title>
-  
+   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
+ 
   <!-- Base Styles -->
   <style>
-    * {
-      margin: 0;
-      padding: 0;
-      box-sizing: border-box;
-      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
-    }
+  
+   .Lubna-card{
+  background: var(--surface-bg);
+  border: 1px solid var(--border);
+}
+.Lubna-card-title{ color: var(--text); }
+.Lubna-welcome-text p{ color: var(--text-muted); }
+.Lubna-report-reason{ color: var(--text-muted); }
+.Lubna-user-email{ color: var(--text-muted); }
+.Lubna-table-responsive{ border: 1px solid var(--border); }
+
     
-    :root {
-      --Lubna-gold-light: #efe1b5;
-      --Lubna-gold: #cdb885;
-      --Lubna-brown: #6e5034;
-      --Lubna-dark: #2b1c12;
-      --Lubna-light: #f9f7f2;
-      --Lubna-border: rgba(110, 80, 52, 0.15);
-    }
-    
-    body {
-      background-color: var(--Lubna-light);
-      color: var(--Lubna-dark);
-      line-height: 1.6;
-    }
-    
+  
     /* Container */
     .Lubna-container {
       max-width: 1400px;
@@ -399,101 +392,45 @@
       color: var(--Lubna-brown);
     }
     
-    footer {
-      background-color: var(--Lubna-bg-lighter);
-      border-top: 1px solid var(--Lubna-border-light);
-      padding: 3.5rem 5% 1.8rem;
-      margin-top: auto;
-    }
-    
-    .Lubna-footer-container {
-      max-width: 1400px;
-      margin: 0 auto;
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-      gap: 3.5rem;
-      margin-bottom: 3rem;
-    }
-    
-    .Lubna-footer-section h3 {
-      color: var(--Lubna-primary-dark);
-      font-size: 1.6rem;
-      margin-bottom: 1.8rem;
-      position: relative;
-      padding-bottom: 1rem;
-    }
-    
-    .Lubna-footer-section h3::after {
-      content: "";
-      position: absolute;
-      width: 70px;
-      height: 3px;
-      background: linear-gradient(to left, var(--Lubna-primary-gold), var(--Lubna-primary-light));
-      bottom: 0;
-      right: 0;
-      border-radius: 2px;
-    }
-    
-    .Lubna-footer-section p {
-      color: var(--Lubna-text-light);
-      font-size: 1.1rem;
-      margin-bottom: 1.5rem;
-    }
-    
-    .Lubna-footer-links {
-      list-style: none;
-    }
-    
-    .Lubna-footer-links li {
-      margin-bottom: 1rem;
-    }
-    
-    .Lubna-footer-links a {
-      color: var(--Lubna-text-medium);
-      text-decoration: none;
-      transition: all 0.3s ease;
-      display: flex;
-      align-items: center;
-      gap: 10px;
-      padding: 0.4rem 0;
-    }
-    
-    .Lubna-footer-links a:hover {
-      color: var(--Lubna-primary-dark);
-      padding-right: 10px;
-    }
-    
-    .Lubna-footer-links a::before {
-      content: "❯";
-      color: var(--Lubna-primary-gold);
-      font-size: 1.1rem;
-      transition: transform 0.3s ease;
-    }
-    
-    .Lubna-footer-links a:hover::before {
-      transform: translateX(-5px);
-    }
-    
   </style>
 </head>
-<body>
-  <!-- 1. Lubna Header with Navigation -->
-  <header class="Lubna-header">
-    <div class="Lubna-container Lubna-header-content">
-      <a href="index.html" class="Lubna-logo">
-        <img src="img/logo.jpg" alt="Sillage Logo">
-        <div class="Lubna-logo-text">
-          <span class="Lubna-brand">Sillage</span>
-          <span class="Lubna-tagline">ADMIN DASHBOARD</span>
+<body class="light-mode">
+  <!-- الهيدر -->
+  <header class="header">
+    <!-- قسم التحكم - الآن على اليمين -->
+    <div class="controls">
+      <!-- أيقونات إضافية -->
+      <div class="icon-buttons">
+        <button class="icon-btn" id="notificationBtn">
+          <i class="fas fa-bell"></i>
+        </button>
+        <button class="icon-btn" id="settingsBtn">
+          <i class="fas fa-cog"></i>
+        </button>
+      </div>
+
+      <!-- زر تبديل الوضع -->
+      <button class="theme-toggle" id="themeToggle">
+        <div class="toggle-circle">
+          <i class="fas fa-sun" id="sunIcon"></i>
         </div>
-      </a>
-      
-      <nav class="Lubna-nav">
-        <a href="index.html" class="Lubna-nav-link">Home</a>
-        <a href="#" class="Lubna-nav-link">Collections</a>
-        <a href="#" class="Lubna-nav-link">Users</a>
-        <a href="AdminPage.html" class="Lubna-nav-link active">Reports</a>
-      </nav>
+      </button>
+    </div>
+
+    <!-- رسالة الترحيب -->
+    <div class="welcome-section">
+      <div class="welcome-text">WELCOME</div>
+      <div class="name-circle" id="nameCircle">
+        <div class="user-name" id="userName">lubna</div>
+      </div>
+    </div>
+
+    <!-- الشعار - الآن على اليسار -->
+    <div class="logo-container">
+      <div class="logo-text">Sillage</div>
+      <div class="logo-icon">
+        <img src="img/logo.jpg" alt="لوقو الموقع" />
+      </div>
     </div>
   </header>
 
@@ -758,37 +695,39 @@
       </a>
     </section>
   </main>
-<footer>
-  <div class="Lubna-footer-container">
-    <div class="Lubna-footer-section">
-      <h3>Luxury Perfumes</h3>
-      <p>We offer the finest unique perfumes. We always search for distinctive scents that express your personality.</p>
-      <div class="Lubna-social-links">
-        <a href="#" class="Lubna-social-link"><i class="fab fa-facebook-f"></i></a>
-        <a href="#" class="Lubna-social-link"><i class="fab fa-instagram"></i></a>
-        <a href="#" class="Lubna-social-link"><i class="fab fa-twitter"></i></a>
-        <a href="#" class="Lubna-social-link"><i class="fab fa-youtube"></i></a>
+
+<!-- Footer -->
+<footer class="site-footer">
+  <div class="footer-container">
+
+    <!-- About + Social -->
+    <div class="footer-section">
+      <h3>
+Sillage Perfumes</h3>
+      <p>
+        We offer the finest unique perfumes. We continuously seek distinctive scents that express your personality.
+      </p>
+
+      <div class="social-links">
+        <a href="#" class="social-link" aria-label="Instagram">
+          <i class="fab fa-instagram"></i>
+        </a>
+        <a href="#" class="social-link" aria-label="X (Twitter)">
+          <i class="fab fa-twitter"></i>
+        </a>
+        <a href="#" class="social-link" aria-label="YouTube">
+          <i class="fab fa-youtube"></i>
+        </a>
       </div>
     </div>
-    
-    <div class="Lubna-footer-section">
-      <h3>Quick Links</h3>
-      <ul class="Lubna-footer-links">
-        <li><a href="#">Home</a></li>
-        <li><a href="#">Our Products</a></li>
-        <li><a href="#">Women's Perfumes</a></li>
-        <li><a href="#">Men's Perfumes</a></li>
-        <li><a href="#">Special Offers</a></li>
-        <li><a href="#">New Collections</a></li>
-      </ul>
-    </div>
-    
-    <div class="Lubna-footer-section">
+
+    <!-- Contact Info -->
+    <div class="footer-section">
       <h3>Contact Information</h3>
-      <ul class="Lubna-contact-info">
+      <ul class="contact-info">
         <li>
           <i class="fas fa-map-marker-alt"></i>
-          <span>Perfume Street, Riyadh, Kingdom of Saudi Arabia</span>
+          <span>Perfume Street, Riyadh, Saudi Arabia</span>
         </li>
         <li>
           <i class="fas fa-phone"></i>
@@ -800,17 +739,18 @@
         </li>
         <li>
           <i class="fas fa-clock"></i>
-          <span>Sunday - Thursday: 9 AM - 10 PM</span>
+          <span>Sunday – Thursday: 9:00 AM – 10:00 PM</span>
         </li>
       </ul>
     </div>
-  </div>
-  
-  <div class="Lubna-copyright">
-    All rights reserved © 2023 Luxury Perfumes Website | Designed using the specified colors (#6e5034, #cdb885, #efe1b5)
-  </div>
-</footer>
 
+  </div>
+
+  <!-- Copyright -->
+  <div class="copyright">
+    © 2023 Al-Katloni. All rights reserved.
+</footer>
+<script src="javaScript.js"></script>
   <script>
     // Set current year
     document.getElementById('Lubna-currentYear').textContent = new Date().getFullYear();

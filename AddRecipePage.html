@@ -1,0 +1,276 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Add New Recipe</title>
+
+  <style>
+ /* ===== Fix layout overlap ===== */
+*{ box-sizing:border-box; }
+body{ margin:0; background-color:#efe1b5; font-family: "Segoe UI", Tahoma, Arial, sans-serif; }
+
+
+.add-page{
+  max-width: 1100px;
+  margin: 3rem auto;
+  padding: 2rem;
+  background:#fff;
+  border-radius:24px;
+  border:1px solid #cdb885;
+  box-shadow:0 18px 40px rgba(110,80,52,0.18);
+}
+
+/* Header */
+.add-header{
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+  gap:1rem;
+  margin-bottom: 2rem;
+}
+
+.add-header h1{
+  margin:0;
+  font-size:2.3rem;
+  color:#6e5034;
+  font-weight:800;
+}
+
+/* Form card */
+.form-card{
+  border-radius:20px;
+  padding: 1.6rem;
+  border:1px solid #efe1b5;
+  box-shadow: inset 0 0 0 1px rgba(205,184,133,0.28);
+}
+
+/* Grid */
+.grid{
+  display:grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1rem 1.2rem;
+  align-items: start;
+}
+
+.full{ grid-column: 1 / -1; }
+
+label{
+  display:block;
+  font-weight:800;
+  color:#6e5034;
+  margin-bottom:.45rem;
+}
+
+/* Inputs */
+.field{
+  width:100%;
+  display:block;
+  padding:.95rem 1rem;
+  border-radius:14px;
+  border:1px solid #efe1b5;
+  background:#fff;
+  color:#5d4a32;
+  outline:none;
+  transition:.2s ease;
+}
+
+.field:focus{
+  border-color:#cdb885;
+  box-shadow:0 0 0 4px rgba(205,184,133,0.22);
+}
+
+textarea.field{ min-height:120px; resize:vertical; }
+
+/* Section titles */
+.section-title{
+  margin: 1.4rem 0 .9rem;
+  padding-top:1.2rem;
+  border-top:1px dashed #efe1b5;
+  color:#6e5034;
+  font-size:1.2rem;
+  font-weight:800;
+}
+
+/* Dynamic rows */
+.row{
+  display:grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1rem;
+  margin-bottom:.9rem;
+}
+
+.row-1col{ grid-template-columns: 1fr; }
+
+/* Buttons */
+.actions{
+  display:flex;
+  gap:.8rem;
+  flex-wrap:wrap;
+  margin-top:.9rem;
+}
+
+.btn{
+  display:inline-flex;
+  align-items:center;
+  gap:.65rem;
+  padding:.9rem 1.5rem;
+  border-radius:30px;
+  cursor:pointer;
+  font-weight:800;
+  text-decoration:none;
+  border:none;
+  transition:.25s ease;
+}
+
+.btn.primary{
+  background:#6e5034;
+  color:#fff;
+  box-shadow:0 8px 22px rgba(110,80,52,0.3); 
+}
+
+.btn.primary:hover{
+  background:#8a6848;
+  transform: translateY(-2px);
+}
+
+.btn.secondary{
+  background: rgba(110,80,52,0.10);
+  color:#6e5034;
+  border:1px solid #efe1b5;
+}
+
+.btn.secondary:hover{
+  background:#cdb885;
+  transform: translateY(-2px);
+}
+
+.add-icon{
+  width:26px;
+  height:26px;
+  border-radius:50%;
+  background:#fff;
+  color:#6e5034;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  font-weight:900;
+  line-height:1;
+}
+
+/* Responsive */
+@media (max-width: 820px){
+  .grid{ grid-template-columns:1fr; }
+  .row{ grid-template-columns:1fr; }
+  .add-page{ margin:1.5rem; padding:1.5rem; }
+  .add-header{ flex-direction:column; align-items:flex-start; }
+}
+
+  </style>
+</head>
+
+<body>
+
+<main>
+  <div class="add-page">
+
+    <div class="add-header">
+      <h1>Add New Recipe</h1>
+    </div>
+
+    <div class="form-card">
+      <form id="recipeForm" data-mode="add" novalidate>
+
+        <div class="grid">
+          <div>
+            <label for="name">Recipe Name</label>
+            <input class="field" id="name" name="name" type="text" placeholder="e.g., Vanilla Musk Blend" required />
+          </div>
+
+          <div>
+            <label for="category">For</label>
+            <select class="field" id="category" name="category" required>
+              <option value="" selected disabled>Select</option>
+              <option value="Women">Women</option>
+              <option value="Men">Men</option>
+              <option value="Unisex">Unisex</option>
+            </select>
+          </div>
+
+          <div class="full">
+            <label for="description">Description</label>
+            <textarea class="field" id="description" name="description" placeholder="Write a short description..." required></textarea>
+          </div>
+
+          <div class="full">
+            <label for="photo">Upload Photo</label>
+            <input class="field" id="photo" name="photo" type="file" accept="image/*" required />
+          </div>
+        </div>
+
+        <h3 class="section-title">Ingredients</h3>
+        <div id="ingredientsWrap">
+          <div class="row ingredient-row">
+            <div>
+              <label>Name</label>
+              <input class="field" type="text" name="ingredient_name[]" placeholder="e.g., White Musk" required />
+            </div>
+            <div>
+              <label>Amount</label>
+              <input class="field" type="text" name="ingredient_qty[]" placeholder="e.g., 8ml" required />
+            </div>
+          </div>
+        </div>
+
+        <div class="actions">
+          <button class="btn secondary" type="button" id="addIngredientBtn">
+            <span class="add-icon">+</span> Add Ingredient
+          </button>
+        </div>
+
+        <h3 class="section-title">Instructions</h3>
+        <div id="stepsWrap">
+          <div class="row row-1col step-row">
+            <div>
+              <label>Step 1</label>
+              <input class="field" type="text" name="step_text[]" placeholder="Write a step..." required />
+            </div>
+          </div>
+        </div>
+
+        <div class="actions">
+          <button class="btn secondary" type="button" id="addStepBtn">
+            <span class="add-icon">+</span> Add Step
+          </button>
+        </div>
+
+        <h3 class="section-title">Upload Video or Video Link</h3>
+        <div class="grid">
+          <div>
+            <label for="videoFile">Upload Video</label>
+            <input class="field" id="videoFile" name="videoFile" type="file" accept="video/*" />
+          </div>
+
+          <div>
+            <label for="videoUrl">Video URL</label>
+            <input class="field" id="videoUrl" name="videoUrl" type="url" placeholder="https://youtube.com/..." />
+          </div>
+        </div>
+
+        <div class="actions" style="margin-top:1.4rem;">
+          <button class="btn primary" type="submit">
+            <span class="add-icon">+</span> Add Recipe
+          </button>
+        </div>
+
+      </form>
+    </div>
+
+  </div>
+</main>
+
+
+<script src="javaScript.js"></script>
+</body>
+</html>
+

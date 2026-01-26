@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Sillage | Log In</title>
+  <link rel="stylesheet" href="style.css"/>
+</head>
+
+<body class="leen-app">
+  <main class="leen-landing">
+    <section class="leen-card" style="width:min(560px, 92%);">
+
+      <img class="leen-logo" src="img/logo.jpg" alt="Sillage Logo" style="width:120px;height:120px;" />
+
+      <h1 class="leen-title" style="font-size:28px;">Welcome Back</h1>
+      <p class="leen-helper">Enter your email and password:</p>
+
+      <form class="leen-form" id="leenLoginForm" novalidate>
+        <div class="leen-field">
+          <label class="leen-label" for="lemail">Email</label>
+          <input
+            class="leen-input"
+            id="lemail"
+            name="email"
+            type="email"
+            placeholder="name@example.com"
+            required
+          />
+        </div>
+
+        <div class="leen-field">
+          <label class="leen-label" for="lpass">Password</label>
+          <input
+            class="leen-input"
+            id="lpass"
+            name="password"
+            type="password"
+            placeholder="••••••••"
+            required
+          />
+        </div>
+
+        <div style="display:grid; grid-template-columns:1fr 1fr; gap:10px;">
+
+          <button class="leen-btn leen-btn-primary" type="submit" data-go="Userpage.html">
+            User Login
+          </button>
+
+          <button class="leen-btn leen-btn-outline" type="submit" data-go="AdminPage.html">
+            Admin Login
+          </button>
+        </div>
+
+        <a class="leen-btn leen-btn-outline" href="PageSignUp.html" style="width:100%; margin-top:6px;">
+          New user? Create an account
+        </a>
+      </form>
+
+    </section>
+  </main>
+
+  <script>
+    const form = document.getElementById("leenLoginForm");
+
+    form.addEventListener("submit", function (e) {
+      e.preventDefault();
+
+      if (!form.checkValidity()) {
+        form.reportValidity(); 
+        return;
+      }
+
+
+      const btn = e.submitter;
+      const target = btn.getAttribute("data-go");
+
+
+      window.location.href = target;
+    });
+  </script>
+</body>
+</html>

@@ -1,0 +1,784 @@
+/* footer header and the page */
+
+  * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+    }
+
+    :root {
+      --primary-dark: #6e5034;
+      --primary-light:#efe1b5;
+      --dark-bg: #2b1c12;
+      --dark-header: #2d2d2d;
+      --light-bg: #f9f7f2;
+      --light-header: #ffffff;
+      --text-dark:#2b1c12;
+      --text-light: #f9f7f2;
+      --transition: all 0.3s ease;
+      --text-muted:#2b1c12;
+
+    }
+
+    body {
+      transition: var(--transition);
+      min-height: 100vh;
+      background-color: var(--light-bg);
+      color: var(--text-dark);
+    }
+
+     
+    
+    body.dark-mode {
+      background-color: var(--dark-bg);
+      color: var(--text-light);
+    }
+
+    /* الهيدر الأساسي */
+    .header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 15px 5%;
+      position: relative;
+      transition: var(--transition);
+      background-color: var(--primary-dark);
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+      height: 150px;
+    }
+
+    .dark-mode .header {
+      background-color: var(--primary-light);
+      color: var(--text-dark);
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+    }
+
+    /* الأزرار (التحكم) - الآن على اليمين */
+    .controls {
+      display: flex;
+      align-items: center;
+      gap: 15px;
+      order: 3; /* جعلها أول عنصر */
+    }
+
+    /* زر تبديل الوضع */
+    .theme-toggle {
+      background-color: rgba(239, 225, 181, 0.2);
+      border: none;
+      width: 60px;
+      height: 30px;
+      border-radius: 15px;
+      position: relative;
+      cursor: pointer;
+      transition: var(--transition);
+      display: flex;
+      align-items: center;
+      padding: 0 5px;
+    }
+
+    .dark-mode .theme-toggle {
+      background-color: rgba(110, 80, 52, 0.2);
+    }
+
+    .toggle-circle {
+      width: 22px;
+      height: 22px;
+      border-radius: 50%;
+      background-color: #efe1b5;
+      position: absolute;
+      right: 4px;
+      transition: var(--transition);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 12px;
+      color: #6e5034;
+    }
+
+    .dark-mode .toggle-circle {
+      background-color: #6e5034;
+      color: #efe1b5;
+      right: calc(100% - 26px);
+    }
+
+    /* الأيقونات */
+    .icon-buttons {
+      display: flex;
+      gap: 10px;
+    }
+
+    .icon-btn {
+      background-color: rgba(239, 225, 181, 0.2);
+      border: none;
+      width: 40px;
+      height: 40px;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: #efe1b5;
+      cursor: pointer;
+      transition: var(--transition);
+      font-size: 16px;
+    }
+
+    .dark-mode .icon-btn {
+      background-color: rgba(110, 80, 52, 0.2);
+      color: #6e5034;
+    }
+
+    .icon-btn:hover {
+      transform: translateY(-3px);
+      background-color: rgba(239, 225, 181, 0.3);
+    }
+
+    .dark-mode .icon-btn:hover {
+      background-color: rgba(110, 80, 52, 0.3);
+    }
+
+    /* رسالة الترحيب */
+    .welcome-section {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      flex-grow: 1;
+      padding: 0 15px;
+      order: 2;
+    }
+
+    .welcome-text {
+      font-size: 16px;
+      color: #d0c19a;
+      margin-bottom: 12px;
+      font-weight: 500;
+    }
+
+    .dark-mode .welcome-text {
+      color: #8a6c4d;
+    }
+
+    .user-name::after {
+      content: '';
+      position: absolute;
+      width: 100%;
+      height: 3px;
+      bottom: -8px;
+      right: 0;
+      background-color: #efe1b5;
+      border-radius: 2px;
+    }
+
+    .dark-mode .user-name::after {
+      background-color: #6e5034;
+    }
+
+    /* الشعار - الآن على اليسار */
+    .logo-container {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      order: 1; /* جعلها ثالث عنصر */
+    }
+
+    .logo-icon {
+      width: 100px;
+      height: 100px;
+      background: linear-gradient(135deg, #6e5034 0%, #8a6c4d 100%);
+      border-radius: 8px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: #efe1b5;
+      font-weight: bold;
+      font-size: 18px;
+      overflow: hidden;
+      border: 2px solid rgba(239, 225, 181, 0.3);
+    }
+
+    .logo-icon img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+    }
+
+    .dark-mode .logo-icon {
+      background: linear-gradient(135deg, #efe1b5 0%, #d4c5a0 100%);
+      color: #6e5034;
+      border: 2px solid rgba(110, 80, 52, 0.3);
+    }
+
+    .logo-text {
+      font-size: 20px;
+      font-weight: 700;
+      color: #efe1b5;
+      white-space: nowrap;
+    }
+
+    .dark-mode .logo-text {
+      color: #6e5034;
+    }
+
+    /* المحتوى الرئيسي */
+    main {
+      padding: 40px 5%;
+      max-width: 1200px;
+      margin: 0 auto;
+    }
+
+    .content-box {
+      background-color: rgba(110, 80, 52, 0.05);
+      border-radius: 10px;
+      padding: 30px;
+      margin-bottom: 30px;
+      border-right: 4px solid var(--primary-dark);
+    }
+
+    .dark-mode .content-box {
+      background-color: rgba(239, 225, 181, 0.05);
+      border-right-color: var(--primary-light);
+    }
+
+    .content-box h2 {
+      color: var(--primary-dark);
+      margin-bottom: 20px;
+      font-size: 28px;
+    }
+
+    .dark-mode .content-box h2 {
+      color: var(--primary-light);
+    }
+
+    .content-box p {
+      line-height: 1.8;
+      font-size: 18px;
+      margin-bottom: 15px;
+    }
+
+    /* الفوتر */
+    footer {
+      background-color: var(--light-bg);
+      border-top: 1px solid rgba(110, 80, 52, 0.1);
+      padding: 3rem 5% 1.5rem;
+      margin-top: 50px;
+      transition: var(--transition);
+    }
+
+    .dark-mode footer {
+      background-color: var(--dark-bg);
+      border-top: 1px solid rgba(239, 225, 181, 0.1);
+    }
+
+    .footer-container {
+      max-width: 1200px;
+      margin: 0 auto;
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 2.5rem;
+      margin-bottom: 2rem;
+    }
+
+    .footer-section h3 {
+      color: var(--primary-dark);
+      font-size: 1.4rem;
+      margin-bottom: 1.5rem;
+      position: relative;
+      padding-bottom: 0.8rem;
+    }
+
+    .footer-section h3::after {
+      content: "";
+      position: absolute;
+      width: 60px;
+      height: 3px;
+      background: var(--primary-dark);
+      bottom: 0;
+      right: 0;
+      border-radius: 2px;
+    }
+
+    .dark-mode .footer-section h3 {
+      color: var(--primary-light);
+    }
+
+    .dark-mode .footer-section h3::after {
+      background: var(--primary-light);
+    }
+
+    .footer-section p {
+      color: var(--text-dark);
+      font-size: 1rem;
+      margin-bottom: 1.5rem;
+      line-height: 1.6;
+    }
+
+    .dark-mode .footer-section p {
+      color: var(--text-light);
+    }
+
+    .social-links {
+      display: flex;
+      gap: 12px;
+      margin-top: 20px;
+    }
+
+    .social-link {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      width: 40px;
+      height: 40px;
+      background-color: rgba(110, 80, 52, 0.1);
+      border-radius: 50%;
+      color: var(--primary-dark);
+      text-decoration: none;
+      transition: var(--transition);
+      font-size: 18px;
+    }
+
+    .dark-mode .social-link {
+      background-color: rgba(239, 225, 181, 0.1);
+      color: var(--primary-light);
+    }
+
+    .social-link:hover {
+      transform: translateY(-3px);
+      background-color: rgba(110, 80, 52, 0.2);
+    }
+
+    .dark-mode .social-link:hover {
+      background-color: rgba(239, 225, 181, 0.2);
+    }
+
+    .footer-links {
+      list-style: none;
+    }
+
+    .footer-links li {
+      margin-bottom: 0.8rem;
+    }
+
+    .footer-links a {
+      color: var(--text-dark);
+      text-decoration: none;
+      transition: var(--transition);
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      padding: 0.3rem 0;
+    }
+
+    .dark-mode .footer-links a {
+      color: var(--text-light);
+    }
+
+    .footer-links a:hover {
+      color: var(--primary-dark);
+      padding-right: 8px;
+    }
+
+    .dark-mode .footer-links a:hover {
+      color: var(--primary-light);
+    }
+
+    .contact-info {
+      list-style: none;
+    }
+
+    .contact-info li {
+      display: flex;
+      align-items: flex-start;
+      gap: 12px;
+      margin-bottom: 1.2rem;
+      color: var(--text-dark);
+    }
+
+    .dark-mode .contact-info li {
+      color: var(--text-light);
+    }
+
+    .contact-info i {
+      color: var(--primary-dark);
+      margin-top: 3px;
+      flex-shrink: 0;
+    }
+
+    .dark-mode .contact-info i {
+      color: var(--primary-light);
+    }
+
+    .copyright {
+      text-align: center;
+      padding-top: 1.5rem;
+      border-top: 1px solid rgba(110, 80, 52, 0.1);
+      color: var(--text-dark);
+      font-size: 0.9rem;
+    }
+
+    .dark-mode .copyright {
+      color: var(--text-light);
+      border-top: 1px solid rgba(239, 225, 181, 0.1);
+    }
+
+    /* التجاوب مع الشاشات الصغيرة */
+    @media (max-width: 768px) {
+      .header {
+        flex-wrap: wrap;
+        gap: 15px;
+        padding: 12px 4%;
+      }
+
+      /* ترتيب العناصر في الشاشات الصغيرة */
+      .controls {
+        order: 1;
+        width: 100%;
+        justify-content: space-between;
+        margin-bottom: 10px;
+      }
+
+      .welcome-section {
+        order: 3;
+        width: 100%;
+        margin-top: 10px;
+      }
+
+      .logo-container {
+        order: 2;
+        justify-content: center;
+        width: 100%;
+        margin: 10px 0;
+      }
+
+      .logo-icon {
+        width: 45px;
+        height: 45px;
+      }
+
+      .logo-text {
+        font-size: 18px;
+      }
+
+      .user-name {
+        font-size: 20px;
+      }
+
+      .footer-container {
+        grid-template-columns: 1fr;
+        gap: 2rem;
+      }
+    }
+
+    @media (max-width: 480px) {
+      .header {
+        flex-direction: column;
+        align-items: stretch;
+      }
+
+      .controls {
+        order: 1;
+        justify-content: center;
+        margin: 10px 0;
+      }
+
+      .logo-container {
+        order: 2;
+        justify-content: center;
+      }
+
+      .welcome-section {
+        order: 3;
+      }
+
+      .icon-buttons {
+        justify-content: center;
+        width: 100%;
+      }
+    }
+
+    /* الدائرة المميزة للاسم */
+    .name-circle {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      width: 90px;
+      height: 90px;
+      border-radius: 50%;
+      background: linear-gradient(135deg, #efe1b5 0%, #d4c5a0 100%);
+      box-shadow: 0 6px 20px rgba(110, 80, 52, 0.3);
+      position: relative;
+      margin: 0 auto 15px;
+      border: 4px solid rgba(239, 225, 181, 0.8);
+      transition: var(--transition);
+      cursor: pointer;
+      animation: pulse 3s infinite ease-in-out;
+    }
+
+    .dark-mode .name-circle {
+      background: linear-gradient(135deg, #6e5034 0%, #8a6c4d 100%);
+      box-shadow: 0 6px 20px rgba(239, 225, 181, 0.2);
+      border: 4px solid rgba(110, 80, 52, 0.8);
+    }
+
+    .name-circle:hover {
+      transform: scale(1.05);
+      box-shadow: 0 8px 25px rgba(110, 80, 52, 0.4);
+    }
+
+    .dark-mode .name-circle:hover {
+      box-shadow: 0 8px 25px rgba(239, 225, 181, 0.3);
+    }
+
+    .user-name {
+      font-size: 26px;
+      font-weight: 800;
+      color: #6e5034;
+      letter-spacing: 1px;
+      position: relative;
+      text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.1);
+    }
+
+    .dark-mode .user-name {
+      color: #efe1b5;
+      text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.3);
+    }
+
+    /* تأثير إضافي للدائرة */
+    .name-circle::before {
+      content: '';
+      position: absolute;
+      top: -6px;
+      left: -6px;
+      right: -6px;
+      bottom: -6px;
+      border-radius: 50%;
+      border: 2px dashed #efe1b5;
+      opacity: 0.5;
+      animation: rotate 20s linear infinite;
+    }
+
+    .dark-mode .name-circle::before {
+      border: 2px dashed #6e5034;
+    }
+
+    @keyframes rotate {
+      0% {
+        transform: rotate(0deg);
+      }
+      100% {
+        transform: rotate(360deg);
+      }
+    }
+
+    /* تأثير النبض الخفيف */
+    @keyframes pulse {
+      0% {
+        box-shadow: 0 6px 20px rgba(110, 80, 52, 0.3);
+      }
+      50% {
+        box-shadow: 0 6px 25px rgba(110, 80, 52, 0.5);
+      }
+      100% {
+        box-shadow: 0 6px 20px rgba(110, 80, 52, 0.3);
+      }
+    }
+
+    /* التأكيد على الاسم */
+    .user-name::after {
+      content: '';
+      position: absolute;
+      width: 0;
+      height: 3px;
+      bottom: -5px;
+      right: 0;
+      background-color: #6e5034;
+      border-radius: 2px;
+      transition: width 0.3s ease;
+    }
+
+    .user-name:hover::after {
+      width: 100%;
+    }
+
+    .dark-mode .user-name::after {
+      background-color: #efe1b5;
+    }
+
+
+
+/* =========================
+   LEEN THEME - SILLAGE
+   Scoped to .leen-app only
+   ========================= */
+
+/* Font */
+@import url('https://fonts.googleapis.com/css2?family=Libre+Baskerville:wght@400;700&display=swap');
+
+.leen-app{
+  --leen-brown: #6E5034;
+  --leen-gold:  #CDB885;
+  --leen-beige: #EFE1B5;
+  --leen-white: #ffffff;
+  --leen-shadow: 0 12px 28px rgba(0,0,0,0.12);
+
+  font-family: "Libre Baskerville", serif;
+  color: var(--leen-brown);
+  background: linear-gradient(180deg, var(--leen-beige), #fff 60%);
+  min-height: 100vh;
+}
+
+/* Reset (scoped) */
+.leen-app *{ box-sizing: border-box; }
+.leen-app html, .leen-app body{ margin: 0; padding: 0; }
+
+/* Container */
+.leen-container{
+  width: min(1000px, 92%);
+  margin: 0 auto;
+  padding: 24px 0 50px;
+}
+
+/* ========== Buttons ========== */
+.leen-btn{
+  border: none;
+  cursor: pointer;
+  text-decoration: none;
+  padding: 12px 16px;
+  border-radius: 14px;
+  font-weight: 700;
+  transition: transform 0.08s ease, box-shadow 0.2s ease, background 0.2s ease;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+}
+
+.leen-btn:active{ transform: scale(0.98); }
+
+.leen-btn-primary{
+  background: var(--leen-brown);
+  color: var(--leen-beige);
+  box-shadow: 0 10px 18px rgba(110,80,52,0.25);
+}
+
+.leen-btn-primary:hover{ background: #5e432c; }
+
+.leen-btn-outline{
+  background: transparent;
+  color: var(--leen-brown);
+  border: 2px solid rgba(110,80,52,0.35);
+}
+
+.leen-btn-outline:hover{
+  background: rgba(205,184,133,0.35);
+}
+
+/* ========== Card ========== */
+.leen-card{
+  background: rgba(255,255,255,0.78);
+  border: 1px solid rgba(110, 80, 52, 0.14);
+  border-radius: 22px;
+  box-shadow: var(--leen-shadow);
+  padding: 26px 22px;
+}
+
+/* ========== Typography Helpers ========== */
+.leen-title{
+  margin: 6px 0 6px;
+  letter-spacing: 0.6px;
+  color: var(--leen-brown);
+}
+
+.leen-subtitle{
+  margin: 0 0 18px;
+  line-height: 1.7;
+  opacity: 0.9;
+  color: var(--leen-brown);
+}
+
+.leen-helper{
+  font-size: 0.92rem;
+  opacity: 0.85;
+  line-height: 1.6;
+}
+
+/* ========== Forms (for next pages) ========== */
+.leen-form{
+  display: grid;
+  gap: 12px;
+  margin-top: 10px;
+}
+
+.leen-field{
+  display: grid;
+  gap: 6px;
+}
+
+.leen-label{
+  font-size: 0.95rem;
+  font-weight: 700;
+}
+
+.leen-input{
+  width: 100%;
+  padding: 12px 12px;
+  border-radius: 14px;
+  border: 1px solid rgba(110, 80, 52, 0.22);
+  background: rgba(255,255,255,0.88);
+  outline: none;
+}
+
+.leen-input:focus{
+  border-color: rgba(110, 80, 52, 0.55);
+  box-shadow: 0 0 0 4px rgba(205,184,133,0.35);
+}
+
+/* ========== Landing Page (System Home) ========== */
+.leen-landing{
+  min-height: 100vh;
+  display: grid;
+  place-items: center;
+  padding: 26px 0;
+  background:
+    radial-gradient(circle at top, rgba(205,184,133,0.45), transparent 55%),
+    linear-gradient(180deg, var(--leen-beige), #ffffff 60%);
+}
+
+.leen-landing-card{
+  width: min(520px, 92%);
+  text-align: center;
+}
+
+.leen-logo{
+  width: 150px;
+  height: 150px;
+  object-fit: cover;
+  border-radius: 26px;
+  border: 2px solid rgba(110, 80, 52, 0.18);
+  background: #fff;
+  margin-bottom: 12px;
+}
+
+.leen-actions{
+  display: grid;
+  gap: 10px;
+  margin-top: 14px;
+}
+
+.leen-actions .leen-btn{
+  width: 100%;
+}
+
+/* Responsive */
+@media (max-width: 520px){
+  .leen-card{ padding: 22px 18px; }
+  .leen-logo{ width: 135px; height: 135px; }
+}
+
+
+
+/* =========================
+   End of leen
+   ========================= */

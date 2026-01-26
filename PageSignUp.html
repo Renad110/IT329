@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Sillage | Sign Up</title>
+  <link rel="stylesheet" href="style.css"/>
+</head>
+
+<body class="leen-app">
+  <main class="leen-landing">
+    <section class="leen-card" style="width:min(560px, 92%);">
+
+      <img class="leen-logo" src="img/logo.jpg" alt="Sillage Logo" style="width:120px;height:120px;" />
+
+      <h1 class="leen-title" style="font-size:28px;">Create Account</h1>
+
+      
+      <form class="leen-form" action="Userpage.html" method="get">
+        <div class="leen-field">
+          <label class="leen-label" for="fname">First Name</label>
+          <input class="leen-input" id="fname" name="fname" type="text" required />
+        </div>
+
+        <div class="leen-field">
+          <label class="leen-label" for="lname">Last Name</label>
+          <input class="leen-input" id="lname" name="lname" type="text" required />
+        </div>
+
+        <div class="leen-field">
+          <label class="leen-label" for="photo">Profile Image (optional)</label>
+          <input class="leen-input" id="photo" name="photo" type="file" accept="image/*" />
+        </div>
+
+        <div class="leen-field">
+          <label class="leen-label" for="email">Email</label>
+          <input class="leen-input" id="email" name="email" type="email" required />
+        </div>
+
+        <div class="leen-field">
+          <label class="leen-label" for="pass">Password</label>
+          <input class="leen-input" id="pass" name="pass" type="password" required />
+        </div>
+
+        <button class="leen-btn leen-btn-primary" type="submit" style="width:100%;">Sign Up</button>
+
+        <a class="leen-btn leen-btn-outline" href="PageLogIn.html" style="width:100%;">Already have an account? Log In</a>
+      </form>
+
+    </section>
+  </main>
+</body>
+</html>

@@ -782,3 +782,411 @@
 /* =========================
    End of leen
    ========================= */
+
+/* Start Remas CSS */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Libre Baskerville', serif;
+    line-height: 1.6;
+    color: #333;
+    background-color: #f9f7f1;
+}
+
+.remas-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 20px;
+}
+
+/* Color Variables */
+:root {
+    --remas-primary-dark: #6E5034;
+    --remas-primary-medium: #CDB885;
+    --remas-primary-light: #EFE1B5;
+    --remas-text-color: #333;
+    --remas-light-bg: #f9f7f1;
+}
+
+/* Site Header  */
+.remas-site-header {
+    background-color: var(--remas-primary-dark);
+    color: white;
+    padding: 15px 0;
+    text-align: center;
+}
+
+.remas-header-content {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+.remas-site-title {
+    font-size: 1.8rem;
+    font-weight: 400;
+    color: var(--remas-primary-light);
+}
+
+.remas-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 20px;
+}
+
+.remas-user-info-section {
+    margin-top: 20px; 
+}
+
+/* Card Styles */
+.remas-card {
+    background-color: white;
+    border-radius: 8px;
+    padding: 25px;
+    margin-bottom: 30px;
+    box-shadow: 0 2px 8px rgba(110, 80, 52, 0.1);
+    border: 1px solid var(--remas-primary-medium);
+}
+
+.remas-card h2 {
+    color: var(--remas-primary-dark);
+    margin-bottom: 20px;
+    padding-bottom: 10px;
+    border-bottom: 1px solid var(--remas-primary-light);
+    font-weight: 400;
+}
+
+/* User Information Section */
+.remas-welcome-title {
+    font-size: 1.8rem;
+    margin-bottom: 25px;
+}
+
+.remas-user-details {
+    display: flex;
+    gap: 40px;
+    align-items: flex-start;
+}
+
+.remas-user-photo {
+    flex-shrink: 0;
+}
+
+.remas-user-photo img {
+    width: 140px;
+    height: 140px;
+    border-radius: 50%;
+    object-fit: cover;
+    border: 4px solid var(--remas-primary-medium);
+}
+
+.remas-user-text-info {
+    flex: 1;
+    margin-left: 20px;
+}
+
+.remas-user-text-info p {
+    margin-bottom: 15px;
+    font-size: 1.1rem;
+    padding-left: 10px;
+}
+
+.remas-user-text-info strong {
+    color: var(--remas-primary-dark);
+    min-width: 140px;
+    display: inline-block;
+}
+
+/* My Recipes Stats */
+.remas-section-title-link {
+    text-decoration: none;
+    display: block;
+}
+
+.remas-section-title-link h2 {
+    color: var(--remas-primary-dark);
+    margin-bottom: 20px;
+    padding-bottom: 10px;
+    border-bottom: 1px solid var(--remas-primary-light);
+    font-weight: 400;
+    transition: color 0.3s;
+}
+
+.remas-section-title-link h2:hover {
+    color: #5a4029;
+}
+
+.remas-stats-content {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 30px;
+}
+
+.remas-stats-grid {
+    display: flex;
+    gap: 40px;
+    flex: 1;
+}
+
+.remas-stat-item {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    min-width: 120px;
+}
+
+.remas-stat-label {
+    font-size: 1.1rem;
+    color: var(--remas-primary-dark);
+    margin-bottom: 8px;
+    font-weight: 400;
+}
+
+.remas-stat-value {
+    font-size: 2.2rem;
+    font-weight: 700;
+    color: var(--remas-primary-dark);
+}
+
+/* All Recipes Section - */
+.remas-all-recipes-section .remas-section-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    margin-bottom: 20px;
+    gap: 15px;
+}
+
+.remas-filter-section {
+    display: flex;
+    gap: 10px;
+    align-items: center;
+    margin-left: auto;
+}
+
+.remas-filter-section select {
+    padding: 8px 12px;
+    border: 1px solid var(--remas-primary-medium);
+    border-radius: 4px;
+    background-color: white;
+    font-family: 'Libre Baskerville', serif;
+    font-size: 1rem;
+    color: var(--remas-primary-dark);
+    min-width: 180px;
+}
+
+.remas-btn-secondary {
+    padding: 8px 16px;
+    background-color: var(--remas-primary-medium);
+    color: var(--remas-primary-dark);
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    font-family: 'Libre Baskerville', serif;
+    font-size: 1rem;
+}
+
+.remas-btn-secondary:hover {
+    background-color: #c0a877;
+}
+
+
+/* Tables */
+
+.remas-table-responsive {
+    overflow-x: auto;
+    margin-top: 20px;
+}
+
+.remas-recipes-table, .remas-favourites-table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+.remas-recipes-table th, .remas-favourites-table th {
+    background-color: var(--remas-primary-light);
+    color: var(--remas-primary-dark);
+    padding: 16px 12px;
+    text-align: left;
+    font-weight: 400;
+    border-bottom: 2px solid var(--remas-primary-medium);
+    font-size: 1rem;
+}
+
+.remas-recipes-table td, .remas-favourites-table td {
+    padding: 16px 12px;
+    vertical-align: middle;
+}
+
+.remas-recipes-table tbody tr {
+    height: 110px; 
+}
+
+.remas-recipes-table tr:hover, .remas-favourites-table tr:hover {
+    background-color: #fcf9f0;
+}
+
+.remas-recipes-table a, .remas-favourites-table a {
+    color: var(--remas-primary-dark);
+    text-decoration: none;
+    font-weight: 700;
+}
+
+.remas-recipes-table a:hover, .remas-favourites-table a:hover {
+    text-decoration: underline;
+    color: #5a4029;
+}
+
+.vanilla-recipe-photo,
+.amber-recipe-photo,
+.remas-recipe-photo {
+    width: 120px !important;
+    height: 90px !important;
+    border-radius: 8px;
+    border: 2px solid var(--remas-primary-light);
+    object-fit: cover;
+    display: block;
+}
+
+.sarah-creator-photo,
+.Khalid-creator-photo,
+.remas-creator-photo {
+    width: 45px !important;
+    height: 45px !important;
+    border-radius: 50%;
+    object-fit: cover;
+    border: 2px solid var(--remas-primary-medium);
+}
+
+.remas-creator-cell {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+}
+
+/* Category Tags */
+.remas-category-tag {
+    display: inline-block;
+    padding: 8px 16px;
+    border-radius: 6px;
+    font-size: 0.9rem;
+    font-weight: 700;
+    color: var(--remas-primary-dark);
+    min-width: 90px;
+    text-align: center;
+}
+
+.remas-male {
+    background-color: var(--remas-primary-medium);
+    border: 2px solid var(--remas-primary-dark);
+}
+
+.remas-female {
+    background-color: var(--remas-primary-light);
+    border: 2px solid var(--remas-primary-medium);
+}
+
+.remas-unisex {
+    background-color: #f8f3e6;
+    border: 2px solid var(--remas-primary-medium);
+}
+
+/* Remove Button */
+.remas-remove-btn {
+    color: var(--remas-primary-dark);
+    text-decoration: none;
+    font-weight: 700;
+    padding: 8px 16px;
+    border: 2px solid var(--remas-primary-dark);
+    border-radius: 6px;
+    background-color: var(--remas-primary-medium);
+}
+
+.remas-remove-btn:hover {
+    background-color: #b8a06c;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .remas-user-welcome-bar {
+        flex-direction: column;
+        gap: 10px;
+        text-align: center;
+    }
+    
+    .remas-user-details {
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+        gap: 20px;
+    }
+    
+    .remas-user-text-info {
+        margin-left: 0;
+    }
+    
+    .remas-user-text-info p {
+        padding-left: 0;
+    }
+    
+    .remas-all-recipes-section .remas-section-header {
+        flex-direction: column;
+        align-items: stretch;
+    }
+    
+    .remas-filter-section {
+        width: 100%;
+        margin-left: 0;
+        flex-direction: column;
+    }
+    
+    .remas-filter-section select {
+        width: 100%;
+    }
+    
+    .remas-creator-cell {
+        flex-direction: column;
+        align-items: center;
+        gap: 8px;
+        text-align: center;
+    }
+    
+    .remas-stats-content {
+        flex-direction: column;
+        align-items: stretch;
+        gap: 20px;
+    }
+    
+    .remas-stats-grid {
+        flex-direction: column;
+        gap: 20px;
+        align-items: center;
+    }
+    
+    .vanilla-recipe-photo,
+    .amber-recipe-photo,
+    .remas-recipe-photo {
+        width: 90px !important;
+        height: 70px !important;
+    }
+    
+    .sarah-creator-photo,
+    .Khalid-creator-photo,
+    .remas-creator-photo {
+        width: 35px !important;
+        height: 35px !important;
+    }
+    
+    .remas-recipes-table tbody tr {
+        height: auto; 
+    }
+}
+/* End  Remas CSS */
+

@@ -30,11 +30,7 @@
 
      
     
-    body.dark-mode {
-      background-color: var(--dark-bg);
-      color: var(--text-light);
-    }
-
+  
     /* الهيدر الأساسي */
     .header {
       display: flex;

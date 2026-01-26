@@ -68,3 +68,54 @@
         document.querySelector('.header').style.transform = 'translateY(0)';
       }, 300);
     });
+
+
+
+
+
+
+
+
+
+
+
+
+
+    /*lubna/
+    //////////////////////////*/
+    
+    // Set current year
+    document.getElementById('Lubna-currentYear').textContent = new Date().getFullYear();
+    
+    // Form submission handler (non-functional in Phase 1)
+    document.querySelectorAll('.Lubna-action-form').forEach(form => {
+      form.addEventListener('submit', function(e) {
+        e.preventDefault();
+        alert('Form submission is non-functional in Phase 1.\nIn Phase 2, this will process the action via PHP.');
+        // In Phase 1, just reload the page to simulate submission
+        window.location.href = 'AdminPage.html';
+      });
+    });
+    
+    // Highlight active form radio buttons
+    document.querySelectorAll('.Lubna-radio-label input[type="radio"]').forEach(radio => {
+      radio.addEventListener('change', function() {
+        // Remove active class from all labels in this group
+        const groupName = this.name;
+        document.querySelectorAll(`input[name="${groupName}"]`).forEach(r => {
+          r.parentElement.style.fontWeight = 'normal';
+        });
+        
+        // Add active class to selected label
+        this.parentElement.style.fontWeight = '600';
+      });
+      
+      // Initialize active state
+      if (radio.checked) {
+        radio.parentElement.style.fontWeight = '600';
+      }
+    });
+
+
+
+    /*end og lubna */

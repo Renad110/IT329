@@ -23,9 +23,15 @@
     photo: "img/vanilla.jpg",
     ingredients: [
       { n: "Fixative", a: "5ml" },
-      { n: "White Musk", a: "8ml" }
+      { n: "White Musk", a: "8ml" },
+      { n: "Vanilla", a: "6ml" },
+      { n: "Sandalwood", a: "3ml" },
     ],
-    steps: ["Mix fixative with musk."]
+    steps: [
+      "Mix fixative with musk.",
+      "Add vanilla gradually.",
+      "Add sandalwood and rest for 24 hours.",
+    ],
   },
   2: {
     name: "Rose Amber Blend",
@@ -35,11 +41,17 @@
     photo: "img/amber.webp",
     ingredients: [
       { n: "Amber", a: "6ml" },
-      { n: "Taif Rose", a: "7ml" }
+      { n: "Taif Rose", a: "7ml" },
+      { n: "Bergamot", a: "3ml" },
     ],
-    steps: ["Blend amber with rose."]
-  }
+    steps: [
+      "Blend amber with rose.",
+      "Add bergamot.",
+      "Let it rest for 48 hours.",
+    ],
+  },
 };
+
 
 
   /* ---------- Dynamic Ingredients ---------- */

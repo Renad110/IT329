@@ -198,7 +198,7 @@
       return;
     }
 
-    e.preventDefault(); // Phase 1
+    e.preventDefault(); 
 
     if (!validateFiles(form)) return;
 

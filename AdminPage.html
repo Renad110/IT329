@@ -8,7 +8,13 @@
    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
  <link href="https://fonts.googleapis.com/css2?family=Great+Vibes&display=swap" rel="stylesheet">
 
-  
+  <style>
+    .lubna-table-wrap{overflow:auto; border-radius:14px; border:1px solid rgba(0,0,0,.08); background:rgba(255,255,255,.6);}
+    .lubna-table{width:100%; border-collapse:collapse; min-width:780px;}
+    .lubna-table th, .lubna-table td{padding:14px 14px; border-bottom:1px solid rgba(0,0,0,.08); vertical-align:top;}
+    .lubna-table th{font-size:13px; letter-spacing:.2px; text-transform:uppercase; opacity:.75;}
+    
+  </style>
 </head>
 <body class="light-mode">
   <!-- الهيدر -->
@@ -218,7 +224,35 @@
       
 
     </section>
+    
+        <section class="Lubna-card" style="text-align: center;">
+        <h2 class="lubna-section-title">Blocked Users List</h2>
 
+        <div class="lubna-table-wrap">
+          <table class="lubna-table" aria-label="Blocked users">
+            <thead>
+              <tr>
+                <th scope="col">Name</th>
+                <th scope="col">Email Address</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td><strong>Hind Al-Mutairi</strong></td>
+                <td>hind.blocked@example.com</td>
+              </tr>
+              <tr>
+                <td><strong>Saud Al-Ghamdi</strong></td>
+                <td>saud.blocked@example.com</td>
+              </tr>
+           
+            </tbody>
+          </table>
+        </div>
+
+      </section>
+
+   
     
     <!-- 6. Lubna Sign Out Section (Additional) -->
     <section class="Lubna-card" style="text-align: center;">

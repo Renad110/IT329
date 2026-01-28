@@ -1595,6 +1595,15 @@
     }
     
 
+
+    /*nwe*/
+    |    .lubna-table-wrap{overflow:auto; border-radius:14px; border:1px solid rgba(0,0,0,.08); background:rgba(255,255,255,.6);}
+    .lubna-table{width:100%; border-collapse:collapse; min-width:780px;}
+    .lubna-table th, .lubna-table td{padding:14px 14px; border-bottom:1px solid rgba(0,0,0,.08); vertical-align:top;}
+    .lubna-table th{font-size:13px; letter-spacing:.2px; text-transform:uppercase; opacity:.75;}
+    
+
+    
     /* end of lubna end end 
     ////////////////////////////////////////*/
     

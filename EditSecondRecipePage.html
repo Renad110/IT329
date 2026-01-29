@@ -49,36 +49,40 @@
     </div>
 
     <div class="form-card">
-      <form id="recipeForm" data-mode="edit" novalidate>
+      <form action="MyRecipes.html">
 
         <div class="grid">
           <div>
             <label for="name">Recipe Name</label>
-            <input class="field" id="name" name="name" type="text" required />
+            <input class="field" id="name" name="name" type="text" value="Warm Amber" required />
           </div>
 
           <div>
             <label for="category">For</label>
             <select class="field" id="category" name="category" required>
-              <option value="" selected disabled>Select</option>
               <option value="Women">Women</option>
               <option value="Men">Men</option>
-              <option value="Unisex">Unisex</option>
+              <option value="Unisex" selected>Unisex</option>
             </select>
           </div>
 
           <div class="full">
             <label for="description">Description</label>
-            <textarea class="field" id="description" name="description" required></textarea>
+            <textarea class="field" id="description" name="description" required>
+Warm amber perfume with woody and floral depth.
+            </textarea>
           </div>
 
-          <!-- Current Photo + Change Photo -->
+          <!-- Current Photo -->
           <div class="full">
             <label>Current Photo</label>
 
             <div class="photo-block">
-              <!-- JS will replace src based on ?id= -->
-              <img id="currentPhoto" class="photo-preview" src="img/vanilla.jpg" alt="Current recipe photo" />
+              <img
+                class="photo-preview"
+                src="img/Perfume_amber.jpg"
+                alt="Warm Amber perfume"
+              />
 
               <div style="flex:1; min-width:260px;">
                 <label for="photo">Change Photo</label>
@@ -88,34 +92,108 @@
           </div>
         </div>
 
+        <!-- Ingredients -->
         <h3 class="section-title">Ingredients</h3>
-        <div id="ingredientsWrap"></div>
+        <div id="ingredientsWrap">
+          <div class="row ingredient-row">
+            <div>
+              <label>Name</label>
+              <input class="field" type="text" value="Amber" required />
+            </div>
+            <div>
+              <label>Amount</label>
+              <input class="field" type="text" value="6ml" required />
+            </div>
+          </div>
+
+          <div class="row ingredient-row">
+            <div>
+              <label>Name</label>
+              <input class="field" type="text" value="Sandalwood" required />
+            </div>
+            <div>
+              <label>Amount</label>
+              <input class="field" type="text" value="4ml" required />
+            </div>
+          </div>
+
+          <div class="row ingredient-row">
+            <div>
+              <label>Name</label>
+              <input class="field" type="text" value="Taif Rose" required />
+            </div>
+            <div>
+              <label>Amount</label>
+              <input class="field" type="text" value="3ml" required />
+            </div>
+          </div>
+
+          <div class="row ingredient-row">
+            <div>
+              <label>Name</label>
+              <input class="field" type="text" value="Bergamot" required />
+            </div>
+            <div>
+              <label>Amount</label>
+              <input class="field" type="text" value="3ml" required />
+            </div>
+          </div>
+        </div>
 
         <div class="actions">
-          <button class="btn secondary" type="button" id="addIngredientBtn">
+          <button type="button" class="btn secondary" id="addIngredientBtn">
             <span class="add-icon">+</span> Add Ingredient
           </button>
         </div>
 
+        <!-- Instructions -->
         <h3 class="section-title">Instructions</h3>
-        <div id="stepsWrap"></div>
+        <div id="stepsWrap">
+          <div class="row row-1col step-row">
+            <div>
+              <label>Step 1</label>
+              <input class="field" type="text"
+                value="Add all fragrance ingredients into a glass bottle."
+                required />
+            </div>
+          </div>
+
+          <div class="row row-1col step-row">
+            <div>
+              <label>Step 2</label>
+              <input class="field" type="text"
+                value="Gently swirl (do not shake aggressively)."
+                required />
+            </div>
+          </div>
+
+          <div class="row row-1col step-row">
+            <div>
+              <label>Step 3</label>
+              <input class="field" type="text"
+                value="Let the perfume mature for 7–10 days for best depth."
+                required />
+            </div>
+          </div>
+        </div>
 
         <div class="actions">
-          <button class="btn secondary" type="button" id="addStepBtn">
+          <button type="button" class="btn secondary" id="addStepBtn">
             <span class="add-icon">+</span> Add Step
           </button>
         </div>
 
+        <!-- Video -->
         <h3 class="section-title">Upload Video or Video Link</h3>
         <div class="grid">
           <div>
             <label for="videoFile">Upload Video</label>
-            <input class="field" id="videoFile" name="videoFile" type="file" accept="video/*" />
+            <input class="field" id="videoFile" type="file" accept="video/*" />
           </div>
 
           <div>
             <label for="videoUrl">Video URL</label>
-            <input class="field" id="videoUrl" name="videoUrl" type="url" placeholder="https://youtube.com/..." />
+            <input class="field" id="videoUrl" type="url" placeholder="No video available" />
           </div>
         </div>
 
@@ -128,6 +206,8 @@
 
   </div>
 </main>
+
+
 
 
 <!-- Footer -->

@@ -1,0 +1,330 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Edit Recipe</title>
+  <link rel="stylesheet" href="style.css">
+
+</head>
+
+<body>
+   <!-- الهيدر -->
+  <header class="header">
+    <!-- قسم التحكم - الآن على اليمين -->
+    <div class="controls">
+      <!-- أيقونات إضافية -->
+      
+
+      <!-- زر تبديل الوضع -->
+      <button class="theme-toggle" id="themeToggle">
+        <div class="toggle-circle">
+          <i class="fas fa-sun" id="sunIcon"></i>
+        </div>
+      </button>
+    </div>
+
+    <!-- رسالة الترحيب -->
+    <div class="welcome-section">
+      <div class="welcome-text">WELCOME</div>
+      <div class="name-circle" id="nameCircle">
+        <div class="user-name" id="userName">lubna</div>
+      </div>
+    </div>
+
+    <!-- الشعار - الآن على اليسار -->
+    <div class="logo-container">
+      <div class="logo-text">Sillage</div>
+      <div class="logo-icon">
+        <img src="img/logo.png" alt="لوقو الموقع" />
+      </div>
+    </div>
+  </header>
+
+<main>
+  <div class="edit-page">
+
+    <div class="edit-header">
+      <h1>Edit Recipe</h1>
+    </div>
+
+    <div class="form-card">
+      <form action="MyRecipes.html" method="get">
+
+        <div class="grid">
+          <div>
+            <label for="name">Recipe Name</label>
+            <input
+              class="field"
+              id="name"
+              name="name"
+              type="text"
+              value="Lavender Veil"
+              required
+            />
+          </div>
+
+          <div>
+            <label for="category">For</label>
+            <select class="field" id="category" name="category" required>
+              <option value="" disabled>Select</option>
+              <option value="Women" selected>Women</option>
+              <option value="Men">Men</option>
+              <option value="Unisex">Unisex</option>
+            </select>
+          </div>
+
+          <div class="full">
+            <label for="description">Description</label>
+            <textarea
+              class="field"
+              id="description"
+              name="description"
+              required
+            >
+A calming floral blend with lavender and citrus notes.
+            </textarea>
+          </div>
+
+          <!-- Current Photo -->
+          <div class="full">
+            <label>Current Photo</label>
+
+            <div class="photo-block">
+              <img
+                class="photo-preview"
+                src="img/Perfume_lavender.jpg"
+                alt="Lavender Veil photo"
+              />
+
+              <div style="flex:1; min-width:260px;">
+                <label for="photo">Change Photo</label>
+                <input
+                  class="field"
+                  id="photo"
+                  name="photo"
+                  type="file"
+                  accept="image/*"
+                />
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Ingredients -->
+        <h3 class="section-title">Ingredients</h3>
+
+        <div id="ingredientsWrap">
+          <div class="row ingredient-row">
+            <div>
+              <label>Name</label>
+              <input class="field" type="text" value="Fixative" required />
+            </div>
+            <div>
+              <label>Amount</label>
+              <input class="field" type="text" value="5ml" required />
+            </div>
+          </div>
+
+          <div class="row ingredient-row">
+            <div>
+              <label>Name</label>
+              <input class="field" type="text" value="Lavender essential oil" required />
+            </div>
+            <div>
+              <label>Amount</label>
+              <input class="field" type="text" value="8ml" required />
+            </div>
+          </div>
+
+          <div class="row ingredient-row">
+            <div>
+              <label>Name</label>
+              <input class="field" type="text" value="Bergamot essential oil" required />
+            </div>
+            <div>
+              <label>Amount</label>
+              <input class="field" type="text" value="6ml" required />
+            </div>
+          </div>
+
+          <div class="row ingredient-row">
+            <div>
+              <label>Name</label>
+              <input class="field" type="text" value="Sandalwood essential oil" required />
+            </div>
+            <div>
+              <label>Amount</label>
+              <input class="field" type="text" value="3ml" required />
+            </div>
+          </div>
+        </div>
+        <div class="actions">
+         <button type="button" class="btn secondary" id="addIngredientBtn">
+         <span class="add-icon">+</span> Add Ingredient
+         </button>
+        </div>
+
+
+        <!-- Instructions -->
+        <h3 class="section-title">Instructions</h3>
+
+        <div id="stepsWrap">
+          <div class="row row-1col step-row">
+            <div>
+              <label>Step 1</label>
+              <input
+                class="field"
+                type="text"
+                value="Pour fixative into a clear glass bottle."
+                required
+              />
+            </div>
+          </div>
+
+          <div class="row row-1col step-row">
+            <div>
+              <label>Step 2</label>
+              <input
+                class="field"
+                type="text"
+                value="Add in all the essential oils."
+                required
+              />
+            </div>
+          </div>
+
+          <div class="row row-1col step-row">
+            <div>
+              <label>Step 3</label>
+              <input
+                class="field"
+                type="text"
+                value="Close the bottle and swirl gently for 30 seconds."
+                required
+              />
+            </div>
+          </div>
+
+          <div class="row row-1col step-row">
+            <div>
+              <label>Step 4</label>
+              <input
+                class="field"
+                type="text"
+                value="Let the scent rest for 48–72 hours before use."
+                required
+              />
+            </div>
+          </div>
+        </div>
+        <div class="actions">
+          <button type="button" class="btn secondary" id="addStepBtn">
+          <span class="add-icon">+</span> Add Step
+          </button>
+        </div>
+
+
+        <!-- Video -->
+        <h3 class="section-title">Upload Video or Video Link</h3>
+
+        <div class="grid">
+          <div>
+            <label for="videoFile">Upload Video</label>
+            <input
+              class="field"
+              id="videoFile"
+              name="videoFile"
+              type="file"
+              accept="video/*"
+            />
+          </div>
+
+          <div>
+            <label for="videoUrl">Video URL</label>
+            <input
+              class="field"
+              id="videoUrl"
+              name="videoUrl"
+              type="url"
+              value="https://youtu.be/W0hKR1S2Twg"
+            />
+          </div>
+        </div>
+
+        <!-- Submit -->
+        <div class="actions" style="justify-content:center; margin-top:1.4rem;">
+          <button class="btn primary" type="submit">
+            Update Recipe
+          </button>
+        </div>
+
+      </form>
+    </div>
+
+  </div>
+</main>
+
+
+
+<!-- Footer -->
+<footer class="site-footer">
+  <div class="footer-container">
+
+    <!-- About + Social -->
+    <div class="footer-section">
+      <h3>
+Sillage Perfumes</h3>
+      <p>
+        We offer the finest unique perfumes. We continuously seek distinctive scents that express your personality.
+      </p>
+
+      <div class="social-links">
+        <a href="#" class="social-link" aria-label="Instagram">
+          <i class="fab fa-instagram"></i>
+        </a>
+        <a href="#" class="social-link" aria-label="X (Twitter)">
+          <i class="fab fa-twitter"></i>
+        </a>
+        <a href="#" class="social-link" aria-label="YouTube">
+          <i class="fab fa-youtube"></i>
+        </a>
+      </div>
+    </div>
+
+    <!-- Contact Info -->
+    <div class="footer-section">
+      <h3>Contact Information</h3>
+      <ul class="contact-info">
+        <li>
+          <i class="fas fa-map-marker-alt"></i>
+          <span>Perfume Street, Riyadh, Saudi Arabia</span>
+        </li>
+        <li>
+          <i class="fas fa-phone"></i>
+          <span>+966 11 123 4567</span>
+        </li>
+        <li>
+          <i class="fas fa-envelope"></i>
+          <span>info@perfume-store.com</span>
+        </li>
+        <li>
+          <i class="fas fa-clock"></i>
+          <span>Sunday – Thursday: 9:00 AM – 10:00 PM</span>
+        </li>
+      </ul>
+    </div>
+
+  </div>
+
+  <!-- Copyright -->
+  <div class="copyright">
+    © 2026, All rights reserved to Sillage.</div>
+</footer>
+
+
+
+  <!-- JS -->
+  <script src="javaScript.js"></script>
+</body>
+</html>

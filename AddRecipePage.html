@@ -5,6 +5,8 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Add New Recipe</title>
   <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"/>
+
 
 </head>
 
@@ -49,20 +51,20 @@
     </div>
 
     <div class="form-card">
-      <form id="recipeForm" data-mode="add" novalidate>
+      <form id="recipeForm" data-mode="add" action="MyRecipes.html">
 
         <div class="grid">
           <div>
-            <label for="name">Recipe Name</label>
+            <label for="name">Perfume Recipe Name</label>
             <input class="field" id="name" name="name" type="text" placeholder="e.g., Vanilla Musk Blend" required />
           </div>
 
           <div>
-            <label for="category">For</label>
+            <label for="category">Category</label>
             <select class="field" id="category" name="category" required>
               <option value="" selected disabled>Select</option>
-              <option value="Women">Women</option>
-              <option value="Men">Men</option>
+              <option value="Feminine">Feminine</option>
+              <option value="Masculine">Masculine</option>
               <option value="Unisex">Unisex</option>
             </select>
           </div>
@@ -127,11 +129,13 @@
           </div>
         </div>
 
-        <div class="actions" style="margin-top:1.4rem;">
-          <button class="btn primary" type="submit">
-            <span class="add-icon">+</span> Add Recipe
-          </button>
-        </div>
+        
+        <div class="actions" style="justify-content:center; margin-top:1.4rem;">
+  <button class="btn primary" type="submit">
+    Add Recipe
+  </button>
+</div>
+
 
       </form>
     </div>
@@ -140,61 +144,34 @@
 </main>
 
 <!-- Footer -->
+<!-- Footer (same as View Recipe) -->
 <footer class="site-footer">
   <div class="footer-container">
-
-    <!-- About + Social -->
     <div class="footer-section">
-      <h3>
-Sillage Perfumes</h3>
+      <h3>Sillage Perfumes</h3>
       <p>
-        We offer the finest unique perfumes. We continuously seek distinctive scents that express your personality.
+        A scent recipe sharing platform for people who want a cleaner, more intentional approach to fragrance. It exists for those who are mindful of what they put on their bodies and are seeking alternatives to commercial perfumes that can contain undisclosed or harmful ingredients.
+        <br><br>
+        <i>Sillage</i> is French for the trace a scent leaves behind, a reminder that even consciously crafted fragrances can be just as powerful and memorable.
       </p>
-
-      <div class="social-links">
-        <a href="#" class="social-link" aria-label="Instagram">
-          <i class="fab fa-instagram"></i>
-        </a>
-        <a href="#" class="social-link" aria-label="X (Twitter)">
-          <i class="fab fa-twitter"></i>
-        </a>
-        <a href="#" class="social-link" aria-label="YouTube">
-          <i class="fab fa-youtube"></i>
-        </a>
-      </div>
     </div>
 
-    <!-- Contact Info -->
     <div class="footer-section">
       <h3>Contact Information</h3>
       <ul class="contact-info">
-        <li>
-          <i class="fas fa-map-marker-alt"></i>
-          <span>Perfume Street, Riyadh, Saudi Arabia</span>
-        </li>
-        <li>
-          <i class="fas fa-phone"></i>
-          <span>+966 11 123 4567</span>
-        </li>
-        <li>
-          <i class="fas fa-envelope"></i>
-          <span>info@perfume-store.com</span>
-        </li>
-        <li>
-          <i class="fas fa-clock"></i>
-          <span>Sunday – Thursday: 9:00 AM – 10:00 PM</span>
-        </li>
+        <li><i class="fas fa-phone"></i><span>+966 11 67 1738</span></li>
+        <li><i class="fas fa-envelope"></i><span>hello@sillage.com</span></li>
+        <li><i class="fab fa-instagram"></i><span>Visit our Instagram and DM us thoughts and suggestions</span></li>
       </ul>
     </div>
-
   </div>
 
-  <!-- Copyright -->
   <div class="copyright">
     © 2026, All rights reserved to Sillage.
+  </div>
 </footer>
+
 
 <script src="javaScript.js"></script>
 </body>
 </html>
-

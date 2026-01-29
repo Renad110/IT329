@@ -6,6 +6,7 @@
   <title>My Recipes</title>
    
   <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"/>
 
 
 </head>
@@ -56,7 +57,7 @@
           <tr>
             <th>Recipe</th>
             <th>Ingredients</th>
-            <th>Steps</th>
+            <th>Instructions</th>
             <th>Video</th>
             <th>Likes</th>
             <th>Edit</th>
@@ -69,36 +70,37 @@
           <tr>
             <td>
               <a href="ViewRecipePage.html" class="recipe-info">
-                <img src="img/vanilla.jpg" alt="Recipe Image">
-                <span>Vanilla Musk Blend</span>
+                <img src="img\Perfume_lavender.jpg" alt="Recipe Image">
+                <span>Lavender Veil</span>
               </a>
             </td>
 
             <td>
               <ul class="recipe-list">
-                <li>Fixative – 5ml</li>
-                <li>White Musk – 8ml</li>
-                <li>Vanilla – 6ml</li>
-                <li>Sandalwood – 3ml</li>
+                <li>5ml fixative</li>
+                <li>8ml Lavender essential oil </li>
+                <li>6ml Bergamot essential oil</li>
+                <li>3ml Sandalwood essential oil</li>
               </ul>
             </td>
 
             <td>
               <ol class="recipe-list">
-                <li>Mix fixative with musk.</li>
-                <li>Add vanilla gradually.</li>
-                <li>Add sandalwood and rest for 24 hours.</li>
+                <li>Pour fixative into a clear glass bottle</li>
+                <li>Add in all the essential oils.</li>
+                <li>Close the bottle and swirl gently for 30 seconds.</li>
+                <li>Let the scent rest for 48–72 hours before use.</li>
               </ol>
             </td>
 
             <td>
-              <a class="video-link" href="https://www.youtube.com/" target="_blank">Watch Video</a>
+              <a class="video-link" href="https://youtu.be/W0hKR1S2Twg" target="_blank">Watch Video</a>
             </td>
 
             <td class="likes-count">22</td>
 
             <td>
-              <a href="EditRecipePage.html?id=1" class="action-link action-edit">Edit</a>
+              <a href="EditFirstRecipePage.html" class="action-link action-edit">Edit</a>
             </td>
 
             <td>
@@ -110,24 +112,26 @@
           <tr>
             <td>
               <a href="ViewRecipePage.html" class="recipe-info">
-                <img src="img/amber.webp" alt="Recipe Image">
-                <span>Rose Amber Blend</span>
+                <img src="img\Perfume_amber.jpg" alt="Recipe Image">
+                <span>Warm Amber</span>
               </a>
             </td>
 
             <td>
               <ul class="recipe-list">
-                <li>Amber – 6ml</li>
-                <li>Taif Rose – 7ml</li>
-                <li>Bergamot – 3ml</li>
+                <li>6ml Amber</li>
+                <li>4ml Sandalwood</li>
+                <li>3ml Taif Rose</li>
+                <li>3ml Bergamot</li>
               </ul>
             </td>
 
             <td>
               <ol class="recipe-list">
-                <li>Blend amber with rose.</li>
-                <li>Add bergamot.</li>
-                <li>Let it rest for 48 hours.</li>
+                <li>Add all fragrance ingredients into a glass bottle.</li>
+                <li>Gently swirl (do not shake aggressively).</li>
+                <li>Let the perfume mature for 7–10 days for best depth.</li>
+                
               </ol>
             </td>
 
@@ -136,7 +140,7 @@
             <td class="likes-count">9</td>
 
             <td>
-              <a href="EditRecipePage.html?id=2" class="action-link action-edit">Edit</a>
+              <a href="EditSecondRecipePage.html" class="action-link action-edit">Edit</a>
             </td>
 
             <td>
@@ -152,58 +156,31 @@
 </main>
 
 <!-- Footer -->
+<!-- Footer (same as Add/View Recipe) -->
 <footer class="site-footer">
   <div class="footer-container">
-
-    <!-- About + Social -->
     <div class="footer-section">
-      <h3>
-Sillage Perfumes</h3>
+      <h3>Sillage Perfumes</h3>
       <p>
-        We offer the finest unique perfumes. We continuously seek distinctive scents that express your personality.
+        A scent recipe sharing platform for people who want a cleaner, more intentional approach to fragrance. It exists for those who are mindful of what they put on their bodies and are seeking alternatives to commercial perfumes that can contain undisclosed or harmful ingredients.
+        <br><br>
+        <i>Sillage</i> is French for the trace a scent leaves behind, a reminder that even consciously crafted fragrances can be just as powerful and memorable.
       </p>
-
-      <div class="social-links">
-        <a href="#" class="social-link" aria-label="Instagram">
-          <i class="fab fa-instagram"></i>
-        </a>
-        <a href="#" class="social-link" aria-label="X (Twitter)">
-          <i class="fab fa-twitter"></i>
-        </a>
-        <a href="#" class="social-link" aria-label="YouTube">
-          <i class="fab fa-youtube"></i>
-        </a>
-      </div>
     </div>
 
-    <!-- Contact Info -->
     <div class="footer-section">
       <h3>Contact Information</h3>
       <ul class="contact-info">
-        <li>
-          <i class="fas fa-map-marker-alt"></i>
-          <span>Perfume Street, Riyadh, Saudi Arabia</span>
-        </li>
-        <li>
-          <i class="fas fa-phone"></i>
-          <span>+966 11 123 4567</span>
-        </li>
-        <li>
-          <i class="fas fa-envelope"></i>
-          <span>info@perfume-store.com</span>
-        </li>
-        <li>
-          <i class="fas fa-clock"></i>
-          <span>Sunday – Thursday: 9:00 AM – 10:00 PM</span>
-        </li>
+        <li><i class="fas fa-phone"></i><span>+966 11 67 1738</span></li>
+        <li><i class="fas fa-envelope"></i><span>hello@sillage.com</span></li>
+        <li><i class="fab fa-instagram"></i><span>Visit our Instagram and DM us thoughts and suggestions</span></li>
       </ul>
     </div>
-
   </div>
 
-  <!-- Copyright -->
   <div class="copyright">
     © 2026, All rights reserved to Sillage.
+  </div>
 </footer>
 
 
@@ -212,3 +189,4 @@ Sillage Perfumes</h3>
   <script src="javaScript.js"></script>
 </body>
 </html>
+
